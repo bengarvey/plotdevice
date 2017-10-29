@@ -84,7 +84,11 @@ auto.forEach( function(d) {
 });
 
 function yearToDate(year) {
-  return new Date(`${year}-01-01 00:00:00`);
+  return new Date(`${year}-01-01T04:00:00Z`);
+}
+
+function createDate(str) {
+  return new Date(`${str}T04:00:00Z`);
 }
 
 var deathDisplay = [
@@ -122,10 +126,10 @@ const popAnnotations = [
   { type: "x", x: yearToDate(1998),
     note: { label: "Airbags required", align: "middle", wrap: 500},
     color: colors.annotation, dy: -5, dx: 35, connector: { end: "none" } },
-  { type: "x", x: new Date("1945-08-15"),
+  { type: "x", x: createDate("1945-08-15"),
     note: { label: "WW2 Ends", align: "middle", wrap: 500},
     color: colors.annotation, dy: -20, dx: 0, connector: { end: "none" } },
-  { type: "x", x: new Date("1941-12-07"),
+  { type: "x", x: createDate("1941-12-07"),
     note: { label: "WW2 Begins", align: "right", wrap: 500},
     color: colors.annotation, dy: -5, dx: 0, disable:["connector"] }
 ];
@@ -141,13 +145,13 @@ var mileAnnotations = [
   {
     ...sharedMileAnnotationProps,
     type: "bounds",
-    bounds: [{ x: new Date("2007-12-01 00:00:00") }, { x: new Date("2009-06-01 00:00:00") }],
+    bounds: [{ x: createDate("2007-12-01") }, { x: createDate("2009-06-01") }],
     label: "Great Recession"
   },
   {
     ...sharedMileAnnotationProps,
     type: "bounds",
-    bounds: [{ x: new Date("1929-04-01 00:00:00") }, { x: new Date("1933-03-01 00:00:00") }],
+    bounds: [{ x: createDate("1929-04-01") }, { x: createDate("1933-03-01") }],
     label: "Great Depression",
     dy: 30,
     dx: -40
@@ -155,127 +159,127 @@ var mileAnnotations = [
   {
     ...sharedMileAnnotationProps,
     type: "bounds",
-    bounds: [{ x: new Date("2001-03-01 00:00:00") }, { x: new Date("2001-11-01 00:00:00") }],
+    bounds: [{ x: createDate("2001-03-01") }, { x: createDate("2001-11-01") }],
     disable:['connector','note']
   },
   {
     ...sharedMileAnnotationProps,
     type: "bounds",
-    bounds: [{ x: new Date("1990-07-01 00:00:00") }, { x: new Date("1991-03-01 00:00:00") }],
+    bounds: [{ x: createDate("1990-07-01") }, { x: createDate("1991-03-01") }],
     disable:['connector','note']
   },
   {
     ...sharedMileAnnotationProps,
     type: "bounds",
-    bounds: [{ x: new Date("1981-07-01 00:00:00") }, { x: new Date("1982-11-01 00:00:00") }],
+    bounds: [{ x: createDate("1981-07-01") }, { x: createDate("1982-11-01") }],
     disable:['connector','note']
   },
   {
     ...sharedMileAnnotationProps,
     type: "bounds",
-    bounds: [{ x: new Date("1980-01-01 00:00:00") }, { x: new Date("1980-07-01 00:00:00") }],
+    bounds: [{ x: createDate("1980-01-01") }, { x: createDate("1980-07-01") }],
     disable:['connector','note']
   },
   {
     ...sharedMileAnnotationProps,
     type: "bounds",
-    bounds: [{ x: new Date("1973-11-01 00:00:00") }, { x: new Date("1975-03-01 00:00:00") }],
+    bounds: [{ x: createDate("1973-11-01") }, { x: createDate("1975-03-01") }],
     disable:['connector','note']
   },
   {
     ...sharedMileAnnotationProps,
     type: "bounds",
-    bounds: [{ x: new Date("1969-12-01 00:00:00") }, { x: new Date("1970-11-01 00:00:00") }],
+    bounds: [{ x: createDate("1969-12-01") }, { x: createDate("1970-11-01") }],
     disable:['connector','note']
   },
   {
     ...sharedMileAnnotationProps,
     type: "bounds",
-    bounds: [{ x: new Date("1960-04-01 00:00:00") }, { x: new Date("1961-02-01 00:00:00") }],
+    bounds: [{ x: createDate("1960-04-01") }, { x: createDate("1961-02-01") }],
     disable:['connector','note']
   },
   {
     ...sharedMileAnnotationProps,
     type: "bounds",
-    bounds: [{ x: new Date("1957-08-01 00:00:00") }, { x: new Date("1958-04-01 00:00:00") }],
+    bounds: [{ x: createDate("1957-08-01") }, { x: createDate("1958-04-01") }],
     disable:['connector','note']
   },
   {
     ...sharedMileAnnotationProps,
     type: "bounds",
-    bounds: [{ x: new Date("1954-07-01 00:00:00") }, { x: new Date("1954-05-01 00:00:00") }],
+    bounds: [{ x: createDate("1954-07-01") }, { x: createDate("1954-05-01") }],
     disable:['connector','note']
   },
   {
     ...sharedMileAnnotationProps,
     type: "bounds",
-    bounds: [{ x: new Date("1948-11-01 00:00:00") }, { x: new Date("1949-10-01 00:00:00") }],
+    bounds: [{ x: createDate("1948-11-01") }, { x: createDate("1949-10-01") }],
     disable:['connector','note']
   },
   {
     ...sharedMileAnnotationProps,
     type: "bounds",
-    bounds: [{ x: new Date("1945-02-01 00:00:00") }, { x: new Date("1945-10-01 00:00:00") }],
+    bounds: [{ x: createDate("1945-02-01") }, { x: createDate("1945-10-01") }],
     disable:['connector','note']
   },
   {
     ...sharedMileAnnotationProps,
     type: "bounds",
-    bounds: [{ x: new Date("1937-05-01 00:00:00") }, { x: new Date("1938-06-01 00:00:00") }],
+    bounds: [{ x: createDate("1937-05-01") }, { x: createDate("1938-06-01") }],
     disable:['connector','note']
   },
   {
     ...sharedMileAnnotationProps,
     type: "bounds",
-    bounds: [{ x: new Date("1926-10-01 00:00:00") }, { x: new Date("1927-11-01 00:00:00") }],
+    bounds: [{ x: createDate("1926-10-01") }, { x: createDate("1927-11-01") }],
     disable:['connector','note']
   },
   {
     ...sharedMileAnnotationProps,
     type: "bounds",
-    bounds: [{ x: new Date("1923-05-01 00:00:00") }, { x: new Date("1924-06-01 00:00:00") }],
+    bounds: [{ x: createDate("1923-05-01") }, { x: createDate("1924-06-01") }],
     disable:['connector','note']
   },
   {
     ...sharedMileAnnotationProps,
     type: "bounds",
-    bounds: [{ x: new Date("1920-01-01 00:00:00") }, { x: new Date("1921-06-01 00:00:00") }],
+    bounds: [{ x: createDate("1920-01-01") }, { x: createDate("1921-06-01") }],
     disable:['connector','note']
   },
   {
     ...sharedMileAnnotationProps,
     type: "bounds",
-    bounds: [{ x: new Date("1918-08-01 00:00:00") }, { x: new Date("1919-03-01 00:00:00") }],
+    bounds: [{ x: createDate("1918-08-01") }, { x: createDate("1919-03-01") }],
     disable:['connector','note']
   },
   {
     ...sharedMileAnnotationProps,
     type: "bounds",
-    bounds: [{ x: new Date("1913-01-01 00:00:00") }, { x: new Date("1914-12-01 00:00:00") }],
+    bounds: [{ x: createDate("1913-01-01") }, { x: createDate("1914-12-01") }],
     disable:['connector','note']
   },
   {
     ...sharedMileAnnotationProps,
     type: "bounds",
-    bounds: [{ x: new Date("1910-01-01 00:00:00") }, { x: new Date("1912-01-01 00:00:00") }],
+    bounds: [{ x: createDate("1910-01-01") }, { x: createDate("1912-01-01") }],
     disable:['connector','note']
   },
   {
     ...sharedMileAnnotationProps,
     type: "bounds",
-    bounds: [{ x: new Date("1907-05-01 00:00:00") }, { x: new Date("1908-06-01 00:00:00") }],
+    bounds: [{ x: createDate("1907-05-01") }, { x: createDate("1908-06-01") }],
     disable:['connector','note']
   },
   {
     ...sharedMileAnnotationProps,
     type: "bounds",
-    bounds: [{ x: new Date("1902-09-01 00:00:00") }, { x: new Date("1904-08-01 00:00:00") }],
+    bounds: [{ x: createDate("1902-09-01") }, { x: createDate("1904-08-01") }],
     disable:['connector','note']
   },
   {
     ...sharedMileAnnotationProps,
     type: "bounds",
-    bounds: [{ x: new Date("1899-06-01 00:00:00") }, { x: new Date("1900-12-01 00:00:00") }],
+    bounds: [{ x: createDate("1899-06-01") }, { x: createDate("1900-12-01") }],
     disable:['connector','note']
   }
 ];
@@ -310,7 +314,7 @@ const Auto = () => (
   <div>
     <h1>US Automobile Fatalities 1899 - 2015</h1>
     <h3>What have deaths decreased since 1972?</h3>
-    <div class="container deathPopulation">
+    <div className="container deathPopulation">
     <XYFrame
       { ...sharedProps }
       lines={deathDisplay}
@@ -327,7 +331,7 @@ const Auto = () => (
     />
     </div>
 
-    <div class="container deathMiles">
+    <div className="container deathMiles">
     <XYFrame
       { ...sharedProps }
       lines={deathDisplay}
@@ -347,7 +351,7 @@ const Auto = () => (
     />
     </div>
 
-    <div class="container population">
+    <div className="container population">
     <XYFrame
       { ...sharedProps }
       lines={popDisplay}
@@ -368,7 +372,7 @@ const Auto = () => (
     />
     </div>
 
-    <div class="container miles">
+    <div className="container miles">
     <XYFrame
       { ...sharedProps }
       size={[700,200]}
@@ -391,7 +395,7 @@ const Auto = () => (
     />
     </div>
 
-    <div class="container gas">
+    <div className="container gas">
     <XYFrame
       { ...sharedProps }
       size={[700,200]}
@@ -410,7 +414,7 @@ const Auto = () => (
       ]}
     />
     </div>
-    <div class="container deathAlcohol">
+    <div className="container deathAlcohol">
     <XYFrame
       { ...sharedProps }
       lines={deathDisplay}
@@ -431,7 +435,7 @@ const Auto = () => (
     />
     </div>
 
-    <div class="container alcohol">
+    <div className="container alcohol">
     <XYFrame
       { ...sharedProps }
       lines={alcDisplay}

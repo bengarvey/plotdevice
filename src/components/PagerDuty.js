@@ -1214,8 +1214,6 @@ incidents.forEach( function(d, i) {
   modified.push(item);
 });
 
-console.log(modified);
-
 const colors = {
   incident: '#da4167',
 }

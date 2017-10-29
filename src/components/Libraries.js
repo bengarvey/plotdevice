@@ -56,7 +56,7 @@ const Libraries = () => (
       points={display.data}
       pointStyle={ d => ({fill: "#666", r: '5px'})}
       tooltipContent={d => d.name}
-      customPointMark={ ({d}) => ( <Mark markType="image" transform="translate(-20,-20)" height="40px" href={d.logo}/> ) }
+      customPointMark={ ({d}) => ( <Mark markType="image" transform="translate(-20,-20)" height="40px" width="40px" type="image/svg+xml" xlinkHref={d.logo}/> ) }
       axes={[
         { orient: 'bottom', ticks: 5, tickFormat: d => d, label: "Flexibility"},
         { orient: 'left', ticks: 5, tickFormat: d => d, label: "Speed"}
