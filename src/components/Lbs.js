@@ -379,7 +379,7 @@ const Lbs = () => (
     <h1>Weight Trajectory</h1>
     <h3>From {range}</h3>
     <XYFrame
-      size={[640,400]}
+      size={[350,200]}
       lines={display}
       yExtent={[154]}
       margin={{top: 5, bottom: 25, left: 55, right: 50}}

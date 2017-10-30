@@ -24,7 +24,7 @@ var display =
   {data: modified.lib, renderMode: "normal"};
 
 var sharedProps = {
-  size: [600, 600],
+  size: [350, 600],
   xAccessor: "x",
   yAccessor: "y",
   hoverAnnotation: true,
