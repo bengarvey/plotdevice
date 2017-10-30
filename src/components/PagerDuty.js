@@ -19,9 +19,10 @@ const daysOfTheWeek = {
 }
 
 
-const daysAxis = { orient: 'left', ticks: 7,
-    tickFormat: d => daysOfTheWeek[d] ? 
-    <text style={{ textAnchor: "end" }} y={20}>{daysOfTheWeek[d]}</text> : '' }
+const daysAxis = {
+    orient: 'left', ticks: 7,
+    tickFormat: d => daysOfTheWeek[d] ?
+    <text style={{ textAnchor: "end" }} fontSize="12px" y={5} x={2}>{daysOfTheWeek[d]}</text> : '' };
 
 var incidents = [
  {
@@ -1223,7 +1224,7 @@ const PagerDuty = () => (
     <h1>Pagerduty Incidents</h1>
     <h3>Agghhh!</h3>
     <ORFrame
-      size={[ 1400, 300 ]}
+      size={[ 650, 200 ]}
       data={modified}
       rAccessor={() => 1}
       oAccessor={d => d.step}
@@ -1232,7 +1233,7 @@ const PagerDuty = () => (
       axis={daysAxis}
       hoverAnnotation={true}
       pieceHoverAnnotation={true}
-      oLabel={d => <text transform="rotate(90)">Week {d+1}</text>}
+      oLabel={d => parseInt(d+1)%10 === 0 || d === 0? <text transform="rotate(90)" y={5} x={-8} fontSize="12px">Week {d+1}</text> : ''}
       margin={{ left: 100, top: 10, bottom: 80, right: 50 }}
       oPadding={0}
     />

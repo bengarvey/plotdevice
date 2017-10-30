@@ -164,3 +164,7 @@ h1, h2, h3, .description {
 .alc {
   top: 550px;
 }
+
+.clickable {
+  cursor: pointer;
+}

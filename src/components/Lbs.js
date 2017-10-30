@@ -370,12 +370,16 @@ var last = lbs[lbs.length-1].date;
 
 var range = `${first} to ${last}`;
 
+function formatDate(date) {
+  return `${date.getFullYear()}-${date.getMonth()+1}`;
+}
+
 const Lbs = () => (
   <div>
     <h1>Weight Trajectory</h1>
     <h3>From {range}</h3>
     <XYFrame
-      size={[1400,400]}
+      size={[640,400]}
       lines={display}
       yExtent={[154]}
       margin={{top: 5, bottom: 25, left: 55, right: 50}}
@@ -389,7 +393,7 @@ const Lbs = () => (
       customLineType={{ type: "dividedLine"}}
       axes={[
         { orient: 'left', tickFormat: d => d },
-        { orient: 'bottom', tickFormat: d => new Date(d).toDateString(), ticks: 6 }
+        { orient: 'bottom', tickFormat: d => formatDate(new Date(d)), ticks: 4 }
       ]}
     />
   </div>

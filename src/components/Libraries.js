@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { XYFrame, Mark } from 'semiotic';
-import { curveBasis } from 'd3-shape';
-import { scaleTime } from 'd3-scale';
 var libs = [
   {name: "Semiotic",    speed: 0.65, flex: 0.6, logo: "images/semiotic.png"},
   {name: "Vanilla JS",  speed: 0.10, flex: 0.90, logo: "images/js.png"},
@@ -38,7 +36,7 @@ var display =
   {data: modified.lib, color: colors.lib, renderMode: "normal"};
 
 var sharedProps = {
-  size: [700, 700],
+  size: [600, 550],
   xAccessor: "x",
   yAccessor: "y",
   hoverAnnotation: true,
