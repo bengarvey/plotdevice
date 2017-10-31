@@ -348,7 +348,8 @@ var lbs = [
   {date:'2017-10-27',lbs:159.6},
   {date:'2017-10-28',lbs:159.6},
   {date:'2017-10-29',lbs:160.8},
-  {date:'2017-10-30',lbs:159.8}
+  {date:'2017-10-30',lbs:159.8},
+  {date:'2017-10-30',lbs:159.0}
 ];
 
 var floating = [];
@@ -384,6 +385,7 @@ var Lbs = () => (
     <ResponsiveXYFrame
       size={[350,150]}
       responsiveWidth={true}
+      responsiveHeight={true}
       lines={display}
       yExtent={[150]}
       margin={{top: 5, bottom: 25, left: 25, right: 5}}
