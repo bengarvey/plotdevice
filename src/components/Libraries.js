@@ -36,7 +36,7 @@ var display =
   {data: modified.lib, color: colors.lib, renderMode: "normal"};
 
 var sharedProps = {
-  size: [600, 550],
+  size: [350, 350],
   xAccessor: "x",
   yAccessor: "y",
   hoverAnnotation: true,
@@ -54,12 +54,12 @@ const Libraries = () => (
       points={display.data}
       pointStyle={ d => ({fill: "#666", r: '5px'})}
       tooltipContent={d => d.name}
-      customPointMark={ ({d}) => ( <Mark markType="image" transform="translate(-20,-20)" height="40px" width="40px" type="image/svg+xml" xlinkHref={d.logo}/> ) }
+      customPointMark={ ({d}) => ( <Mark markType="image" transform="translate(-20,-20)" height="20px" width="20px" type="image/svg+xml" xlinkHref={d.logo}/> ) }
       axes={[
-        { orient: 'bottom', ticks: 5, tickFormat: d => d, label: "Flexibility"},
-        { orient: 'left', ticks: 5, tickFormat: d => d, label: "Speed"}
+        { orient: 'bottom', padding: 0, ticks: 5, tickFormat: d => ''},
+        { orient: 'left', ticks: 5, tickFormat: d => ''}
       ]}
-      margin={{ left: 70, bottom: 60, right: 10, top: 40 }}
+      margin={{ left: 10, bottom: 10, right: 10, top: 10 }}
     />
   </div>
 );
