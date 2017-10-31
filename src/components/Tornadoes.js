@@ -186,7 +186,7 @@ const Tornadoes = () => (
     <h1>US Tornado Deaths 1876 - 2017</h1>
     <h3>What happened in 2011?</h3>
     <XYFrame
-      size={[400, 200]}
+      size={[350, 200]}
       lines={display}
       defined={d => d.y !== null}
       lineDataAccessor={d => d.data}
@@ -200,7 +200,7 @@ const Tornadoes = () => (
         { orient: 'left', tickFormat: d => d },
         { orient: 'bottom', ticks: 8, tickFormat: d => new Date(d).getFullYear() }
       ]}
-      margin={{top: 10, left: 30, right: 50, bottom: 50}}
+      margin={{top: 10, left: 30, right: 0, bottom: 50}}
       annotations={annotations}
     />
   </div>
