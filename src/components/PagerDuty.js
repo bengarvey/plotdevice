@@ -9,13 +9,13 @@ const heatScale = scaleLinear()
   //.range(["#dbd7ba", "#ED9797", "#7F5151", "#931313", "#230707"]).clamp(true);
 
 const daysOfTheWeek = {
-    1: "Monday",
-    2: "Tuesday",
-    3: "Wednesday",
-    4: "Thursday",
-    5: "Friday",
-    6: "Saturday",
-    7: "Sunday",
+    1: "Mon",
+    2: "Tues",
+    3: "Wed",
+    4: "Thu",
+    5: "Fri",
+    6: "Sat",
+    7: "Sun",
 }
 
 
@@ -1224,7 +1224,7 @@ const PagerDuty = () => (
     <h1>Pagerduty Incidents</h1>
     <h3>Agghhh!</h3>
     <ORFrame
-      size={[ 650, 200 ]}
+      size={[ 360, 200 ]}
       data={modified}
       rAccessor={() => 1}
       oAccessor={d => d.step}
@@ -1234,7 +1234,7 @@ const PagerDuty = () => (
       hoverAnnotation={true}
       pieceHoverAnnotation={true}
       oLabel={d => parseInt(d+1)%10 === 0 || d === 0? <text transform="rotate(90)" y={5} x={-8} fontSize="12px">Week {d+1}</text> : ''}
-      margin={{ left: 100, top: 10, bottom: 80, right: 50 }}
+      margin={{ left: 30, top: 10, bottom: 80, right: 0 }}
       oPadding={0}
     />
   </div>

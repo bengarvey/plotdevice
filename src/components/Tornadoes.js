@@ -192,7 +192,7 @@ const Tornadoes = () => (
       lineDataAccessor={d => d.data}
       xAccessor={d => yearToDate(d.year)}
       yAccessor={d => d.deaths}
-      lineType={{type:"line", interpolator: curveBasis}}
+      lineType={{type:"line", interpolator: null}}
       lineStyle={(d) => ({ stroke: "#00a2ce", strokeWidth: "1px", opacity: d.opacity})}
       customLineType={{ type: "dividedLine"}}
       hoverAnnotation={true}
