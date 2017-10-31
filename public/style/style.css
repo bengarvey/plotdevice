@@ -87,55 +87,56 @@ circle {
   position: absolute;
 }
 .population, .deathPopulation {
-  top: 90px;
+  top: 60px;
   left: 20px;
 }
 .miles, .deathMiles, .gas {
-  top: 300px;
+  top: 270px;
   left: 20px;
 }
 .alcohol, .deathAlcohol {
-  top: 510px;
+  top: 480px;
   left: 20px;
 }
 
 .legend {
   font-size: 12px;
+  width: 100px;
 }
 
 .deathLegend {
-  top: 172px;
-  left: 515px;
+  top: 142px;
+  left: 375px;
   color: #393e41;
 }
 
 .popLegend {
-  top: 123px;
-  left: 515px;
+  top: 93px;
+  left: 375px;
   color: #da4167;
 }
 
 .milesLegend {
-  top: 302px;
-  left: 515px;
+  top: 272px;
+  left: 375px;
   color: #15b097;
 }
 
 .gasLegend {
-  top: 395px;
-  left: 515px;
+  top: 365px;
+  left: 375px;
   color: #d86641;
 }
 
 .alcLegend {
-  top: 585px;
-  left: 515px;
+  top: 555px;
+  left: 375px;
   border-bottom: 4px solid #fadfa1;
 }
 
 .nonAlcLegend {
-  top: 635px;
-  left: 515px;
+  top: 605px;
+  left: 375px;
   border-bottom: 4px solid #f3d569;
 }
 
@@ -148,7 +149,7 @@ h1, h2, h3, .description {
 }
 
 .description {
-  left: 700px;
+  left: 500px;
   width: 450px;
   color: #666;
   padding-left: 35px;
@@ -156,15 +157,15 @@ h1, h2, h3, .description {
 }
 
 .pop {
-  top: 100px;
+  top: 70px;
 }
 
 .miles {
-  top: 290px;
+  top: 260px;
 }
 
 .alc {
-  top: 550px;
+  top: 520px;
 }
 
 .clickable {

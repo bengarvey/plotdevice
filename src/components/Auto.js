@@ -115,16 +115,16 @@ var alcDisplay = [
 
 const popAnnotations = [
   { type: 'x', x: yearToDate(1968),
-    note: { label: "Seat belts required", align: "middle", wrap: 50},
-    color: colors.annotation, dy: -10, dx: 0, connector: { end: "none" } },
+    note: { label: "Seat belts req", align: "middle", wrap: 50},
+    color: colors.annotation, dy: -10, dx: -10, connector: { end: "none" } },
   { type: "x", x: yearToDate(1984),
     note: { label: "NY seat belt law", align: "middle", wrap: 100},
     color: colors.annotation, dy: -5, dx: 0, connector: { end: "none" } },
   { type: "x", x: yearToDate(1994),
     note: { label: "Seat belt laws: 90% of states", align: "middle", wrap: 500},
-    color: colors.annotation, dy: -20, dx: 0, connector: { end: "none" } },
+    color: colors.annotation, dy: -20, dx: 7, connector: { end: "none" } },
   { type: "x", x: yearToDate(1998),
-    note: { label: "Airbags required", align: "middle", wrap: 500},
+    note: { label: "Airbags req", align: "middle", wrap: 500},
     color: colors.annotation, dy: -5, dx: 35, connector: { end: "none" } },
   { type: "x", x: createDate("1945-08-15"),
     note: { label: "WW2 Ends", align: "middle", wrap: 500},
@@ -154,7 +154,7 @@ var mileAnnotations = [
     bounds: [{ x: createDate("1929-04-01") }, { x: createDate("1933-03-01") }],
     label: "Great Depression",
     dy: 30,
-    dx: -40
+    dx: -5
   },
   {
     ...sharedMileAnnotationProps,
@@ -302,18 +302,18 @@ const alcAnnotations = [
 ];
 
 var sharedProps = {
-  size: [500,200],
+  size: [350,200],
   xAccessor: "x",
   yAccessor: "y",
   lineDataAccessor: "data",
   hoverAnnotation: true,
-  margin:{ left: 10, bottom: 30, right: 10, top: 10 }
+  margin:{ left: 0, bottom: 30, right: 10, top: 10 }
 };
 
 const Auto = () => (
   <div>
-    <h1>US Automobile Fatalities 1899 - 2015</h1>
-    <h3>What have deaths decreased since 1972?</h3>
+    <h1>US Auto Fatalities 1899 - 2015</h1>
+    <h3>Why have deaths decreased since 1972?</h3>
     <div className="container deathPopulation">
     <XYFrame
       { ...sharedProps }
@@ -327,7 +327,7 @@ const Auto = () => (
       axes={[
         { orient: 'bottom', ticks: 10, tickFormat: d => new Date(d).getFullYear() }
       ]}
-      margin={{ left: 10, bottom: 30, right: 10, top: 40 }}
+      margin={{ left: 0, bottom: 30, right: 10, top: 40 }}
     />
     </div>
 
@@ -335,7 +335,6 @@ const Auto = () => (
     <XYFrame
       { ...sharedProps }
       lines={deathDisplay}
-      size={[700,200]}
       defined={d => d.y !== null}
       lineDataAccessor="data"
       xAccessor="x"
@@ -344,7 +343,7 @@ const Auto = () => (
       lineRenderMode={"normal"}
       lineStyle={d => ({stroke: d.color, strokeWidth: "2px" })}
       customLineType={{ type: "dividedLine"}}
-      margin={{left: 10, bottom: 30, right: 210, top: 10}}
+      margin={{left: 0, bottom: 30, right: 10, top: 10}}
       axes={[
         { orient: 'bottom', ticks: 10, tickFormat: d => new Date(d).getFullYear()}
       ]}
@@ -367,7 +366,7 @@ const Auto = () => (
       axes={[
         { orient: 'bottom', ticks: 10, tickFormat: d => '' }
       ]}
-      margin={{ left: 10, bottom: 30, right: 10, top: 40 }}
+      margin={{ left: 0, bottom: 30, right: 10, top: 40 }}
       annotations={popAnnotations}
     />
     </div>
@@ -375,7 +374,7 @@ const Auto = () => (
     <div className="container miles">
     <XYFrame
       { ...sharedProps }
-      size={[700,200]}
+      size={[550, 200]}
       lines={milesDisplay}
       defined={d => d.y !== null}
       lineDataAccessor="data"
@@ -387,7 +386,7 @@ const Auto = () => (
       lineStyle={d => ({stroke: d.color, strokeWidth: "2px" })}
       customLineType={{ type: "dividedLine"}}
       annotations={mileAnnotations}
-      margin={{left: 10, bottom: 30, right: 210, top: 10}}
+      margin={{left: 0, bottom: 30, right: 210, top: 10}}
       axes={[
         { orient: 'bottom', ticks: 10, tickFormat: d => '', stroke: '#FFFFFF' }
       ]}
@@ -398,7 +397,6 @@ const Auto = () => (
     <div className="container gas">
     <XYFrame
       { ...sharedProps }
-      size={[700,200]}
       lines={gasDisplay}
       defined={d => d.y !== null}
       lineDataAccessor="data"
@@ -408,7 +406,7 @@ const Auto = () => (
       lineType={{type:"line", interpolator: curveBasis}}
       lineRenderMode={"normal"}
       lineStyle={d => ({stroke: d.color, strokeWidth: "2px" })}
-      margin={{left: 10, bottom: 30, right: 210, top: 10}}
+      margin={{left: 0, bottom: 30, right: 10, top: 10}}
       axes={[
         { orient: 'bottom', ticks: 10, tickFormat: d => '', stroke: '#FFFFFF' }
       ]}
