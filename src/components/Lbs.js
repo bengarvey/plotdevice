@@ -1,5 +1,5 @@
 import React from 'react'
-import { XYFrame } from 'semiotic';
+import { XYFrame, ResponsiveXYFrame } from 'semiotic';
 import { curveBasis } from 'd3-shape';
 
 var lbs = [
@@ -347,7 +347,8 @@ var lbs = [
   {date:'2017-10-26',lbs:158.6},
   {date:'2017-10-27',lbs:159.6},
   {date:'2017-10-28',lbs:159.6},
-  {date:'2017-10-29',lbs:160.8}
+  {date:'2017-10-29',lbs:160.8},
+  {date:'2017-10-30',lbs:159.8}
 ];
 
 var floating = [];
@@ -362,7 +363,7 @@ for(var i=window; i<lbs.length; i++) {
 
 var display = [
   {data: lbs, color: '#393e41', opacity: 0.35, strokeWidth: "1px"},
-  {data: floating, color: '#393e41', opacity: 1, strokeWidth: "2px"}
+  {data: floating, color: '#393e41', opacity: 1, strokeWidth: "1px"}
 ];
 
 var first = lbs[0].date;
@@ -374,15 +375,18 @@ function formatDate(date) {
   return `${date.getFullYear()}-${date.getMonth()+1}`;
 }
 
-const Lbs = () => (
-  <div>
+var dimensions = [window.innerWidth, 400];
+
+var Lbs = () => (
+  <div className="chartContainer">
     <h1>Weight Trajectory</h1>
-    <h3>From {range}</h3>
-    <XYFrame
-      size={[350,200]}
+    <h3>{range}</h3>
+    <ResponsiveXYFrame
+      size={[350,150]}
+      responsiveWidth={true}
       lines={display}
-      yExtent={[154]}
-      margin={{top: 5, bottom: 25, left: 55, right: 50}}
+      yExtent={[150]}
+      margin={{top: 5, bottom: 25, left: 25, right: 5}}
       lineDataAccessor={d => d.data}
       xAccessor={d => new Date(d.date)}
       yAccessor={d => d.lbs}
@@ -392,8 +396,8 @@ const Lbs = () => (
       lineStyle={(d) => ({ stroke: d.color, strokeWidth: d.strokeWidth, opacity:d.opacity })}
       customLineType={{ type: "dividedLine"}}
       axes={[
-        { orient: 'left', tickFormat: d => d },
-        { orient: 'bottom', tickFormat: d => formatDate(new Date(d)), ticks: 4 }
+        { orient: 'left', tickFormat: d => d, ticks: 3},
+        { orient: 'bottom', tickFormat: d => formatDate(new Date(d)), ticks: 2 }
       ]}
     />
   </div>
