@@ -153,8 +153,8 @@ var mileAnnotations = [
     type: "bounds",
     bounds: [{ x: createDate("1929-04-01") }, { x: createDate("1933-03-01") }],
     label: "Great Depression",
-    dy: 30,
-    dx: -5
+    dy: 20,
+    dx: -5,
   },
   {
     ...sharedMileAnnotationProps,
@@ -302,7 +302,7 @@ const alcAnnotations = [
 ];
 
 var sharedProps = {
-  size: [350,200],
+  size: [365,200],
   xAccessor: "x",
   yAccessor: "y",
   lineDataAccessor: "data",
@@ -343,7 +343,7 @@ const Auto = () => (
       lineRenderMode={"normal"}
       lineStyle={d => ({stroke: d.color, strokeWidth: "2px" })}
       customLineType={{ type: "dividedLine"}}
-      margin={{left: 0, bottom: 30, right: 10, top: 10}}
+      margin={{left: 0, bottom: 40, right: 10, top: 10}}
       axes={[
         { orient: 'bottom', ticks: 10, tickFormat: d => new Date(d).getFullYear()}
       ]}
@@ -374,7 +374,7 @@ const Auto = () => (
     <div className="container miles">
     <XYFrame
       { ...sharedProps }
-      size={[550, 200]}
+      size={[565, 200]}
       lines={milesDisplay}
       defined={d => d.y !== null}
       lineDataAccessor="data"

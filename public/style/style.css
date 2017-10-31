@@ -88,15 +88,15 @@ circle {
 }
 .population, .deathPopulation {
   top: 60px;
-  left: 20px;
+  left: 5px;
 }
 .miles, .deathMiles, .gas {
   top: 270px;
-  left: 20px;
+  left: 5px;
 }
 .alcohol, .deathAlcohol {
   top: 480px;
-  left: 20px;
+  left: 5px;
 }
 
 .legend {
@@ -150,7 +150,7 @@ h1, h2, h3, .description {
 
 .description {
   left: 500px;
-  width: 450px;
+  width: 350px;
   color: #666;
   padding-left: 35px;
   border-left: 1px solid #393e41;
