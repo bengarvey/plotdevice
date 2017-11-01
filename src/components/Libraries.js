@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { XYFrame, Mark } from 'semiotic';
+import { ResponsiveXYFrame, Mark } from 'semiotic';
 var libs = [
   {name: "Semiotic",    speed: 0.65, flex: 0.6, logo: "images/semiotic.png"},
   {name: "Vanilla JS",  speed: 0.10, flex: 0.90, logo: "images/js.png"},
@@ -36,7 +36,7 @@ var display =
   {data: modified.lib, color: colors.lib, renderMode: "normal"};
 
 var sharedProps = {
-  size: [350, 350],
+  size: [100, 350],
   xAccessor: "x",
   yAccessor: "y",
   hoverAnnotation: true,
@@ -44,11 +44,12 @@ var sharedProps = {
 };
 
 const Libraries = () => (
-  <div>
+  <div className="chartContainer">
     <h1>Charting Technolgies</h1>
     <h3>Tradeoff between speed and flexibility</h3>
-    <XYFrame
+    <ResponsiveXYFrame
       { ...sharedProps }
+      responsiveWidth={true}
       yExtent={[0,1]}
       xExtent={[0,1]}
       points={display.data}
