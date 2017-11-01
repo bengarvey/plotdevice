@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { XYFrame } from 'semiotic';
+import { ResponsiveXYFrame } from 'semiotic';
 import { curveBasis } from 'd3-shape';
 
 var deathsPerYear = [
@@ -182,11 +182,12 @@ function yearToDate(year) {
 }
 
 const Tornadoes = () => (
-  <div>
+  <div className="chartContainer">
     <h1>US Tornado Deaths 1876 - 2017</h1>
     <h3>What happened in 2011?</h3>
-    <XYFrame
+    <ResponsiveXYFrame
       size={[350, 200]}
+      responsiveWidth={true}
       lines={display}
       defined={d => d.y !== null}
       lineDataAccessor={d => d.data}

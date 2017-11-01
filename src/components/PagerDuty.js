@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ORFrame } from 'semiotic';
+import { ResponsiveORFrame } from 'semiotic';
 import { scaleLinear } from "d3-scale";
 
 const heatScale = scaleLinear()
@@ -1220,11 +1220,12 @@ const colors = {
 }
 
 const PagerDuty = () => (
-  <div>
+  <div className="chartContainer">
     <h1>Pagerduty Incidents</h1>
     <h3>Agghhh!</h3>
-    <ORFrame
+    <ResponsiveORFrame
       size={[ 360, 200 ]}
+      responsiveWidth={true}
       data={modified}
       rAccessor={() => 1}
       oAccessor={d => d.step}
