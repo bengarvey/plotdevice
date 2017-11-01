@@ -376,16 +376,13 @@ function formatDate(date) {
   return `${date.getFullYear()}-${date.getMonth()+1}`;
 }
 
-var dimensions = [window.innerWidth, 400];
-
 var Lbs = () => (
   <div className="chartContainer">
     <h1>Weight Trajectory</h1>
     <h3>{range}</h3>
     <ResponsiveXYFrame
-      size={[350,150]}
+      size={[300,250]}
       responsiveWidth={true}
-      responsiveHeight={true}
       lines={display}
       yExtent={[150]}
       margin={{top: 5, bottom: 25, left: 25, right: 5}}

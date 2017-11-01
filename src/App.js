@@ -8,10 +8,11 @@ import Lbs from './components/Lbs'
 import Libraries from './components/Libraries'
 import PagerDuty from './components/PagerDuty'
 import Tornadoes from './components/Tornadoes'
+import Resp from './components/Resp'
 
 
 var App = () => (
-  <div>
+  <div className="main">
     <BrowserRouter>
       <Switch>
         <Route exact path='/' component={Home}/>
@@ -20,6 +21,7 @@ var App = () => (
         <Route path='/libraries' component={Libraries}/>
         <Route path='/pagerduty' component={PagerDuty}/>
         <Route path='/tornadoes' component={Tornadoes}/>
+        <Route path='/resp' component={Resp}/>
       </Switch>
     </BrowserRouter>
   </div>

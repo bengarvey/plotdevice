@@ -172,6 +172,30 @@ h1, h2, h3, .description {
   cursor: pointer;
 }
 
-.chartContainer {
+.responsive-container {
   width: 100%;
+  height: 100%;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:after, *:before {
+  box-sizing: inherit;
+}
+
+.chartContainer {
+  margin: 0;
+  padding: 5px;
+  height: 100%;
+  width: 100%;
+}
+
+.main {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
 }
