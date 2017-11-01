@@ -161,7 +161,6 @@ function getFloating(items, window, key) {
 }
 
 var floating = getFloating(deathsPerYear, 7, "deaths");
-console.log([deathsPerYear, floating]);
 var display = [
   {data: deathsPerYear, opacity: 0.35},
   {data: floating, opacity: 1}
