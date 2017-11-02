@@ -199,3 +199,9 @@ html {
   top: 0;
   bottom: 0;
 }
+
+@media screen and (min-width: 800px) {
+    .chartContainer {
+        width: 800px;
+    }
+}
