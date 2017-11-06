@@ -8,6 +8,7 @@ import Lbs from './components/Lbs'
 import Libraries from './components/Libraries'
 import PagerDuty from './components/PagerDuty'
 import Tornadoes from './components/Tornadoes'
+import CoopLovesCostumes from './components/CoopLovesCostumes'
 
 
 var App = () => (
@@ -20,6 +21,7 @@ var App = () => (
         <Route path='/libraries' component={Libraries}/>
         <Route path='/pagerduty' component={PagerDuty}/>
         <Route path='/tornadoes' component={Tornadoes}/>
+        <Route path='/cooplovescostumes' component={CoopLovesCostumes}/>
       </Switch>
     </BrowserRouter>
   </div>
