@@ -1,6 +1,7 @@
 import React from 'react'
-import { Mark, funnelize, ResponsiveORFrame, ResponsiveXYFrame } from 'semiotic';
-import { curveBasis } from 'd3-shape';
+import { Mark, funnelize, ResponsiveORFrame, ResponsiveXYFrame } from 'semiotic'
+import TPFanFavorites from './TPFanFavorites'
+import TPNoShows from './TPNoShows'
 
 const colors = {
   primary: 'rgba(0,0,0,0.1)',
@@ -534,44 +535,59 @@ var sharedProps = {
 console.log(items);
 
 var CoopLovesCostumes = () => (
-  <div className="chartContainer">
-    <h1>#CoopLovesCostumes</h1>
-    <h3>Which Twin Peaks costumes were the most popular?</h3>
-    <ResponsiveORFrame
-      { ...sharedProps }
-      projection={'horizontal'}
-      size={[300,700]}
-      responsiveWidth={true}
-      type={'bar'}
-      defined={d => d.total > 5}
-      data={display}
-      margin={{top: 5, bottom: 25, left: 5, right: 5}}
-      oAccessor={"stepName"}
-      rAccessor={"stepValue"}
-      oPadding={5}
-      renderMode={d => "normal"}
-      oLabel={ d => <text y={5} x={9} className="barText">{d}</text> }
-      style={d => {return { fill: d.funnelKey, fillOpacity: d.fillOpacity}}}
-      axis={axis}
-    />
-    <ResponsiveXYFrame
-      { ...sharedProps }
-      points={scatterItems}
-      size={[300,700]}
-      yExtent={[0,40]}
-      xExtent={[0,50]}
-      defined={d => d.total > 2}
-      xAccessor={ d => getEpisodeTotal(d) }
-      yAccessor={ d => d.total }
-      pointStyle={ d => ({fill: "#666", r: '5px'})}
-      customPointMark={ ({d}) => ( <Mark markType="image" transform="translate(-20,-20)" height="50px" width="50px" type="image/svg+xml" xlinkHref={`images/${d.image}.png`}/> ) }
-      axes={[
-        { orient: 'bottom', padding: 0, ticks: 5, tickFormat: d => d, label:'Episode Appearances + FWWM'},
-        { orient: 'left', ticks: 5, tickFormat: d => d, label:'Costume Popularity'}
-      ]}
-      margin={{ left: 55, bottom: 100, right: 10, top: 30 }}
-    />
-
+  <div>
+    <div className="chartContainer">
+      <h1>#CoopLovesCostumes</h1>
+      <h3>Which Twin Peaks costumes were the most popular?</h3>
+      <ul className="characterList">
+        <li className="characterListItem"><img src="images/coop.png"/></li>
+        <li className="characterListItem"><img src="images/dougie.png"/></li>
+        <li className="characterListItem"><img src="images/evil.png"/></li>
+      </ul>
+      <p>On October 23rd, 2017 Kyle MacLachlan announced a Twin Peaks Halloween costume <a href="https://www.instagram.com/p/BamuMivAZko/?hl=en&taken-by=kyle_maclachlan">contest on Instagram</a>. To be eligible, you had to tag your costume with <a href="https://www.instagram.com/explore/tags/cooplovescostumes/">#CoopLovesCostumes</a> and omg the feed of costumes is incredible. But which characters were the most popular? To answer this question I scraped 2300+ photos and meta data from Instagram and so far have tagged around 200 photos. Here are the results so far</p>
+      <ResponsiveORFrame
+        { ...sharedProps }
+        projection={'horizontal'}
+        size={[300,700]}
+        responsiveWidth={true}
+        type={'bar'}
+        defined={d => d.total > 5}
+        data={display}
+        margin={{top: 5, bottom: 25, left: 5, right: 5}}
+        oAccessor={"stepName"}
+        rAccessor={"stepValue"}
+        oPadding={5}
+        renderMode={d => "normal"}
+        oLabel={ d => <text y={5} x={9} className="barText">{d}</text> }
+        style={d => {return { fill: d.funnelKey, fillOpacity: d.fillOpacity}}}
+        axis={axis}
+      />
+    </div>
+    <div className="chartContainerWide">
+      <h1 className="nextReport">Popularity vs Episode Freq</h1>
+      <h3>Does the frequency of a character influence their costume popularity?</h3>
+      <ResponsiveXYFrame
+        { ...sharedProps }
+        points={scatterItems}
+        size={[300,700]}
+        yExtent={[0,40]}
+        xExtent={[0,50]}
+        defined={d => d.total > 2}
+        xAccessor={ d => getEpisodeTotal(d) }
+        yAccessor={ d => d.total }
+        pointStyle={ d => ({fill: "#666", r: '5px'})}
+        customPointMark={ ({d}) => ( <Mark markType="image" transform="translate(-20,-20)" height="50px" width="50px" type="image/svg+xml" xlinkHref={`images/${d.image}.png`}/> ) }
+        axes={[
+          { orient: 'bottom', padding: 0, ticks: 5, tickFormat: d => d, label:'Episode Appearances + FWWM'},
+          { orient: 'left', ticks: 5, tickFormat: d => d, label:'Costume Popularity'}
+        ]}
+        margin={{ left: 55, bottom: 100, right: 10, top: 30 }}
+      />
+    </div>
+    <div>
+      <TPFanFavorites/>
+      <TPNoShows/>
+    </div>
   </div>
 )
 

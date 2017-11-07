@@ -311,7 +311,7 @@ var sharedProps = {
 };
 
 const Auto = () => (
-  <div class="chartContainer">
+  <div className="chartContainerLeft">
     <h1>US Auto Fatalities 1899 - 2015</h1>
     <h3>Why have deaths decreased since 1972?</h3>
     <div className="container deathPopulation">
