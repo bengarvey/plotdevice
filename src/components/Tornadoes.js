@@ -183,7 +183,7 @@ function yearToDate(year) {
 
 const Tornadoes = () => (
   <div className="chartContainer">
-    <h1>US Tornado Deaths 1876 - 2017</h1>
+    <h1>US Tornado Deaths 1875 - 2017</h1>
     <h3>What happened in 2011?</h3>
     <ResponsiveXYFrame
       size={[350, 200]}
