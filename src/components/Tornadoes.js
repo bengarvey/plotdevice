@@ -4,6 +4,7 @@ import { ResponsiveXYFrame } from 'semiotic';
 import { curveBasis } from 'd3-shape';
 
 var deathsPerYear = [
+  {year: 1875,deaths: 183},
   {year: 1876,deaths: 51},
   {year: 1877,deaths: 64},
   {year: 1878,deaths: 102},
@@ -203,6 +204,14 @@ const Tornadoes = () => (
       margin={{top: 10, left: 30, right: 0, bottom: 50}}
       annotations={annotations}
     />
+    <div className="notes nextReport">
+      <h3>Notes and Sources</h3>
+      <p>This chart was a key part of my <a href="https://docs.google.com/presentation/d/1OEHDz99ieT50piYyQRYx9msShZs1aQFVnOyRVMOJxVg/edit?usp=sharing">BarCampPhily presentation</a>. <a href="https://en.wikipedia.org/wiki/Tornadoes_of_2011">Tornadoes were devastating in 2011</a> and I remember wondering whether this was normal, rare, or a sign of climate change. The data told an inspiring story of how much progress we've made. Maybe people are warned early enough, or buildings are stronger, or we just know how to predict them. Whatever it is, tornadoes are less of a threat than they were in the past. 2011 seems to be a modern anomaly.</p>
+      <p>Once again, I used a floating average of 7 years to smooth the the noisy dataset. I love showing the raw and floating data together, but giving visual priority to the average value</p>
+      <p>I visited Joplin, MO in 2012, the site of the worst tornadoes, and the town was mostly cleaned up but a lot of people had left. I still enjoyed working and meeting people there, and had an incredible chilli dog during my stay.</p>
+      <p>Tech: <a href="https://emeeks.github.io/semiotic">Semiotic</a>, javascript</p>
+      <p>Source: <a href="http://blog.nssl.noaa.gov/nsslnews/2009/03/us-annual-tornado-death-tolls-1875-present/">US Annual Tornado Death Tolls, 1875-present</a></p>
+    </div>
   </div>
 )
 
