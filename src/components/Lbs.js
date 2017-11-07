@@ -354,7 +354,8 @@ var lbs = [
   {date:'2017-11-02',lbs:158.0},
   {date:'2017-11-03',lbs:159.0},
   {date:'2017-11-04',lbs:159.0},
-  {date:'2017-11-05',lbs:157.8}
+  {date:'2017-11-05',lbs:157.8},
+  {date:'2017-11-05',lbs:159.2}
 ];
 
 var floating = [];
@@ -383,7 +384,7 @@ function formatDate(date) {
 
 var Lbs = () => (
   <div className="chartContainer">
-    <h1>Weight Trajectory</h1>
+    <h1>Weight Over Time</h1>
     <h3>{range}</h3>
     <ResponsiveXYFrame
       size={[300,250]}
@@ -404,6 +405,11 @@ var Lbs = () => (
         { orient: 'bottom', tickFormat: d => formatDate(new Date(d)), ticks: 2 }
       ]}
     />
+    <div class="notes nextReport">
+      <h3>Notes and Sources</h3>
+      <p>I've been keeping an irregulary updated tally of my weight in the iOS Notes app for a few years now. Maybe this isn't the world's healthiest behavior, but it's an easy biometric to track. The line chart uses a seven day floating average and gives visual priority to the smoothed out data.</p>
+      <p>I scaled this up from 150lbs which <a href="https://twitter.com/bengarvey/status/474588920513314816">can be a controversial move</a>, but with weight data do you really want to ever hit zero?</p>
+    </div>
   </div>
 )
 

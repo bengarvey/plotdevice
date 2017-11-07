@@ -1,7 +1,8 @@
 
 body {
-  font-family: Helvetica, Arial, sans-serif;
   background-color: #eeebd0;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  color: #393e41;
 }
 
 text {
@@ -239,4 +240,8 @@ html {
     .chartContainerWide {
       width: 100%;
     }
+}
+
+a:link, a:visited {
+  color: #393e41;
 }
