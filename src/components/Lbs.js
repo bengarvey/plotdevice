@@ -409,6 +409,7 @@ var Lbs = () => (
       <h3>Notes and Sources</h3>
       <p>I've been keeping an irregulary updated tally of my weight in the iOS Notes app for a few years now. Maybe this isn't the world's healthiest behavior, but it's an easy biometric to track. The line chart uses a seven day floating average and gives visual priority to the smoothed out data.</p>
       <p>I scaled this up from 150lbs which <a href="https://twitter.com/bengarvey/status/474588920513314816">can be a controversial move</a>, but with weight data do you really want to ever hit zero?</p>
+      <p>Tech: <a href="https://emeeks.github.io/semiotic">Semiotic</a>, javascript, Notes, Google Sheets</p>
     </div>
   </div>
 )

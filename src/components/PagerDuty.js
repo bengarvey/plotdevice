@@ -1238,6 +1238,12 @@ const PagerDuty = () => (
       margin={{ left: 30, top: 10, bottom: 80, right: 0 }}
       oPadding={0}
     />
+    <div className="notes nextReport">
+      <h3>Notes and Sources</h3>
+      <p>Heatmaps are fun and picking out the color scheme is the trickiest part. Semiotic makes it very easy to build heatmaps like this, even though I don't quite have an intuitive understanding of the step calculations and logic. I end up playing withe numbers until they look good.</p>
+      <p>The data comes from our actual PagerDuty data at MBI. Each rectangle is a day and the darker it is, the more alerts were sent out to our team. I'm in the process of trying to quiet these alarms down, so I wrote a <a href="https://github.com/bengarvey/tap-pagerduty">Singer.io tap</a> to scrape the data from the PagerDuty API.</p>
+      <p>Tech: <a href="https://emeeks.github.io/semiotic/#/">Semiotic</a>, javascript, <a href="https://singer.io">Singer.io</a></p>
+    </div>
   </div>
 )
 
