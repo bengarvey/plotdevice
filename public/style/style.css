@@ -210,16 +210,28 @@ html {
   margin-top: 25px;
 }
 
-.characterList {
+.characterList, .navList {
   list-style-type: none;
   padding: 0 0 0 0;
 }
 
-.characterListItem {
+.navList {
+  padding-left: 0;
+  text-align: center;
+}
+
+.characterListItem, .navListItem {
   display: inline-block;
-  width: 110px;
   vertical-align: top;
   text-align: center;
+}
+
+.characterListItem {
+  width: 110px;
+}
+
+.navListItem {
+  margin: 10px 10px 10px 10px;
 }
 
 .characterTitle {

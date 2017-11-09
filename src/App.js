@@ -2,6 +2,7 @@ import React from 'react'
 import './App.css'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Home from './components/Home'
+import Nav from './components/Nav'
 import Auto from './components/Auto'
 import Lbs from './components/Lbs'
 import Libraries from './components/Libraries'
@@ -23,6 +24,7 @@ var App = () => (
         <Route path='/cooplovescostumes' component={CoopLovesCostumes}/>
       </Switch>
     </BrowserRouter>
+    <Nav/>
   </div>
 )
 
