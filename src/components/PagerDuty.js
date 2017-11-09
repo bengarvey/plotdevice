@@ -1,12 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { ResponsiveORFrame } from 'semiotic';
 import { scaleLinear } from "d3-scale";
 
 const heatScale = scaleLinear()
   .domain([0,5,10])
   .range(["#fbf7da", "red", "darkred"]).clamp(true);
-  //.range(["#dbd7ba", "#ED9797", "#7F5151", "#931313", "#230707"]).clamp(true);
 
 const daysOfTheWeek = {
     1: "Mon",
@@ -1215,10 +1213,6 @@ incidents.forEach( function(d, i) {
   modified.push(item);
 });
 
-const colors = {
-  incident: '#da4167',
-}
-
 const PagerDuty = () => (
   <div className="chartContainer">
     <h1>Pagerduty Incidents</h1>
@@ -1234,7 +1228,7 @@ const PagerDuty = () => (
       axis={daysAxis}
       hoverAnnotation={true}
       pieceHoverAnnotation={true}
-      oLabel={d => parseInt(d+1)%10 === 0 || d === 0? <text transform="rotate(90)" y={5} x={-8} fontSize="12px">Week {d+1}</text> : ''}
+      oLabel={d => parseInt(d+1)%10 === 0 || d === 0 ? <text transform="rotate(90)"  y={5} x={-8} fontSize="12px">Week {d+1}</text> : ''}
       margin={{ left: 30, top: 10, bottom: 80, right: 0 }}
       oPadding={0}
     />

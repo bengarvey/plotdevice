@@ -1,12 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { XYFrame, Legend } from 'semiotic';
+import { XYFrame } from 'semiotic';
 import { curveBasis } from 'd3-shape';
-import { scaleTime } from 'd3-scale';
 import AutoDescription from './AutoDescription';
 import AutoLegend from './AutoLegend';
 const auto = require('../data/auto.json');
-
 
 const colors = {
   deaths: '#393e41',
@@ -18,21 +15,6 @@ const colors = {
   annotation: "#666666",
   gasAdjusted: '#d86641'
 }
-
-const deathLegend = [
-  {
-    type: "line",
-    styleFn: d => ({ stroke: d.color }),
-    items: [
-      { label: "US Auto Fatalities", color: colors.deaths },
-      { label: "US Population", color: colors.pop }
-    ]
-  }
-];
-
-var display = {
-  data: auto
-};
 
 var modified = {
   deaths: [],
@@ -59,8 +41,6 @@ function hideModernDeaths(deaths, alc, year) {
   return alc === null ? deaths : null;
 }
 
-var totalDeaths = 0;
-
 auto.forEach( function(d) {
   modified.deaths.push(
     {y: d.Deaths, x: yearToDate(d.Year), type:'death'});
@@ -80,7 +60,6 @@ auto.forEach( function(d) {
   modified.gasAdjusted.push(
     {y: d.gasPriceAdjusted, x: yearToDate(d.Year)}
   );
- totalDeaths += d.Deaths;
 });
 
 function yearToDate(year) {
@@ -284,23 +263,6 @@ var mileAnnotations = [
   }
 ];
 
-var alcSharedProps = {
-  type: "xy"
-}
-
-const alcAnnotations = [
-  {
-    ...alcSharedProps,
-    label: "Non-Alcohol Related",
-    x:yearToDate(1987), y:13000,
-  },
-  {
-    ...alcSharedProps,
-    label: "Alcohol Related",
-    x:yearToDate(1987), y:34000,
-  }
-];
-
 var sharedProps = {
   size: [365,200],
   xAccessor: "x",
@@ -423,7 +385,6 @@ const Auto = () => (
       xAccessor="x"
       yAccessor="y"
       hoverAnnotation={true}
-      lineType={{type:"line", interpolator: curveBasis}}
       lineRenderMode={"normal"}
       lineStyle={d => ({stroke: d.color, strokeWidth: "2px" })}
       customLineType={{ type: "dividedLine"}}

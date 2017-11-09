@@ -1,6 +1,5 @@
 import React from 'react'
-import { XYFrame, ResponsiveXYFrame } from 'semiotic';
-import { curveBasis } from 'd3-shape';
+import { ResponsiveXYFrame } from 'semiotic';
 
 var lbs = [
   {date:'2014-03-24',lbs:166.5},
@@ -356,17 +355,18 @@ var lbs = [
   {date:'2017-11-04',lbs:159.0},
   {date:'2017-11-05',lbs:157.8},
   {date:'2017-11-06',lbs:159.2},
-  {date:'2017-11-07',lbs:159.8}
+  {date:'2017-11-07',lbs:159.6},
+  {date:'2017-11-07',lbs:158.0}
 ];
 
 var floating = [];
-var window = 7;
-for(var i=window; i<lbs.length; i++) {
+var win = 7;
+for(var i=win; i<lbs.length; i++) {
   var value = 0;
-  for(var j=window-1; j>=0; j--) {
+  for(var j=win-1; j>=0; j--) {
     value += lbs[i-j].lbs;
   }
-  floating.push({date: lbs[i].date, lbs: value/window});
+  floating.push({date: lbs[i].date, lbs: value/win});
 }
 
 var display = [
@@ -402,11 +402,11 @@ var Lbs = () => (
       lineStyle={(d) => ({ stroke: d.color, strokeWidth: d.strokeWidth, opacity:d.opacity })}
       customLineType={{ type: "dividedLine"}}
       axes={[
-        { orient: 'left', tickFormat: d => d, ticks: 3},
+        { orient: 'left', tickFormat: d => d, ticks: 10},
         { orient: 'bottom', tickFormat: d => formatDate(new Date(d)), ticks: 2 }
       ]}
     />
-    <div class="notes nextReport">
+    <div className="notes nextReport">
       <h3>Notes and Sources</h3>
       <p>I've been keeping an irregulary updated tally of my weight in the iOS Notes app for a few years now. Maybe this isn't the world's healthiest behavior, but it's an easy biometric to track. The line chart uses a seven day floating average and gives visual priority to the smoothed out data.</p>
       <p>I scaled this up from 150lbs which <a href="https://twitter.com/bengarvey/status/474588920513314816">can be a controversial move</a>, but with weight data do you really want to ever hit zero?</p>

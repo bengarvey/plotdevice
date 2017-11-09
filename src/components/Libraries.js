@@ -1,6 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { ResponsiveXYFrame, Mark } from 'semiotic';
+
 var libs = [
   {name: "Semiotic",    speed: 0.65, flex: 0.6, logo: "images/semiotic.png"},
   {name: "Vanilla JS",  speed: 0.10, flex: 0.90, logo: "images/js.png"},

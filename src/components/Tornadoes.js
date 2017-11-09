@@ -1,7 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { ResponsiveXYFrame } from 'semiotic';
-import { curveBasis } from 'd3-shape';
 
 var deathsPerYear = [
   {year: 1875,deaths: 183},
