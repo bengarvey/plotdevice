@@ -2,6 +2,8 @@ import React from 'react'
 import { Mark, funnelize, ResponsiveORFrame, ResponsiveXYFrame } from 'semiotic'
 import TPFanFavorites from './TPFanFavorites'
 import TPNoShows from './TPNoShows'
+import flatten from "lodash.flatten";
+import uniq from "lodash.uniq";
 
 const colors = {
   primary: 'rgba(0,0,0,0.1)',
@@ -61,7 +63,7 @@ var items = [
  },
  {
    "id": 4,
-   "name": "Laura Palmer",
+   "name": "Laura",
    "total": 0,
    "dress": 16,
    "prom": 1,
@@ -517,7 +519,6 @@ var items = [
  }
 ];
 
-
 var stackedItems = [];
 var scatterItems = [];
 
@@ -534,26 +535,31 @@ items.forEach( function(item) {
 
     if (item.name === "Dale Cooper") {
       stackedItems[1] = {
+        image: 'coop',
         color: colors.fbi,
         "Dale Cooper": item.fbi,
       }
       stackedItems[2] = {
+        image: 'dougie',
         color: colors.dougie,
         "Dale Cooper": item.dougie,
       }
       stackedItems[3] = {
+        image: 'evil',
         color: colors.evil,
         "Dale Cooper": item.evil,
       }
    }
-   else if (item.name === "Laura Palmer") {
+   else if (item.name === "Laura") {
       stackedItems[4] = {
+        image: 'laura',
         color: colors.plastic,
-        "Laura Palmer": item.plastic,
+        "Laura": item.plastic,
       }
       stackedItems[5] = {
+        image: 'dress',
         color: colors.dress,
-        "Laura Palmer": item.dress
+        "Laura": item.dress
       }
     }
   }
@@ -564,10 +570,11 @@ items.forEach( function(item) {
 
 });
 
-var display = funnelize({
+var display = customFunnelize({
   data: stackedItems,
   steps: steps,
-  key: "color"
+  key: "color",
+  extraKeys: ["name", "image"]
 });
 
 function cmp(a,b) {
@@ -583,7 +590,7 @@ function getTotal(item) {
   if (item.name === "Dale Cooper") {
     return item.dougie + item.fbi + item.evil;
   }
-  else if (item.name === "Laura Palmer") {
+  else if (item.name === "Laura") {
     return item.plastic + item.dress;
   }
   else {
@@ -606,6 +613,28 @@ var sharedProps = {
   hoverAnnotation: true
 };
 
+function customFunnelize({ data, steps, key, extraKeys }) {
+  const funnelData = [];
+  if (!Array.isArray(data)) {
+    data = [data];
+  }
+  if (!steps) {
+    steps = uniq(flatten(data.map(d => Object.keys(d))));
+  }
+
+  data.forEach((datum, i) => {
+    const datumKey = key ? datum[key] : i;
+    steps.forEach(step => {
+      const funnelDatum = { funnelKey: datumKey };
+      funnelDatum.stepName = step;
+      funnelDatum.image = datum.image;
+      funnelDatum.stepValue = datum[step] ? datum[step] : 0;
+      funnelData.push(funnelDatum);
+    });
+  });
+
+  return funnelData;
+}
 
 var CoopLovesCostumes = () => (
   <div>
@@ -623,7 +652,23 @@ var CoopLovesCostumes = () => (
         projection={'horizontal'}
         size={[300,700]}
         responsiveWidth={true}
-        type={'bar'}
+        type={{
+          type: "bar",
+          customMark: (d, i, xy) => [
+            <rect
+              style={{ fill: d.funnelKey, fillOpacity: d.fillOpacity }}
+              x={0}
+              width={xy.width}
+              height={xy.height}
+            />,
+            <image
+              href={d.stepValue > 0 ? `./images/${d.image}.png` : ''}
+              height="40px"
+              y={-5}
+              x={xy.width-39}
+            />
+          ]
+        }}
         defined={d => d.total > 5}
         data={display}
         margin={{top: 5, bottom: 25, left: 5, right: 5}}
