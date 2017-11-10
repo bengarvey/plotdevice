@@ -641,11 +641,6 @@ var CoopLovesCostumes = () => (
     <div className="chartContainer">
       <h1>#CoopLovesCostumes</h1>
       <h3>Which Twin Peaks costumes were the most popular?</h3>
-      <ul className="characterList">
-        <li className="characterListItem"><img alt="Agent Cooper" src="images/coop.png"/></li>
-        <li className="characterListItem"><img alt="Dougie Jones" src="images/dougie.png"/></li>
-        <li className="characterListItem"><img alt="Evil Dale" src="images/evil.png"/></li>
-      </ul>
       <p>On October 23rd, 2017 Kyle MacLachlan announced a Twin Peaks Halloween costume <a href="https://www.instagram.com/p/BamuMivAZko/?hl=en&taken-by=kyle_maclachlan">contest on Instagram</a>. To be eligible, you had to tag your costume with <a href="https://www.instagram.com/explore/tags/cooplovescostumes/">#CoopLovesCostumes</a> and omg the feed of costumes is incredible. But which characters were the most popular? To answer this question I scraped 2300+ photos and meta data from Instagram and so far have tagged around 200 photos. Here are the results so far</p>
       <ResponsiveORFrame
         { ...sharedProps }
@@ -665,7 +660,7 @@ var CoopLovesCostumes = () => (
               href={d.stepValue > 0 ? `./images/${d.image}.png` : ''}
               height="40px"
               y={-5}
-              x={xy.width-39}
+              x={xy.width-40}
             />
           ]
         }}
