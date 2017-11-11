@@ -5,6 +5,8 @@ import TPNoShows from './TPNoShows'
 import flatten from "lodash.flatten";
 import uniq from "lodash.uniq";
 
+var scatterHover = null;
+
 const colors = {
   primary: 'rgba(0,0,0,0.1)',
   fbi: 'rgba(0,0,50,0.2)',
@@ -14,14 +16,14 @@ const colors = {
   plastic: 'rgba(230,230,255,0.7)'
 }
 
-var items = [
+var items =
+[
  {
-   "id": 1,
    "name": "Dale Cooper",
    "total": 0,
-   "fbi": 64,
-   "evil": 22,
-   "dougie": 26,
+   "fbi": 159,
+   "evil": 50,
+   "dougie": 63,
    "episodesOriginal": 30,
    "episodesReturn": 18,
    "fwwm": 1,
@@ -29,9 +31,8 @@ var items = [
    "image": "coop"
  },
  {
-   "id": 1,
    "name": "Dale Cooper",
-   "total": 64,
+   "total": 159,
    "episodesOriginal": 30,
    "episodesReturn": 18,
    "fwwm": 1,
@@ -40,9 +41,8 @@ var items = [
    "hide": true
  },
  {
-   "id": 2,
    "name": "Evil Dale",
-   "total": 22,
+   "total": 50,
    "episodesOriginal": 30,
    "episodesReturn": 18,
    "fwwm": 1,
@@ -51,9 +51,8 @@ var items = [
    "hide": true
  },
  {
-   "id": 3,
    "name": "Dougie Jones",
-   "total": 26,
+   "total": 63,
    "episodesOriginal": 30,
    "episodesReturn": 18,
    "fwwm": 1,
@@ -62,22 +61,21 @@ var items = [
    "hide": true
  },
  {
-   "id": 4,
    "name": "Laura",
    "total": 0,
-   "dress": 16,
-   "prom": 1,
-   "plastic": 30,
+   "dress": 35,
+   "prom": 6,
+   "plastic": 46,
    "episodesOriginal": 18,
    "episodesReturn": 18,
    "fwwm": 1,
    "episodesTotal": 40,
-   "image": "dress",
+   "image": "laura",
+   "hide": false
  },
  {
-   "id": 4,
    "name": "Laura (black dress)",
-   "total": 16,
+   "total": 35,
    "episodesOriginal": 18,
    "episodesReturn": 18,
    "fwwm": 1,
@@ -86,9 +84,8 @@ var items = [
    "hide": true
  },
  {
-   "id": 5,
    "name": "Laura (prom photo)",
-   "total": 1,
+   "total": 6,
    "episodesOriginal": 18,
    "episodesReturn": 18,
    "fwwm": 1,
@@ -97,9 +94,8 @@ var items = [
    "hide": true
  },
  {
-   "id": 6,
    "name": "Laura (plastic wrap)",
-   "total": 30,
+   "total": 46,
    "episodesOriginal": 18,
    "episodesReturn": 18,
    "fwwm": 1,
@@ -108,9 +104,8 @@ var items = [
    "hide": true
  },
  {
-   "id": 7,
    "name": "Diane",
-   "total": 58,
+   "total": 130,
    "episodesOriginal": 0,
    "episodesReturn": 9,
    "fwwm": 0,
@@ -118,9 +113,8 @@ var items = [
    "image": "diane"
  },
  {
-   "id": 8,
    "name": "Log Lady",
-   "total": 49,
+   "total": 125,
    "episodesOriginal": 12,
    "episodesReturn": 5,
    "fwwm": 1,
@@ -128,9 +122,8 @@ var items = [
    "image": "loglady"
  },
  {
-   "id": 9,
    "name": "BOB",
-   "total": 18,
+   "total": 30,
    "episodesOriginal": 11,
    "episodesReturn": 0,
    "fwwm": 1,
@@ -138,9 +131,8 @@ var items = [
    "image": "bob"
  },
  {
-   "id": 10,
    "name": "Shelly",
-   "total": 17,
+   "total": 55,
    "episodesOriginal": 30,
    "episodesReturn": 7,
    "fwwm": 1,
@@ -148,9 +140,8 @@ var items = [
    "image": "shelly"
  },
  {
-   "id": 12,
    "name": "Naido",
-   "total": 2,
+   "total": 4,
    "episodesOriginal": 0,
    "episodesReturn": 4,
    "fwwm": 0,
@@ -158,7 +149,6 @@ var items = [
    "image": "naido"
  },
  {
-   "id": 13,
    "name": "A blue rose",
    "total": 2,
    "episodesOriginal": 0,
@@ -168,9 +158,8 @@ var items = [
    "image": ""
  },
  {
-   "id": 14,
    "name": "Audrey Horne",
-   "total": 45,
+   "total": 82,
    "episodesOriginal": 30,
    "episodesReturn": 4,
    "fwwm": 1,
@@ -178,7 +167,6 @@ var items = [
    "image": "audrey"
  },
  {
-   "id": 15,
    "name": "Ronette Pulaski",
    "total": 2,
    "episodesOriginal": 5,
@@ -188,7 +176,6 @@ var items = [
    "image": "ronette"
  },
  {
-   "id": 16,
    "name": "Josie Packard",
    "total": 2,
    "episodesOriginal": 30,
@@ -198,9 +185,8 @@ var items = [
    "image": "josie"
  },
  {
-   "id": 17,
    "name": "Nadine",
-   "total": 11,
+   "total": 20,
    "episodesOriginal": 22,
    "episodesReturn": 5,
    "fwwm": 0,
@@ -208,9 +194,8 @@ var items = [
    "image": "nadine"
  },
  {
-   "id": 18,
    "name": "Lucy",
-   "total": 6,
+   "total": 8,
    "episodesOriginal": 29,
    "episodesReturn": 10,
    "fwwm": 0,
@@ -218,9 +203,8 @@ var items = [
    "image": "lucy"
  },
  {
-   "id": 19,
    "name": "Andy",
-   "total": 6,
+   "total": 7,
    "episodesOriginal": 26,
    "episodesReturn": 9,
    "fwwm": 0,
@@ -228,9 +212,8 @@ var items = [
    "image": "andy"
  },
  {
-   "id": 20,
    "name": "Senorita Dido",
-   "total": 10,
+   "total": 12,
    "episodesOriginal": 0,
    "episodesReturn": 1,
    "fwwm": 0,
@@ -238,9 +221,8 @@ var items = [
    "image": "dido"
  },
  {
-   "id": 21,
    "name": "Candie, Sandie, and Mandie",
-   "total": 10,
+   "total": 14,
    "episodesOriginal": 0,
    "episodesReturn": 6,
    "fwwm": 0,
@@ -248,9 +230,8 @@ var items = [
    "image": "csm"
  },
  {
-   "id": 22,
    "name": "Dr Jacoby",
-   "total": 12,
+   "total": 28,
    "episodesOriginal": 16,
    "episodesReturn": 6,
    "fwwm": 0,
@@ -258,9 +239,8 @@ var items = [
    "image": "jacoby"
  },
  {
-   "id": 23,
    "name": "Man from Another Place",
-   "total": 9,
+   "total": 12,
    "episodesOriginal": 5,
    "episodesReturn": 0,
    "fwwm": 1,
@@ -268,9 +248,8 @@ var items = [
    "image": "mfap"
  },
  {
-   "id": 24,
    "name": "The Black Lodge",
-   "total": 10,
+   "total": 27,
    "episodesOriginal": 0,
    "episodesReturn": 0,
    "fwwm": 0,
@@ -278,7 +257,6 @@ var items = [
    "image": "lodge"
  },
  {
-   "id": 25,
    "name": "Denise Bryson",
    "total": 1,
    "episodesOriginal": 3,
@@ -288,9 +266,8 @@ var items = [
    "image": "denise"
  },
  {
-   "id": 26,
    "name": "Gordon Cole",
-   "total": 8,
+   "total": 22,
    "episodesOriginal": 7,
    "episodesReturn": 11,
    "fwwm": 1,
@@ -298,9 +275,8 @@ var items = [
    "image": "gordon"
  },
  {
-   "id": 27,
    "name": "Woodsman",
-   "total": 11,
+   "total": 25,
    "episodesOriginal": 0,
    "episodesReturn": 4,
    "fwwm": 1,
@@ -308,7 +284,6 @@ var items = [
    "image": "woodsman"
  },
  {
-   "id": 28,
    "name": "A character from the black lodge?",
    "total": 1,
    "episodesOriginal": 0,
@@ -318,7 +293,6 @@ var items = [
    "image": ""
  },
  {
-   "id": 29,
    "name": "Jerry Horne",
    "total": 0,
    "episodesOriginal": 9,
@@ -328,9 +302,8 @@ var items = [
    "image": "jerry"
  },
  {
-   "id": 30,
    "name": "Bobby Briggs",
-   "total": 2,
+   "total": 4,
    "episodesOriginal": 30,
    "episodesReturn": 7,
    "fwwm": 1,
@@ -338,9 +311,8 @@ var items = [
    "image": "bobby"
  },
  {
-   "id": 31,
    "name": "Pete Martell",
-   "total": 3,
+   "total": 4,
    "episodesOriginal": 30,
    "episodesReturn": 1,
    "fwwm": 0,
@@ -348,19 +320,17 @@ var items = [
    "image": "pete"
  },
  {
-   "id": 32,
    "name": "Sheriff Truman",
-   "total": 3,
+   "total": 10,
    "episodesOriginal": 30,
    "episodesReturn": 10,
    "fwwm": 0,
    "episodesTotal": 40,
-   "image": "truman"
+   "image": "harry"
  },
  {
-   "id": 33,
    "name": "Freddie Sykes",
-   "total": 2,
+   "total": 9,
    "episodesOriginal": 0,
    "episodesReturn": 4,
    "fwwm": 0,
@@ -368,7 +338,6 @@ var items = [
    "image": "freddie"
  },
  {
-   "id": 34,
    "name": "Slice of cherry pie",
    "total": 1,
    "episodesOriginal": 0,
@@ -378,7 +347,6 @@ var items = [
    "image": "pie"
  },
  {
-   "id": 35,
    "name": "Phillip Jeffries",
    "total": 1,
    "episodesOriginal": 0,
@@ -388,7 +356,6 @@ var items = [
    "image": "jeffries"
  },
  {
-   "id": 36,
    "name": "An owl",
    "total": 1,
    "episodesOriginal": 0,
@@ -398,9 +365,8 @@ var items = [
    "image": ""
  },
  {
-   "id": 37,
    "name": "Wally Brando",
-   "total": 4,
+   "total": 5,
    "episodesOriginal": 0,
    "episodesReturn": 1,
    "fwwm": 0,
@@ -408,9 +374,8 @@ var items = [
    "image": "wally"
  },
  {
-   "id": 38,
-   "name": "Norma",
-   "total": 4,
+   "name": "Norma Jennings",
+   "total": 5,
    "episodesOriginal": 30,
    "episodesReturn": 5,
    "fwwm": 1,
@@ -418,9 +383,8 @@ var items = [
    "image": "norma"
  },
  {
-   "id": 39,
    "name": "Philip Gerard",
-   "total": 3,
+   "total": 4,
    "episodesOriginal": 10,
    "episodesReturn": 9,
    "fwwm": 1,
@@ -428,7 +392,6 @@ var items = [
    "image": "philip"
  },
  {
-   "id": 40,
    "name": "Hastings' paranornal website?",
    "total": 1,
    "episodesOriginal": 0,
@@ -438,7 +401,6 @@ var items = [
    "image": ""
  },
  {
-   "id": 41,
    "name": "Janey-E Jones",
    "total": 1,
    "episodesOriginal": 0,
@@ -448,7 +410,6 @@ var items = [
    "image": "janey"
  },
  {
-   "id": 42,
    "name": "Leo Johnson",
    "total": 4,
    "episodesOriginal": 24,
@@ -458,9 +419,8 @@ var items = [
    "image": "leo"
  },
  {
-   "id": 43,
    "name": "Lil the Dancer",
-   "total": 2,
+   "total": 5,
    "episodesOriginal": 0,
    "episodesReturn": 0,
    "fwwm": 1,
@@ -468,7 +428,6 @@ var items = [
    "image": "lil"
  },
  {
-   "id": 44,
    "name": "Tammy Palmer",
    "total": 1,
    "episodesOriginal": 0,
@@ -478,7 +437,6 @@ var items = [
    "image": "tammy"
  },
  {
-   "id": 45,
    "name": "Donna Hayward",
    "total": 2,
    "episodesOriginal": 30,
@@ -488,9 +446,8 @@ var items = [
    "image": "donna"
  },
  {
-   "id": 46,
    "name": "Ed Hurley",
-   "total": 1,
+   "total": 3,
    "episodesOriginal": 30,
    "episodesReturn": 2,
    "fwwm": 0,
@@ -498,26 +455,52 @@ var items = [
    "image": "ed"
  },
  {
-   "id": 47,
    "name": "Maddie Fergeson",
    "total": 1,
-   "episodesOriginal": 30,
-   "episodesReturn": 2,
+   "episodesOriginal": 6,
+   "episodesReturn": 0,
    "fwwm": 0,
-   "episodesTotal": 32,
+   "episodesTotal": 6,
    "image": "maddie"
  },
  {
-   "id": 48,
    "name": "Alice Tremond",
    "total": 1,
-   "episodesOriginal": 30,
+   "episodesOriginal": 1,
    "episodesReturn": 2,
    "fwwm": 0,
-   "episodesTotal": 32,
+   "episodesTotal": 3,
    "image": "alice"
+ },
+ {
+   "name": "The Giant",
+   "total": 1,
+   "episodesOriginal": 5,
+   "episodesReturn": 4,
+   "fwwm": 0,
+   "episodesTotal": 9,
+   "image": "giant"
+ },
+ {
+   "name": "One Eyed Jacks Girls",
+   "total": 2,
+   "episodesOriginal": 7,
+   "episodesReturn": 0,
+   "fwwm": 1,
+   "episodesTotal": 11,
+   "image": "jacks"
+ },
+ {
+   "name": "Sarah Palmer",
+   "total": 1,
+   "episodesOriginal": 13,
+   "episodesReturn": 6,
+   "fwwm": 1,
+   "episodesTotal": 23,
+   "image": "sarah"
  }
 ];
+
 
 var stackedItems = [];
 var scatterItems = [];
@@ -528,7 +511,7 @@ var steps = [];
 items = items.sort(cmp);
 
 items.forEach( function(item) {
-  if (getTotal(item) > 3 && !item.hide) {
+  if (getTotal(item) > 5 && !item.hide) {
     item.color = colors.primary;
     stackedItems[0][item.name] = item.total;
     steps.push(item.name);
@@ -552,12 +535,10 @@ items.forEach( function(item) {
    }
    else if (item.name === "Laura") {
       stackedItems[4] = {
-        image: 'laura',
         color: colors.plastic,
         "Laura": item.plastic,
       }
       stackedItems[5] = {
-        image: 'dress',
         color: colors.dress,
         "Laura": item.dress
       }
@@ -609,8 +590,7 @@ const axis = [{
 ];
 
 var sharedProps = {
-  responsiveWidth: true,
-  hoverAnnotation: true
+  responsiveWidth: true
 };
 
 function customFunnelize({ data, steps, key, extraKeys }) {
@@ -636,6 +616,28 @@ function customFunnelize({ data, steps, key, extraKeys }) {
   return funnelData;
 }
 
+function getScatterSize(total) {
+  if (total > 100) {
+    return 70;
+  }
+  else if (total > 50) {
+    return 50;
+  }
+  else if (total > 40) {
+    return 40;
+  }
+  else if (total > 20) {
+    return 30;
+  }
+  else {
+    return 25;
+  }
+}
+
+function hoverScatter(d) {
+  scatterHover = d != null ? d.name : null;
+}
+
 var CoopLovesCostumes = () => (
   <div>
     <div className="chartContainer">
@@ -658,13 +660,13 @@ var CoopLovesCostumes = () => (
             />,
             <image
               href={d.stepValue > 0 ? `./images/${d.image}.png` : ''}
-              height="40px"
-              y={-5}
-              x={xy.width-40}
+              height="30px"
+              y={0}
+              x={xy.width-30}
             />
           ]
         }}
-        defined={d => d.total > 5}
+        defined={d => d.total > 10}
         data={display}
         margin={{top: 5, bottom: 25, left: 5, right: 5}}
         oAccessor={"stepName"}
@@ -683,13 +685,16 @@ var CoopLovesCostumes = () => (
         { ...sharedProps }
         points={scatterItems}
         size={[300,700]}
-        yExtent={[0,65]}
+        yExtent={[0,160]}
         xExtent={[0,60]}
+        customHoverBehavior={d => hoverScatter(this, d)}
+        hoverAnnotation={true}
         defined={d => d.total > 2}
         xAccessor={ d => getEpisodeTotal(d) }
         yAccessor={ d => d.total }
+        tooltipContent={ d => `${d.name} ${d.total} costumes ${d.episodesTotal} espisodes` }
         pointStyle={ d => ({fill: "#666", r: '5px'})}
-        customPointMark={ ({d}) => ( <Mark markType="image" transform="translate(-20,-20)" height="50px" width="50px" type="image/svg+xml" xlinkHref={`images/${d.image}.png`}/> ) }
+        customPointMark={ ({d}) => ( <Mark markType="image" transform="translate(0,0)" x={getScatterSize(d.total, d.name)/-2} y={getScatterSize(d.total, d.name)/-2} height={getScatterSize(d.total, d.name)+"px"} type="image/svg+xml" xlinkHref={`images/${d.image}.png`}/> ) }
         axes={[
           { orient: 'bottom', padding: 0, ticks: 5, tickFormat: d => d, label:'Episode Appearances + FWWM'},
           { orient: 'left', ticks: 5, tickFormat: d => d, label:'Costume Popularity'}
