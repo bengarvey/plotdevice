@@ -1,5 +1,6 @@
 import React from 'react';
 import { ResponsiveXYFrame } from 'semiotic';
+import Nav from './Nav';
 
 var deathsPerYear = [
   {year: 1875,deaths: 183},
@@ -210,6 +211,7 @@ const Tornadoes = () => (
       <p>Tech: <a href="https://emeeks.github.io/semiotic">Semiotic</a>, javascript</p>
       <p>Source: <a href="http://blog.nssl.noaa.gov/nsslnews/2009/03/us-annual-tornado-death-tolls-1875-present/">US Annual Tornado Death Tolls, 1875-present</a></p>
     </div>
+    <Nav/>
   </div>
 )
 

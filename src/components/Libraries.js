@@ -1,5 +1,6 @@
 import React from 'react';
 import { ResponsiveXYFrame, Mark } from 'semiotic';
+import Nav from './Nav';
 
 var libs = [
   {name: "Semiotic",    speed: 0.65, flex: 0.6, logo: "images/semiotic.png"},
@@ -69,6 +70,7 @@ const Libraries = () => (
       <p>Making this chart was hard, because I had no idea how to get the custom logos in there. I ended up filing a <a href="https://github.com/emeeks/semiotic/issues/64">Github issue about it</a> amd they helped me figure it out. Even now, the data points are at the top left corner of the image instead of the center, which bothers me greatly.</p>
       <p>Tech: <a href="https://emeeks.github.io/semiotic">Semiotic</a>, javascript, GIMP</p>
     </div>
+    <Nav/>
   </div>
 );
 

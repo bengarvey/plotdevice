@@ -1,11 +1,12 @@
 import React from 'react'
-import { Mark, funnelize, ResponsiveORFrame, ResponsiveXYFrame } from 'semiotic'
+import { Mark, ResponsiveORFrame, ResponsiveXYFrame } from 'semiotic'
 import TPFanFavorites from './TPFanFavorites'
 import TPNoShows from './TPNoShows'
+import TPRare from './TPRare'
+import TPMyCostumes from './TPMyCostumes'
 import flatten from "lodash.flatten";
 import uniq from "lodash.uniq";
-
-var scatterHover = null;
+import Nav from './Nav';
 
 const colors = {
   primary: 'rgba(0,0,0,0.1)',
@@ -31,7 +32,7 @@ var items =
    "image": "coop"
  },
  {
-   "name": "Dale Cooper",
+   "name": "Agent Cooper",
    "total": 159,
    "episodesOriginal": 30,
    "episodesReturn": 18,
@@ -624,25 +625,26 @@ function getScatterSize(total) {
     return 50;
   }
   else if (total > 40) {
-    return 40;
+    return 50;
   }
   else if (total > 20) {
-    return 30;
+    return 50;
   }
   else {
-    return 25;
+    return 45;
   }
-}
-
-function hoverScatter(d) {
-  scatterHover = d != null ? d.name : null;
 }
 
 var CoopLovesCostumes = () => (
   <div>
-    <div className="chartContainer">
+    <div className="chartContainerWide">
       <h1>#CoopLovesCostumes</h1>
       <h3>Which Twin Peaks costumes were the most popular?</h3>
+      <ul className="characterList">
+         <li className="characterListItem"><img alt="Agent Cooper" src="images/coop.png"/></li>
+         <li className="characterListItem"><img alt="Dougie Jones" src="images/dougie.png"/></li>
+         <li className="characterListItem"><img alt="Evil Dale" src="images/evil.png"/></li>
+       </ul>
       <p>On October 23rd, 2017 Kyle MacLachlan announced a Twin Peaks Halloween costume <a href="https://www.instagram.com/p/BamuMivAZko/?hl=en&taken-by=kyle_maclachlan">contest on Instagram</a>. To be eligible, you had to tag your costume with <a href="https://www.instagram.com/explore/tags/cooplovescostumes/">#CoopLovesCostumes</a> and omg the feed of costumes is incredible. But which characters were the most popular? To answer this question I scraped 2300+ photos and meta data from Instagram and so far have tagged around 200 photos. Here are the results so far</p>
       <ResponsiveORFrame
         { ...sharedProps }
@@ -685,9 +687,8 @@ var CoopLovesCostumes = () => (
         { ...sharedProps }
         points={scatterItems}
         size={[300,700]}
-        yExtent={[0,160]}
+        yExtent={[0,165]}
         xExtent={[0,60]}
-        customHoverBehavior={d => hoverScatter(this, d)}
         hoverAnnotation={true}
         defined={d => d.total > 2}
         xAccessor={ d => getEpisodeTotal(d) }
@@ -697,23 +698,25 @@ var CoopLovesCostumes = () => (
         customPointMark={ ({d}) => ( <Mark markType="image" transform="translate(0,0)" x={getScatterSize(d.total, d.name)/-2} y={getScatterSize(d.total, d.name)/-2} height={getScatterSize(d.total, d.name)+"px"} type="image/svg+xml" xlinkHref={`images/${d.image}.png`}/> ) }
         axes={[
           { orient: 'bottom', padding: 0, ticks: 5, tickFormat: d => d, label:'Episode Appearances + FWWM'},
-          { orient: 'left', ticks: 5, tickFormat: d => d, label:'Costume Popularity'}
+          { orient: 'left', ticks: 7, tickFormat: d => d, label:'Costume Popularity'}
         ]}
         margin={{ left: 55, bottom: 100, right: 10, top: 30 }}
       />
     </div>
     <div>
       <TPFanFavorites/>
+      <TPRare/>
       <TPNoShows/>
+      <TPMyCostumes/>
     <div className="notes nextReport">
       <h3>Notes and Sources</h3>
       <p>I'm a huge Twin Peaks fan, so this was a labor of love. And it was lot of labor going through and tagging each photo. I found an open source library to scrape the photos and meta data from a public feed. </p>
       <p>The standouts (fan favorites, no shows, etc.) are hard coded but are based on a few derived metrics: popfrequency and unpopfrequency. It's the % of total costumes dvided by the number of episodes they appeared in. Appearing in the Twin Peaks film, Fire Walk with Me, counts as being in four episodes, which sounds about right to me.</p>
-      <p>I've been BOB, Dale Cooper, and Evil Dale for Halloween.</p>
       <p>Semiotic really delivers here on the promise of reusability, as I took my <a href="libraries">Charting Technolgies</a> scatter plot and repurposed it here with minimal changes.</p> 
       <p>Tech: <a href="https://emeeks.github.io/semiotic">Semiotic</a>, javascript, Instagram scraper, Google Sheets, GIMP</p>
     </div>
     </div>
+    <Nav/>
   </div>
 )
 

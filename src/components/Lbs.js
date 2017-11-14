@@ -1,5 +1,6 @@
 import React from 'react'
 import { ResponsiveXYFrame } from 'semiotic';
+import Nav from './Nav';
 
 var lbs = [
   {date:'2014-03-24',lbs:166.5},
@@ -356,7 +357,9 @@ var lbs = [
   {date:'2017-11-05',lbs:157.8},
   {date:'2017-11-06',lbs:159.2},
   {date:'2017-11-07',lbs:159.6},
-  {date:'2017-11-07',lbs:158.0}
+  {date:'2017-11-08',lbs:158.0},
+  {date:'2017-11-09',lbs:159.6},
+  {date:'2017-11-13',lbs:159.0}
 ];
 
 var floating = [];
@@ -412,6 +415,7 @@ var Lbs = () => (
       <p>I scaled this up from 150lbs which <a href="https://twitter.com/bengarvey/status/474588920513314816">can be a controversial move</a>, but with weight data do you really want to ever hit zero?</p>
       <p>Tech: <a href="https://emeeks.github.io/semiotic">Semiotic</a>, javascript, Notes, Google Sheets</p>
     </div>
+    <Nav/>
   </div>
 )
 

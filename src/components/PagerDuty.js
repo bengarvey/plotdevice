@@ -1,6 +1,7 @@
 import React from 'react';
 import { ResponsiveORFrame } from 'semiotic';
 import { scaleLinear } from "d3-scale";
+import Nav from './Nav';
 
 const heatScale = scaleLinear()
   .domain([0,5,10])
@@ -1238,6 +1239,7 @@ const PagerDuty = () => (
       <p>The data comes from our actual PagerDuty data at MBI. Each rectangle is a day and the darker it is, the more alerts were sent out to our team. I'm in the process of trying to quiet these alarms down, so I wrote a <a href="https://github.com/bengarvey/tap-pagerduty">Singer.io tap</a> to scrape the data from the PagerDuty API.</p>
       <p>Tech: <a href="https://emeeks.github.io/semiotic/#/">Semiotic</a>, javascript, <a href="https://singer.io">Singer.io</a></p>
     </div>
+    <Nav/>
   </div>
 )
 

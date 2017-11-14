@@ -24,7 +24,6 @@ var App = () => (
         <Route path='/cooplovescostumes' component={CoopLovesCostumes}/>
       </Switch>
     </BrowserRouter>
-    <Nav/>
   </div>
 )
 

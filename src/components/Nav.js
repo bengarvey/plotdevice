@@ -1,13 +1,12 @@
 import React from 'react'
 
-const Home = () => (
+const Nav = () => (
   <div>
     <ul className="navList">
       <li className="navListItem"><a href="">Home</a></li>
-      <li className="navListItem"><a href="about">About</a></li>
       <li className="navListItem"><a href="https://twitter.com/bengarvey">Twitter</a></li>
     </ul>
   </div>
 )
 
-export default Home
+export default Nav
