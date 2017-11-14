@@ -695,7 +695,7 @@ var CoopLovesCostumes = () => (
         yAccessor={ d => d.total }
         tooltipContent={ d => `${d.name} ${d.total} costumes ${d.episodesTotal} espisodes` }
         pointStyle={ d => ({fill: "#666", r: '5px'})}
-        customPointMark={ ({d}) => ( <Mark markType="image" transform="translate(0,0)" x={getScatterSize(d.total, d.name)/-2} y={getScatterSize(d.total, d.name)/-2} height={getScatterSize(d.total, d.name)+"px"} type="image/svg+xml" xlinkHref={`images/${d.image}.png`}/> ) }
+        customPointMark={ ({d}) => ( <Mark markType="image" transform="translate(0,0)" x={getScatterSize(d.total, d.name)/-2} y={getScatterSize(d.total, d.name)/-2} height={getScatterSize(d.total, d.name)+"px"} width={getScatterSize(d.total, d.name)+"px"} type="image/svg+xml" xlinkHref={`images/${d.image}.png`}/> ) }
         axes={[
           { orient: 'bottom', padding: 0, ticks: 5, tickFormat: d => d, label:'Episode Appearances + FWWM'},
           { orient: 'left', ticks: 7, tickFormat: d => d, label:'Costume Popularity'}
