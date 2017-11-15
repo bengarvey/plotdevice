@@ -26,38 +26,38 @@ var items =
    "evil": 50,
    "dougie": 63,
    "episodesOriginal": 30,
-   "episodesReturn": 18,
+   "episodesReturn": 5,
    "fwwm": 1,
-   "episodesTotal": 52,
+   "episodesTotal": 39,
    "image": "coop"
  },
  {
    "name": "Agent Cooper",
    "total": 159,
    "episodesOriginal": 30,
-   "episodesReturn": 18,
+   "episodesReturn": 5,
    "fwwm": 1,
-   "episodesTotal": 52,
+   "episodesTotal": 39,
    "image": "coop",
    "hide": true
  },
  {
    "name": "Evil Dale",
    "total": 50,
-   "episodesOriginal": 30,
+   "episodesOriginal": 1,
    "episodesReturn": 18,
-   "fwwm": 1,
-   "episodesTotal": 52,
+   "fwwm": 0,
+   "episodesTotal": 19,
    "image": "evil",
    "hide": true
  },
  {
    "name": "Dougie Jones",
    "total": 63,
-   "episodesOriginal": 30,
-   "episodesReturn": 18,
-   "fwwm": 1,
-   "episodesTotal": 52,
+   "episodesOriginal": 0,
+   "episodesReturn": 12,
+   "fwwm": 0,
+   "episodesTotal": 12,
    "image": "dougie",
    "hide": true
  },
@@ -251,10 +251,10 @@ var items =
  {
    "name": "The Black Lodge",
    "total": 27,
-   "episodesOriginal": 0,
-   "episodesReturn": 0,
-   "fwwm": 0,
-   "episodesTotal": 0,
+   "episodesOriginal": 5,
+   "episodesReturn": 7,
+   "fwwm": 1,
+   "episodesTotal": 16,
    "image": "lodge"
  },
  {
@@ -637,7 +637,7 @@ function getScatterSize(total) {
 
 var CoopLovesCostumes = () => (
   <div>
-    <div className="chartContainerWide">
+    <div className="chartContainer">
       <h1>#CoopLovesCostumes</h1>
       <h3>Which Twin Peaks costumes were the most popular?</h3>
       <ul className="characterList">
@@ -645,7 +645,7 @@ var CoopLovesCostumes = () => (
          <li className="characterListItem"><img alt="Dougie Jones" src="images/dougie.png"/></li>
          <li className="characterListItem"><img alt="Evil Dale" src="images/evil.png"/></li>
        </ul>
-      <p>On October 23rd, 2017 Kyle MacLachlan announced a Twin Peaks Halloween costume <a href="https://www.instagram.com/p/BamuMivAZko/?hl=en&taken-by=kyle_maclachlan">contest on Instagram</a>. To be eligible, you had to tag your costume with <a href="https://www.instagram.com/explore/tags/cooplovescostumes/">#CoopLovesCostumes</a> and omg the feed of costumes is incredible. But which characters were the most popular? To answer this question I scraped 2300+ photos and meta data from Instagram and so far have tagged around 200 photos. Here are the results so far</p>
+      <p>On October 23rd, 2017 Kyle MacLachlan announced a Twin Peaks Halloween costume <a href="https://www.instagram.com/p/BamuMivAZko/?hl=en&taken-by=kyle_maclachlan">contest on Instagram</a>. To be eligible, you had to tag your costume with <a href="https://www.instagram.com/explore/tags/cooplovescostumes/">#CoopLovesCostumes</a> and omg the feed of costumes is incredible. But which characters were the most popular? To answer this question I scraped 2300+ photos and meta data from Instagram and so far have tagged over 700 photos. Here are the results so far</p>
       <ResponsiveORFrame
         { ...sharedProps }
         projection={'horizontal'}
@@ -680,7 +680,7 @@ var CoopLovesCostumes = () => (
         axis={axis}
       />
     </div>
-    <div className="chartContainerWide">
+    <div className="chartContainer">
       <h1 className="nextReport">Popularity vs Episode Freq</h1>
       <h3>Does the frequency of a character influence their costume popularity?</h3>
       <ResponsiveXYFrame
@@ -688,7 +688,7 @@ var CoopLovesCostumes = () => (
         points={scatterItems}
         size={[300,700]}
         yExtent={[0,165]}
-        xExtent={[0,60]}
+        xExtent={[0,45]}
         hoverAnnotation={true}
         defined={d => d.total > 2}
         xAccessor={ d => getEpisodeTotal(d) }
@@ -708,7 +708,7 @@ var CoopLovesCostumes = () => (
       <TPRare/>
       <TPNoShows/>
       <TPMyCostumes/>
-    <div className="notes nextReport">
+    <div className="notes nextReport chartContainer">
       <h3>Notes and Sources</h3>
       <p>I'm a huge Twin Peaks fan, so this was a labor of love. And it was lot of labor going through and tagging each photo. I found an open source library to scrape the photos and meta data from a public feed. </p>
       <p>The standouts (fan favorites, no shows, etc.) are hard coded but are based on a few derived metrics: popfrequency and unpopfrequency. It's the % of total costumes dvided by the number of episodes they appeared in. Appearing in the Twin Peaks film, Fire Walk with Me, counts as being in four episodes, which sounds about right to me.</p>

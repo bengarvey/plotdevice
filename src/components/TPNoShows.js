@@ -12,7 +12,7 @@ const TPNoShows = () => (
       </li>
       <li className="characterListItem">
         <img alt="James Hurley" src="images/james.png" width="100px"/>
-        <div className="characterTitle">Sarah Palmer</div>
+        <div className="characterTitle">James Hurley</div>
         <div>He never recovered his cool after <a href="https://www.youtube.com/watch?v=rq8bHVSCqN0">this</a>. Laura was right about you, James.</div>
       </li>
       <li className="characterListItem">

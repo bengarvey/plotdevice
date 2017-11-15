@@ -415,6 +415,12 @@ const Auto = () => (
     </div>
     <AutoDescription/>
     <AutoLegend/>
+    <div className="autoNav">
+      <ul className="navList">
+        <li className="navListItem"><a href="../">Home</a></li>
+        <li className="navListItem"><a href="https://twitter.com/bengarvey">Twitter</a></li>
+      </ul>
+    </div>
   </div>
 )
 

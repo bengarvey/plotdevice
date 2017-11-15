@@ -191,7 +191,7 @@ html {
 .chartContainer {
   margin: 0;
   padding: 5px;
-  overflow-y: scroll;
+  overflow-y: hidden;
 }
 
 .main {
@@ -264,4 +264,12 @@ a:link, a:visited {
   background-color: rgba(0,0,0,0.5);
   color: #eeeeee;
   font-size: 12px;
+}
+
+.autoNav {
+  position: absolute;
+  text-align: center;
+  left-padding: 0;
+  top: 680px;
+  width: 375px;
 }
