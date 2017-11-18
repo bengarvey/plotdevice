@@ -28,6 +28,12 @@ h3 {
   list-style: upper-roman;
 }
 
+.list--plain {
+  margin: 0;
+  padding: 0 0 0 20px;
+  list-style: none;
+}
+
 .list-item {
   margin: 5px;
 }
@@ -215,12 +221,12 @@ html {
   padding: 0 0 0 0;
 }
 
-.navList {
+.navList, .list--plain {
   padding-left: 0;
   text-align: center;
 }
 
-.characterListItem, .navListItem {
+.characterListItem, .navListItem, .sketchListItem {
   display: inline-block;
   vertical-align: top;
   text-align: center;
@@ -232,6 +238,10 @@ html {
 
 .navListItem {
   margin: 10px 10px 10px 10px;
+}
+
+.sketchListItem {
+  margin: 10px 5px 5px 5px;
 }
 
 .characterTitle {
@@ -272,4 +282,13 @@ a:link, a:visited {
   left-padding: 0;
   top: 680px;
   width: 375px;
+}
+
+.autoSketch {
+  position: absolute;
+  top: 750px;
+}
+
+.sketch {
+  width: 340px;
 }

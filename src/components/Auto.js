@@ -3,6 +3,7 @@ import { XYFrame } from 'semiotic';
 import { curveBasis } from 'd3-shape';
 import AutoDescription from './AutoDescription';
 import AutoLegend from './AutoLegend';
+import AutoSketch from './AutoSketch';
 const auto = require('../data/auto.json');
 
 const colors = {
@@ -415,6 +416,7 @@ const Auto = () => (
     </div>
     <AutoDescription/>
     <AutoLegend/>
+    <AutoSketch/>
     <div className="autoNav">
       <ul className="navList">
         <li className="navListItem"><a href="../">Home</a></li>
