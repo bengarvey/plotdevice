@@ -1,0 +1,10 @@
+{
+  "username": "plotdevice",
+  "password": "",
+  "host": "",
+  "port": 21,
+  "localRoot": "",
+  "remoteRoot": "",
+  "include": [],
+  "exclude": [".git", "tmp/*","deploy.json"]
+}
