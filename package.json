@@ -5,7 +5,9 @@
   "homepage": "http://plotdevice.bengarvey.com",
   "dependencies": {
     "babel-preset-react": "^6.24.1",
+    "chance": "^1.0.12",
     "create-react-class": "^15.6.2",
+    "csv-parse": "^2.0.0",
     "d3-shape": "^1.2.0",
     "ftp-deploy": "^1.2.2",
     "react": "^16.0.0",
@@ -13,7 +15,8 @@
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.14",
-    "semiotic": "^1.1.9"
+    "require-csv": "0.0.1",
+    "semiotic": "^1.2.5"
   },
   "scripts": {
     "start": "react-scripts start",

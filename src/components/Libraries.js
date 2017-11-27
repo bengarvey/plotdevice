@@ -56,7 +56,7 @@ const Libraries = () => (
       points={display.data}
       pointStyle={ d => ({fill: "#666", r: '5px'})}
       tooltipContent={d => d.name}
-      customPointMark={ ({d}) => ( <Mark markType="image" transform="translate(-20,-20)" height="20px" width="20px" type="image/svg+xml" xlinkHref={d.logo}/> ) }
+      customPointMark={ ({d}) => ( <Mark markType="image" x={-10} y={-10} transform="translate(-20,-20)" height="20px" width="20px" type="image/svg+xml" xlinkHref={d.logo}/> ) }
       axes={[
         { orient: 'bottom', padding: 0, ticks: 5, tickFormat: d => ''},
         { orient: 'left', ticks: 5, tickFormat: d => ''}
@@ -67,7 +67,7 @@ const Libraries = () => (
       <h3>Notes and Sources</h3>
       <p>This is a fun scatter plot I used in my <a href="https://docs.google.com/presentation/d/1OEHDz99ieT50piYyQRYx9msShZs1aQFVnOyRVMOJxVg/edit?usp=sharing">BarCampPhily slides</a> to illustrate where Semiotic fits in with other chart libraries like Highcharts, Plotly, D3, etc. The data is 100% made up by me.</p>
       <p>The point is that I can make a chart in Excel or Google Sheets quickly and it will be ugly and boring, or I can spent months hammering it out in D3 or vanilla Javascript and it will be beautiful. Semiotic cherry picks some of the cooler D3 chart types and makes them more accessible and easier to work with.</p>
-      <p>Making this chart was hard, because I had no idea how to get the custom logos in there. I ended up filing a <a href="https://github.com/emeeks/semiotic/issues/64">Github issue about it</a> amd they helped me figure it out. Even now, the data points are at the top left corner of the image instead of the center, which bothers me greatly.</p>
+      <p>Making this chart was hard, because I had no idea how to get the custom logos in there. I ended up filing a <a href="https://github.com/emeeks/semiotic/issues/64">Github issue about it</a> amd they helped me figure it out.</p>
       <p>Tech: <a href="https://emeeks.github.io/semiotic">Semiotic</a>, javascript, GIMP</p>
     </div>
     <Nav/>
