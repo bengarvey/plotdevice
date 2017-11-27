@@ -5,9 +5,9 @@ import { Chance } from "chance";
 import { scaleLinear } from "d3-scale";
 import { sum, max } from "d3-array";
 import { curveMonotoneX } from "d3-shape";
+import PD from '../lib/pd.js';
 
-//const auto = require('../data/updates.json');
-
+var pd = new PD();
 var chance = new Chance();
 
 var total = 3000;
@@ -47,18 +47,10 @@ function processItems(cid, keys, d) {
 function getRandomDatum() {
   return { value: chance.integer({min: 0, max: 300}),
            date: chance.date(),
-           color: getRandomColor(),
+           color: pd.getColor(),
            metric: "random",
            cid: chance.integer({"min": 1, "max": 30})
   };
-}
-
-function getRandomColor() {
-  return `rgba(${get8Bit()}, ${get8Bit()}, ${get8Bit()}, 0.4)`;
-}
-
-function get8Bit() {
-  return chance.integer({min: 0, max: 255});
 }
 
 var modified = [];
