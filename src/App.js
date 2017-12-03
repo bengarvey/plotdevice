@@ -10,7 +10,8 @@ import PagerDuty from './components/PagerDuty'
 import Tornadoes from './components/Tornadoes'
 import CoopLovesCostumes from './components/CoopLovesCostumes'
 import Joy from './components/Joy'
-
+import Starwars from './components/Starwars'
+import Steps from './components/Steps'
 
 var App = () => (
   <div className="main">
@@ -24,6 +25,8 @@ var App = () => (
         <Route path='/tornadoes' component={Tornadoes}/>
         <Route path='/cooplovescostumes' component={CoopLovesCostumes}/>
         <Route path='/joy' component={Joy}/>
+        <Route path='/starwars' component={Starwars}/>
+        <Route path='/steps' component={Steps}/>
       </Switch>
     </BrowserRouter>
   </div>
