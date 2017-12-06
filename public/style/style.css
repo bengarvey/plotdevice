@@ -200,6 +200,15 @@ html {
   overflow-y: hidden;
 }
 
+.abChartContainer {
+  position: absolute;
+  top: 57px;
+  left: 13px;
+  width: 100%;
+  overflow-y: hidden;
+  margin: 0;
+}
+
 .main {
 }
 
@@ -253,7 +262,7 @@ html {
 }
 
 @media screen and (min-width: 600px) {
-    .chartContainer {
+    .abChartContainer, .chartContainer {
       width: 600px;
       margin: auto;
     }
@@ -262,6 +271,7 @@ html {
     }
     .chartContainerWide {
       width: 100%;
+      margin: auto;
     }
 }
 
@@ -291,4 +301,10 @@ a:link, a:visited {
 
 .sketch {
   width: 340px;
+  width: 100%;
 }
+
+.axis-baseline {
+  opacity: 0;
+}
+

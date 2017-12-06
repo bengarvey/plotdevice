@@ -15,14 +15,25 @@ for(var i=win; i<lbs.length; i++) {
   floating.push({date: lbs[i].date, lbs: value/win});
 }
 
+var recentWindow = 128;
+var recentLbs = lbs.slice().splice(lbs.length-recentWindow,recentWindow);
+var recentFloating = floating.slice().splice(floating.length-recentWindow, recentWindow);
+
 var display = [
   {data: lbs, color: '#393e41', opacity: 0.35, strokeWidth: "1px"},
   {data: floating, color: '#393e41', opacity: 1, strokeWidth: "1px"}
 ];
 
+var recentDisplay = [
+  {data: recentLbs, color: '#393e41', opacity: 0.35, strokeWidth: "1px"},
+  {data: recentFloating, color: '#393e41', opacity: 1, strokeWidth: "1px"}
+];
+
+var recentFirst = recentLbs[0].date;
 var first = lbs[0].date;
 var last = lbs[lbs.length-1].date;
 
+var recentRange = `${recentFirst} to ${last}`;
 var range = `${first} to ${last}`;
 
 function formatDate(date) {
@@ -32,6 +43,27 @@ function formatDate(date) {
 var Lbs = () => (
   <div className="chartContainer">
     <h1>Weight Over Time</h1>
+    <h3>{recentRange}</h3>
+    <ResponsiveXYFrame
+      size={[300,250]}
+      responsiveWidth={true}
+      lines={recentDisplay}
+      yExtent={[150]}
+      margin={{top: 5, bottom: 25, left: 25, right: 5}}
+      lineDataAccessor={d => d.data}
+      xAccessor={d => new Date(d.date)}
+      yAccessor={d => d.lbs}
+      hoverAnnotation={true}
+      lineType={{ type: 'line'}}
+      lineRenderMode={d => "sketchy"}
+      lineStyle={(d) => ({ stroke: d.color, strokeWidth: d.strokeWidth, opacity:d.opacity })}
+      customLineType={{ type: "dividedLine"}}
+      axes={[
+        { orient: 'left', tickFormat: d => d, ticks: 10},
+        { orient: 'bottom', tickFormat: d => formatDate(new Date(d)), ticks: 2 }
+      ]}
+    />
+    <br/>
     <h3>{range}</h3>
     <ResponsiveXYFrame
       size={[300,250]}
@@ -42,7 +74,7 @@ var Lbs = () => (
       lineDataAccessor={d => d.data}
       xAccessor={d => new Date(d.date)}
       yAccessor={d => d.lbs}
-      pieceHoverAnnotation={true}
+      hoverAnnotation={true}
       lineType={{ type: 'line'}}
       lineRenderMode={d => "sketchy"}
       lineStyle={(d) => ({ stroke: d.color, strokeWidth: d.strokeWidth, opacity:d.opacity })}
