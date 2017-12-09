@@ -12,6 +12,8 @@ import CoopLovesCostumes from './components/CoopLovesCostumes'
 import Joy from './components/Joy'
 import Starwars from './components/Starwars'
 import Steps from './components/Steps'
+import Line from './components/Line'
+import Pline from './components/Pline'
 
 var App = () => (
   <div className="main">
@@ -27,6 +29,7 @@ var App = () => (
         <Route path='/joy' component={Joy}/>
         <Route path='/starwars' component={Starwars}/>
         <Route path='/steps' component={Steps}/>
+        <Route path='/line' component={Line}/>
       </Switch>
     </BrowserRouter>
   </div>
