@@ -398,7 +398,7 @@ const Starwars = () => (
                 items: [
                   { label: "Light Side", color: colors.light },
                   { label: "Dark Side", color: colors.dark },
-                  { label: "Normal", color: colors.neutral },
+                  { label: "Neutral", color: colors.neutral },
                   { label: "Droid", color: colors.droid },
                 ]
               }
