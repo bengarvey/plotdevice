@@ -11,6 +11,7 @@ const Home = () => (
       <li className="list-item"><a href="pagerduty">Pager Duty Incidents</a></li>
       <li className="list-item"><a href="tornadoes">US Tornado Deaths 1875 - 2017</a></li>
       <li className="list-item"><a href="cooplovescostumes">#CoopLovesCostumes</a></li>
+      <li className="list-item"><a href="starwars">Star Wars Network (No Last Jedi Spoilers)</a></li>
     </ul>
     <div>
       <ul className="navList">
