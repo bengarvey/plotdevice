@@ -10,10 +10,19 @@ var win = 7;
 
 for(var i=win; i<lbs.length; i++) {
   var value = 0;
+  var max = {
+    x: 0,
+    y: null,
+    label: "Max"
+  };
   for(var j=win-1; j>=0; j--) {
     value += lbs[i-j].lbs;
   }
-  floating.push({date: lbs[i].date, value: value/win});
+  if (max.x < lbs[i]) {
+    max.x = lbs[i].lbs;
+    max.y = lbs[i].date;
+  }
+  floating.push({date: lbs[i].date, lbs: value/win});
 }
 
 var recentWindow = 128;
@@ -40,13 +49,15 @@ var range = `${first} to ${last}`;
 function formatDate(date) {
   return `${date.getFullYear()}-${date.getMonth()+1}`;
 }
-console.log(recentDisplay);
+
 var Line = () => (
   <div className="chartContainer">
     <h1>The Perfect Line Chart</h1>
     <h3>What makes a perfect line chart?</h3>
     <Pline
-      hi="test"
+      yLabel={'Weight (lbs)'}
+      xLabel={'Time'}
+      max={max}
       display={recentDisplay}
     />
      <div className="notes nextReport">

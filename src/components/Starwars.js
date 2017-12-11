@@ -2,6 +2,7 @@ import React from 'react';
 import { ResponsiveNetworkFrame } from 'semiotic';
 import { curveBasis } from 'd3-shape';
 import { Chance } from "chance";
+import Nav from './Nav';
 
 var chance = new Chance;
 
@@ -351,27 +352,67 @@ const Starwars = () => (
   <div className="chartContainer">
     <h1>Star Wars Network</h1>
     <h3>Force directed graph</h3>
-    <ResponsiveNetworkFrame
-        size={[ 300, 500 ]}
-        responsiveWidth={true}
-        edges={network.links}
-        nodes={network.nodes}
-        edgeStyle={(d) => ({ stroke: colors[d.relation], fill: colors[d.relation], opacity: 0.5, strokeWidth: '1px' })}
-        nodeStyle={d => ({ fill: colors[d.side], r:"15px"})}
-        networkType={{ type: 'motifs', iterations: 500, edgeStrength:0.07, multi:true }}
-        edgeType={'arrowhead'}
-        nodeSizeAccessor={d => 7}
-        zoomToFit={true}
-        nodeIDAccessor={"id"}
-        hoverAnnotation={true}
-        tooltipContent={d => 
-        <div className="tooltip-content" >
-          <p>{d.id}</p>
-          <p>{d.name}</p>
-          <p>Force Side: {d.side}</p>
-        </div>}
-        margin={{left: 20, top: 20, bottom: 20, right: 50}}
-    />
+      <ResponsiveNetworkFrame
+          size={[ 300, 700 ]}
+          responsiveWidth={true}
+          edges={network.links}
+          nodes={network.nodes}
+          edgeStyle={(d) => ({ stroke: colors[d.relation], fill: colors[d.relation], opacity: 0.5, strokeWidth: '1px' })}
+          nodeStyle={d => ({ fill: colors[d.side], r:"15px"})}
+          networkType={{ type: 'force', iterations: 400, edgeStrength:0.09, multi:true }}
+          edgeType={'arrowhead'}
+          nodeSizeAccessor={d => 7}
+          zoomToFit={true}
+          nodeIDAccessor={"id"}
+          nodeLabels={d => d.name}
+          hoverAnnotation={true}
+          tooltipContent={d => 
+            <div className="tooltip-content" >
+              <p>{d.id}</p>
+              <p>{d.name}</p>
+              <p>Force Side: {d.side}</p>
+            </div>
+          }
+          legend={{
+            legendGroups: [
+             {  type: 'line',
+                styleFn: d => (
+                  { stroke: d.color,
+                    strokeOpacity: 0.5,
+                    strokeWidth: "3px"
+                  }),
+                items: [
+                  { label: "Mother", color: colors.mother },
+                  { label: "Father", color: colors.father },
+                  { label: "Trained", color: colors.trained },
+                  { label: "Killed", color: colors.killed },
+                  { label: "Married", color: colors.spouse }
+                ]
+             },
+             { styleFn: d => (
+                  { fill: d.color,
+                    strokeOpacity: 0,
+                    fillOpacity: 1,
+                    type: 'circle'
+                  }),
+                items: [
+                  { label: "Light Side", color: colors.light },
+                  { label: "Dark Side", color: colors.dark },
+                  { label: "Normal", color: colors.neutral },
+                  { label: "Droid", color: colors.droid },
+                ]
+              }
+            ]
+          }}
+          margin={{left: 25, top: 20, bottom: 20, right: 120}}
+      />
+    <div className="notes nextReport">
+      <h3>Notes and Sources</h3>
+      <p>This doesn't contain any spoilers from The Last Jedi because I haven't watched it yet. Some of the relationships are loosely implied from the Force Awakens.</p>
+      <p>Network diagrams are always a mess, but I saw a great talk about them at OpenVis Conf 2017 called <a href="https://openvisconf.com/#jgomez-video-item">Untangling the Hairball</a>. I might need to watch it again.</p>
+      <p>Tech: <a href="https://emeeks.github.io/semiotic">Semiotic</a>, javascript, an old VHS tape I watched hundreds of times, IMDB</p>
+    </div>
+    <Nav/>
   </div>
 );
 
