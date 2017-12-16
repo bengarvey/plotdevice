@@ -5,7 +5,7 @@ import Nav from './Nav';
 var steps = require('../data/steps.json');
 
 var floating = [];
-var win = 7;
+var win = 60;
 
 for(var i=win; i<steps.length; i++) {
   var value = 0;
@@ -16,8 +16,8 @@ for(var i=win; i<steps.length; i++) {
 }
 
 var display = [
-  {data: steps, color: '#393e41', opacity: 0.35, strokeWidth: "1px"},
-  {data: floating, color: '#393e41', opacity: 1, strokeWidth: "1px"}
+  {data: steps, color: '#393e41', opacity: 0.5, strokeWidth: "1px"},
+  {data: floating, color: '#393e41', opacity: 0.85, strokeWidth: "1px"}
 ];
 
 var first = steps[0].date;
@@ -69,7 +69,9 @@ var Steps = () => (
     </div>
    <div className="notes nextReport">
       <h3>Notes and Sources</h3>
-      <p>Tech: <a href="https://emeeks.github.io/semiotic">Semiotic</a>, javascript, ios Health app, DayStepper</p>
+      <p>This data came right out of the iOS Health app, which allows you to export a giant XML file of all your steps. I wrote a script to parse it and consolidate the data by day</p>
+      <p>The point show raw data and the is a 60 day floating average. It's interesting that even at 60 days, it's still jagged.</p>
+      <p>Tech: <a href="https://emeeks.github.io/semiotic">Semiotic</a>, javascript, ios Health app</p>
     </div>
     <Nav/>
   </div>

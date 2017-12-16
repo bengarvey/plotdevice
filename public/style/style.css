@@ -202,8 +202,7 @@ html {
 
 .abChartContainer {
   position: absolute;
-  top: 57px;
-  left: 13px;
+  top: 60px;
   width: 100%;
   overflow-y: hidden;
   margin: 0;
