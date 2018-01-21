@@ -6,9 +6,14 @@ body {
 }
 
 text {
-  fill: #999;
+  fill: #999;;
   font-size: 10px;
   font-family: Helvetica, Arial, sans-serif;
+  fill-opaity: 0.5;
+}
+
+.female {
+  fill: #ea91b7;
 }
 
 h1, h2, h3, h3, h3 {
@@ -24,7 +29,7 @@ h3 {
 
 .list {
   margin: 0;
-  padding: 0 0 0 20px;
+  padding: 0 0 0 26px;
   list-style: upper-roman;
 }
 
@@ -54,7 +59,11 @@ circle {
 }
 
 .tick-line {
-  opacity: 0.4;
+  opacity: 0.3;
+}
+
+.axis-tick-lines {
+  opacity: 1;
 }
 
 .annotation-subject path {
@@ -133,7 +142,7 @@ circle {
 }
 
 .gasLegend {
-  top: 365px;
+  top: 330px;
   left: 375px;
   color: #d86641;
 }
@@ -197,12 +206,12 @@ html {
 .chartContainer {
   margin: 0;
   padding: 5px;
-  overflow-y: hidden;
+  overflow: visible;
 }
 
 .abChartContainer {
   position: absolute;
-  top: 60px;
+  top: 61px;
   width: 100%;
   overflow-y: hidden;
   margin: 0;
@@ -261,10 +270,16 @@ html {
 }
 
 @media screen and (min-width: 600px) {
-    .abChartContainer, .chartContainer {
+    .chartContainer {
       width: 600px;
       margin: auto;
     }
+
+    .abChartContainer {
+      width: 590px;
+      margin: auto;
+    }
+
     .chartContainerLeft {
       width: 600px;
     }
@@ -300,7 +315,6 @@ a:link, a:visited {
 
 .sketch {
   width: 340px;
-  width: 100%;
 }
 
 .axis-baseline {
