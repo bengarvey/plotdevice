@@ -1,6 +1,5 @@
 import React from 'react';
-import { ResponsiveORFrame } from 'semiotic';
-import { ResponsiveXYFrame } from 'semiotic';
+import { ResponsiveORFrame, ResponsiveXYFrame } from 'semiotic';
 import { scaleLinear } from "d3-scale";
 import Nav from './Nav';
 
@@ -11,8 +10,28 @@ const colors = {
 }
 
 var movies = require('../data/topmovies.json');
-movies = movies.splice(0,100);
 
+movies.forEach((m) => {
+  Object.keys(m.rank).forEach((key) => {
+    m.rank[key] = m.rank[key] == 0 || m.rank[key] > 100 ? null : parseInt(m.rank[key]);
+  });
+});
+
+var sortedMovies09 = movies.slice();
+sortedMovies09.sort((a,b) => {return sortByRank(a,b,"2009")});
+var sortedMovies18 = movies.slice();
+sortedMovies18.sort((a,b) => {return sortByRank(a,b,"2018")});
+
+function sortByRank(x,y,key) {
+  var a = x.rank[key];
+  var b = y.rank[key];
+  return (a === null) - (b === null) || +(a > b) || -(a < b);
+}
+
+console.log(sortedMovies09);
+console.log(sortedMovies18);
+
+movies = movies.splice(0,99);
 const heatScale = scaleLinear()
   .domain([0,5,10])
   .range(["#fbf7da", "red", "darkred"]).clamp(true);
@@ -36,7 +55,6 @@ movies.forEach( function(d, i) {
   genders[d.director.name] = d.director.gender;
 });
 
-console.log(movies);
 delete directors["undefined"];
 
 var modDecades = buildData(decades);
@@ -73,24 +91,49 @@ function sortByValueDesc(a,b) {
 }
 
 function getGenderClassName(crew) {
-  console.log(crew);
   if (typeof(crew) === 'undefined') {
     crew = {};
   }
   return crew.gender == 1 ? 'female' : 'male';
 }
 
+function obToArray(ob) {
+  var arr = [];
+  Object.keys(ob).forEach( function(key) {
+    arr.push(parseInt(ob[key]));
+  });
+  return arr;
+}
+
 var display = {
   data: []
 };
-movies.forEach( function(m) {
+
+var slope = [
+];
+var movieNames = [];
+
+movies.forEach( function(m, i) {
   var item = {
-    'rank2018': m['rank2018'],
+    'rank': m.rank,
     'vote_average': m.vote_average,
     'name': m.title,
-    'director': m.director
+    'director': m.director, 
+    'color': m.genre_ids[0]
   };
   display.data.push(item);
+
+  var line = [
+    {value: parseInt(m.rank['2009']), date: 2009, name: m.title},
+    {value: parseInt(m.rank['2018']), date: 2018, name: m.title}
+  ];
+
+  var slopeItem = [
+    {data: line, name: m.title}
+  ];
+
+  slope.push(slopeItem);
+  movieNames.push(m.title);
 });
 
 /*
@@ -104,9 +147,15 @@ var display = {
 */
 
 display.data.forEach( function(m) {
-  console.log(m['rank2018'], m.vote_average);
+  //console.log(m.rank['2018'], m.vote_average);
 });
 
+function getName(index, lookup) {
+  var title = index >= 100 ? index : lookup[index].title;
+  return title.length > 17 ? title.substr(0,15) + '...' : title;
+}
+
+console.log(slope);
 
 const Movies = () => (
   <div className="chartContainer">
@@ -143,27 +192,30 @@ const Movies = () => (
       margin={{ left: 130, top: 10, bottom: 50, right: 10 }}
       oPadding={2}
     />
-    <h3>How do my rankings compare with others?</h3>
+    <h3>How have my choices changed since 2009</h3>
     <ResponsiveXYFrame
-      points={display.data}
-      size={[360,700]}
+      size={[360,1200]}
+      lines={slope}
       responsiveWidth={true}
-      yExtent={[6,9]}
-      xExtent={[100,0]}
+      yExtent={[100,1]}
+      lineDataAccessor={d => d[0].data}
+      yAccessor={"value"}
+      xAccessor={"date"}
+      lineType={{type: 'line'}}
       hoverAnnotation={true}
-      xAccessor={ 'rank2018' }
-      yAccessor={ 'vote_average' }
-      pointStyle={ d => ({fill: "#666", r: '2px'})}
-      tooltipContent={ d => `${d.name} by ${d.director.name} Rank: ${d['rank2018']} Rating: ${d.vote_average}` }
+      tooltipContent={ d => `${d.value} ${d.name}` }
+      lineStyle={(d) => ({ stroke: '#000', strokeWidth: '1px', opacity:'0.3' })}
+      margin={{"top":10,"bottom":40,"left":100,"right":100}}
       axes={[
-        { orient: 'bottom', padding: 0, ticks: 5, tickFormat: d => d, label:'My Ranking'},
-        { orient: 'left', ticks: 7, tickFormat: d => d, label:'TheMovieDB Rating'}
+    { className: 'slopeTick', orient: 'left', tickFormat: d =>  getName(d-1, sortedMovies09).substr(0,40), ticks: 100},
+    { clssName: 'slopeTick', orient: 'right', tickFormat: d => getName(d-1, sortedMovies18).substr(0,40), ticks: 100},
+    { className: 'slopeTick', orient: 'bottom', tickFormat: d => d }
       ]}
-      margin={{ left: 55, bottom: 100, right: 10, top: 30 }}
+      hoverAnnotation={true}
     />
     <div className="notes nextReport">
       <h3>Notes and Sources</h3>
-      <p>Tech: <a href="https://emeeks.github.io/semiotic/#/">Semiotic</a>, javascript, TheMovieDB.org</p>
+      <p>Tech: <a href="https://emeeks.github.io/semiotic/#/">Semiotic</a>, javascript, <a href="themoviedb.org">TheMovieDB.org</a></p>
     </div>
     <Nav/>
   </div>

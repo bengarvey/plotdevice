@@ -62,8 +62,17 @@ circle {
   opacity: 0.3;
 }
 
+
 .axis-tick-lines {
   opacity: 1;
+}
+
+.slopeTick .tick-line {
+  opacity: 0;
+}
+
+.slopeTick .axis-ick-line {
+  opacity: 0;
 }
 
 .annotation-subject path {
