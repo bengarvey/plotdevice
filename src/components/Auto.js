@@ -399,7 +399,6 @@ const Auto = () => (
     <XYFrame
       { ...sharedProps }
       lines={alcDisplay}
-      defined={d => d.y !== null}
       yExtent={[0, 55000]}
       lineDataAccessor="data"
       lineType={{type:"stackedarea", interpolator: curveBasis}}
