@@ -134,7 +134,7 @@ var mileAnnotations = [
     bounds: [{ x: createDate("1929-04-01") }, { x: createDate("1933-03-01") }],
     label: "Great Depression",
     dy: 20,
-    dx: -5,
+    dx: 50,
   },
   {
     ...sharedMileAnnotationProps,
@@ -399,7 +399,6 @@ const Auto = () => (
     <XYFrame
       { ...sharedProps }
       lines={alcDisplay}
-      defined={d => d.y !== null}
       yExtent={[0, 55000]}
       lineDataAccessor="data"
       lineType={{type:"stackedarea", interpolator: curveBasis}}
