@@ -15,6 +15,7 @@ import Steps from './components/Steps'
 import Line from './components/Line'
 import Pline from './components/Pline'
 import Movies from './components/Movies'
+import Rj from './components/Rj'
 
 var App = () => (
   <div className="main">
@@ -32,6 +33,7 @@ var App = () => (
         <Route path='/steps' component={Steps}/>
         <Route path='/line' component={Line}/>
         <Route path='/movies' component={Movies}/>
+        <Route path='/rj' component={Rj}/>
       </Switch>
     </BrowserRouter>
   </div>
