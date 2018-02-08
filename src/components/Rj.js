@@ -145,8 +145,6 @@ function getEdgeStrength(type) {
     return 0.1;
   }
 }
-console.log(network);
-
 const Rj = () => (
   <div className="chartContainer">
     <h1>RJMetrics</h1>

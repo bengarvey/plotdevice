@@ -1,64 +1,62 @@
 import React from 'react'
-import { ResponsiveXYFrame } from 'semiotic';
+import { ResponsiveORFrame } from 'semiotic';
 import Nav from './Nav';
 
 var steps = require('../data/steps.json');
 
-var floating = [];
-var win = 60;
-
-for(var i=0; i<win; i++) {
-  floating.push({date: steps[i].date, steps: null});
+const colors = {
+  female: '#faa1c7',
+  male: '#009ddc',
+  unknown: '#666666',
+  success: '#15b097',
+  failure: '#da4167',
+  neutral: '#999999',
+  primary: '#000000'
 }
 
-for(var i=win; i<steps.length; i++) {
-  var value = 0;
-  for(var j=win-1; j>=0; j--) {
-    value += steps[i-j].steps;
-  }
-  floating.push({date: steps[i].date, steps: value/win});
-}
+console.log(steps);
+var display = [];
 
-var display = [
-  {data: steps, color: '#393e41', opacity: 0.5, strokeWidth: "1px"},
-  {data: floating, color: '#393e41', opacity: 0.85, strokeWidth: "1px"}
-];
-
-console.log(display);
-
-var first = steps[0].date;
-var last = steps[steps.length-1].date;
-
-var range = `${first} to ${last}`;
+steps.forEach( function(d) {
+  var itemDate = new Date(d.date);
+  var monthYear = `${itemDate.getMonth()+1}-${itemDate.getYear() + 1900}`;
+  display.push({value: d.steps, name: monthYear});
+});
 
 function formatDate(date) {
   return `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
 }
 
-var sharedProps = {
-  size: [300,350],
-  responsiveWidth: true,
-  yExtent: [0,18000],
-  margin: {top: 10, bottom: 25, left: 45, right: 5},
-  hoverAnnotation: true,
+function displayThing(d) {
+  console.log(d);
+  return d.data;
 }
 
+const leftAxis = {
+    orient: 'left', 
+    ticks: 3
+};
+
+console.log(display);
 var Steps = () => (
   <div className="chartContainer">
     <h1>Steps Per Day</h1>
-    <h3>{range}</h3>
-    <ResponsiveXYFrame
-      {...sharedProps }
-      defined={d => d.steps !== null}
-      points={display[0].data}
-      pointStyle={ d => ({fill: "#333", r: '1px'})}
-      xAccessor={d => new Date(d.date)}
-      yAccessor={d => d.steps}
-      renderType={"sketchy"}
-      axes={[
-        { orient: 'left', tickFormat: d => d, ticks: 4},
-        { orient: 'bottom', tickFormat: d => formatDate(new Date(d)), ticks: 4 }
-      ]}
+    <h3>How much am I walking?</h3>
+    <ResponsiveORFrame
+      size={[ 360, 500 ]}
+      responsiveWidth={true}
+      data={display}
+      rAccessor={d => d.value}
+      oAccessor={d => d.name}
+      pieceHoverAnnotation={true}
+      tooltipContent={ d => `${d.value} ${d.name}` }
+      style={d => ({ fill: colors.primary, stroke: colors.primary, strokeOpacity: 0.0, fillOpacity: 0.4, strokeWidth: 1 })}
+      summaryType={"boxplot"}
+      type={"swarm"}
+      axis={leftAxis}
+      oLabel={(d, i) => (<text textAnchor="middle" transform="rotate(90)">{d}</text>)}
+      margin={{ left: 30, top: 30, bottom: 30, right: 10 }}
+      oPadding={10}
     />
    <div className="notes nextReport">
       <h3>Notes and Sources</h3>
