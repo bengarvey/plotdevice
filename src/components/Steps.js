@@ -1,69 +1,62 @@
 import React from 'react'
-import { ResponsiveXYFrame } from 'semiotic';
+import { ResponsiveORFrame } from 'semiotic';
 import Nav from './Nav';
 
 var steps = require('../data/steps.json');
 
-var floating = [];
-var win = 60;
-
-for(var i=0; i<win; i++) {
-  floating.push({date: steps[i].date, steps: null});
+const colors = {
+  female: '#faa1c7',
+  male: '#009ddc',
+  unknown: '#666666',
+  success: '#15b097',
+  failure: '#da4167',
+  neutral: '#999999',
+  primary: '#000000'
 }
 
-for(var i=win; i<steps.length; i++) {
-  var value = 0;
-  for(var j=win-1; j>=0; j--) {
-    value += steps[i-j].steps;
+console.log(steps);
+var display = [];
+
+steps.forEach( function(d) {
+  var itemDate = new Date(d.date);
+  var group = `${itemDate.toLocaleString('en-us', {month:'short'})}-${itemDate.getYear() + 1900}`;
+  display.push({value: d.steps, name: group});
+});
+
+const leftAxis = [{
+    orient: 'left',
+    ticks: 3,
+    label: 'Steps'
   }
-  floating.push({date: steps[i].date, steps: value/win});
-}
-
-var display = [
-  {data: steps, color: '#393e41', opacity: 0.5, strokeWidth: "1px"},
-  {data: floating, color: '#393e41', opacity: 0.85, strokeWidth: "1px"}
 ];
 
 console.log(display);
-
-var first = steps[0].date;
-var last = steps[steps.length-1].date;
-
-var range = `${first} to ${last}`;
-
-function formatDate(date) {
-  return `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
-}
-
-var sharedProps = {
-  size: [300,350],
-  responsiveWidth: true,
-  yExtent: [0,18000],
-  margin: {top: 10, bottom: 25, left: 45, right: 5},
-  hoverAnnotation: true,
-}
-
 var Steps = () => (
   <div className="chartContainer">
-    <h1>Steps Per Day</h1>
-    <h3>{range}</h3>
-    <ResponsiveXYFrame
-      {...sharedProps }
-      defined={d => d.steps !== null}
-      points={display[0].data}
-      pointStyle={ d => ({fill: "#333", r: '1px'})}
-      xAccessor={d => new Date(d.date)}
-      yAccessor={d => d.steps}
-      renderType={"sketchy"}
-      axes={[
-        { orient: 'left', tickFormat: d => d, ticks: 4},
-        { orient: 'bottom', tickFormat: d => formatDate(new Date(d)), ticks: 4 }
-      ]}
+    <h1>My Steps</h1>
+    <h3>How much am I walking per month?</h3>
+    <ResponsiveORFrame
+      size={[ 360, 750 ]}
+      responsiveWidth={true}
+      data={display}
+      projection={"horizontal"}
+      rAccessor={d => d.value}
+      oAccessor={d => d.name}
+      pieceHoverAnnotation={true}
+      tooltipContent={ d => `${d.value} ${d.name}` }
+      style={d => ({ fill: colors.primary, stroke: colors.primary, strokeOpacity: 0.0, fillOpacity: 0.3, height: "3px", width: "3px" })}
+      summaryStyle={d => ({ fill: colors.primary, stroke: colors.primary, strokeOpacity: 0.0, fillOpacity: 0.2, height: "8px", y:"-5px", rx: "5px"})}
+      summaryType={"boxplot"}
+      type={"swarm"}
+      axis={leftAxis}
+      oLabel={(d, i) => (<text textAnchor="middle">{d}</text>)}
+      margin={{ left: 30, top: 10, bottom: 100, right: 10 }}
+      oPadding={10}
     />
    <div className="notes nextReport">
       <h3>Notes and Sources</h3>
       <p>This data came right out of the iOS Health app, which allows you to export a giant XML file of all your steps. I wrote a script to parse it and consolidate the data by day</p>
-      <p>The point show raw data and the is a 60 day floating average. It's interesting that even at 60 days, it's still jagged.</p>
+      <p>Each point represents an individual day and the boxplot summary shows the 1st and 3rd quartiles for each month.</p>
       <p>Tech: <a href="https://emeeks.github.io/semiotic">Semiotic</a>, javascript, ios Health app</p>
     </div>
     <Nav/>
