@@ -13,6 +13,7 @@ const Home = () => (
       <li className="list-item"><a href="cooplovescostumes">#CoopLovesCostumes</a></li>
       <li className="list-item"><a href="starwars">Star Wars Network (No Last Jedi Spoilers)</a></li>
       <li className="list-item"><a href="movies">My Top 100 Favorite Movies</a></li>
+      <li className="list-item"><a href="movies">My Steps</a></li>
     </ul>
     <div>
       <ul className="navList">
