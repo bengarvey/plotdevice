@@ -145,12 +145,21 @@ function getEdgeStrength(type) {
     return 0.1;
   }
 }
+
+var annoSettings = {
+  layout: {
+    orient: 'right',
+    textPadding: 38,
+    marginOffset: 50
+  },
+  x: 50
+};
 const Rj = () => (
   <div className="chartContainer">
     <h1>RJMetrics</h1>
     <h3>Where are they now?</h3>
     <ResponsiveNetworkFrame
-        size={[ 300, 700 ]}
+        size={[360, 700 ]}
         responsiveWidth={true}
         edges={network.links}
         nodes={network.nodes}
@@ -159,7 +168,7 @@ const Rj = () => (
           stroke: d.stroke
         })}
         edgeStyle={(d) => ({ stroke: d.stroke, fill: d.fill, opacity: 0.5, strokeWidth: '1px' })}
-        networkType={{ type: 'sankey', orient: 'justify', iterations: 500 }}
+        networkType={{ type: 'sankey', orient: 'justify', iterations: 500, nodeWidth: 100, nodePadding: 22}}
         nodeIDAccessor={"id"}
         zoomToFit={true}
         nodeLabels={d => d.name}

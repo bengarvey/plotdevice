@@ -56,7 +56,7 @@ var Steps = () => (
    <div className="notes nextReport">
       <h3>Notes and Sources</h3>
       <p>This data came right out of the iOS Health app, which allows you to export a giant XML file of all your steps. I wrote a script to parse it and consolidate the data by day</p>
-      <p>Each point represents an individual day and the boxplot summary shows the 1st and 3rd quartiles for each month.</p>
+      <p>Each point represents an individual day and the boxplot summary shows the middle quartiles for each month.</p>
       <p>Tech: <a href="https://emeeks.github.io/semiotic">Semiotic</a>, javascript, ios Health app</p>
     </div>
     <Nav/>
