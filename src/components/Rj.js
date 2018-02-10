@@ -180,8 +180,8 @@ const Rj = () => (
     <div className="notes nextReport">
       <h3>Notes and Sources</h3>
       <p>This sankey diagram shows where people went after RJMetrics.</p>
-      <p>I worked there from 3/13 until it was <a href="https://technical.ly/philly/2016/08/01/rjmetrics-magento-acquisition-stitch-cloudbi-pipeline/">acquired by Magento</a> 7/16. Seeing it go from 20 people to 140+ was exhilarating. Sometimes I get nostalgic and think about all the smart people I worked with and what we could have done differently, but overall I hope it was a positive experience for everyone who worked there.</p>
-      <p>Someone accused me once of <a href="https://twitter.com/bengarvey/status/962124327213846528">drinking the kool aid</a> but it made me laugh. I was surrounded by scores of smart 20-somethings in their first job who didn't realize this might be the best one of their lives.</p>
+      <p>I worked there from 3/13 until it was <a href="https://technical.ly/philly/2016/08/01/rjmetrics-magento-acquisition-stitch-cloudbi-pipeline/">acquired by Magento</a> 7/16. Seeing it go from 20 people to 140+ was exhilarating. Sometimes I get nostalgic and think about all the smart people I worked with and what we could have done differently, but I hope it was a positive experience for everyone who worked there.</p>
+      <p>Someone accused me once of <a href="https://twitter.com/bengarvey/status/962124327213846528">drinking the kool aid</a> and it made me laugh. I was surrounded by scores of smart 20-somethings in their first job who didn't realize this might be the best one of their lives.</p>
       <p>Not everyone's experience was as good as mine and sure, some people were treated unfairly but I loved RJMetrics and did my best work there. <a href="https://www.linkedin.com/search/results/index/?keywords=rjmetrics&origin=GLOBAL_SEARCH_HEADER">RIP</a></p>
       <p>Tech: <a href="https://emeeks.github.io/semiotic">Semiotic</a>, javascript, a spreadsheet maintained by Bob Moore and K Rich</p>
     </div>
