@@ -14,6 +14,7 @@ const Home = () => (
       <li className="list-item"><a href="starwars">Star Wars Network (No Last Jedi Spoilers)</a></li>
       <li className="list-item"><a href="movies">My Top 100 Favorite Movies</a></li>
       <li className="list-item"><a href="steps">My Steps</a></li>
+      <li className="list-item"><a href="rj">RJMetrics: Where are they now?</a></li>
     </ul>
     <div>
       <ul className="navList">
