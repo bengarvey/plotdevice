@@ -154,9 +154,9 @@ movies.forEach( function(m, i) {
     };
   }
 
-  var slopeItem = [
-    {data: line}
-  ];
+  var slopeItem = {
+    data: line
+  };
 
   slopeItem.color = colors.neutral;
   slopeItem.strokeWidth = '1px';
@@ -248,9 +248,9 @@ const Movies = () => (
       responsiveWidth={true}
       defined={d => showLine(d)}
       yExtent={[100,1]}
-      lineDataAccessor={d => d[0].data}
-      yAccessor={"value"}
-      xAccessor={"date"}
+      lineDataAccessor={"data"}
+      yAccessor={d => d.value}
+      xAccessor={d => d.date}
       lineType={{type: 'line'}}
       hoverAnnotation={true}
       tooltipContent={ d => `${d.value} ${d.name}` }
