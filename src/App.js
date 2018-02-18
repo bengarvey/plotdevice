@@ -11,7 +11,7 @@ import Tornadoes from './components/Tornadoes'
 import CoopLovesCostumes from './components/CoopLovesCostumes'
 import Joy from './components/Joy'
 import Starwars from './components/Starwars'
-import Steps from './components/Steps'
+import StepsWrapper from './components/StepsWrapper'
 import Line from './components/Line'
 import Pline from './components/Pline'
 import Movies from './components/Movies'
@@ -30,7 +30,7 @@ var App = () => (
         <Route path='/cooplovescostumes' component={CoopLovesCostumes}/>
         <Route path='/joy' component={Joy}/>
         <Route path='/starwars' component={Starwars}/>
-        <Route path='/steps' component={Steps}/>
+        <Route path='/steps' component={StepsWrapper}/>
         <Route path='/line' component={Line}/>
         <Route path='/movies' component={Movies}/>
         <Route path='/rj' component={Rj}/>
