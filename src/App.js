@@ -9,11 +9,9 @@ import Libraries from './components/Libraries'
 import PagerDuty from './components/PagerDuty'
 import Tornadoes from './components/Tornadoes'
 import CoopLovesCostumes from './components/CoopLovesCostumes'
-import Joy from './components/Joy'
 import Starwars from './components/Starwars'
 import Steps from './components/Steps'
 import Line from './components/Line'
-import Pline from './components/Pline'
 import Movies from './components/Movies'
 import Rj from './components/Rj'
 
@@ -28,7 +26,6 @@ var App = () => (
         <Route path='/pagerduty' component={PagerDuty}/>
         <Route path='/tornadoes' component={Tornadoes}/>
         <Route path='/cooplovescostumes' component={CoopLovesCostumes}/>
-        <Route path='/joy' component={Joy}/>
         <Route path='/starwars' component={Starwars}/>
         <Route path='/steps' component={Steps}/>
         <Route path='/line' component={Line}/>

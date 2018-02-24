@@ -154,6 +154,7 @@ var annoSettings = {
   },
   x: 50
 };
+
 const Rj = () => (
   <div className="chartContainer">
     <h1>RJMetrics</h1>
