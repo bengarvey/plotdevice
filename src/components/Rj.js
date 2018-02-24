@@ -155,8 +155,6 @@ var annoSettings = {
   x: 50
 };
 
-console.timeEnd("Rj");
-
 const Rj = () => (
   <div className="chartContainer">
     <h1>RJMetrics</h1>

@@ -53,8 +53,6 @@ class Lbs extends React.Component {
     this.recentRange = `${recentFirst} to ${last}`;
     this.range = `${first} to ${last}`;
 
-    console.log(this.recentDisplay);
-
   }
 
   render() {

@@ -15,19 +15,6 @@ import Line from './components/Line'
 import Movies from './components/Movies'
 import Rj from './components/Rj'
 
-console.time("Home");
-console.time("Auto");
-console.time("Lbs");
-console.time("Libraries");
-console.time("Pagerduty");
-console.time("Tornadoes");
-console.time("Coop");
-console.time("Starwars");
-console.time("Steps");
-console.time("Line");
-console.time("Movies");
-console.time("Rj");
-
 var App = () => (
   <div className="main">
     <BrowserRouter>
