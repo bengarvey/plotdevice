@@ -14,8 +14,6 @@ const colors = {
   primary: '#000000'
 }
 
-var display = [];
-
 const leftAxis = [{
     orient: 'left',
     ticks: 3,
