@@ -1,0 +1,483 @@
+[
+ {
+   "name": "Dale Cooper",
+   "total": 0,
+   "fbi": 159,
+   "evil": 50,
+   "dougie": 63,
+   "episodesOriginal": 30,
+   "episodesReturn": 5,
+   "fwwm": 1,
+   "episodesTotal": 39,
+   "image": "coop"
+ },
+ {
+   "name": "Agent Cooper",
+   "total": 159,
+   "episodesOriginal": 30,
+   "episodesReturn": 5,
+   "fwwm": 1,
+   "episodesTotal": 39,
+   "image": "coop",
+   "hide": true
+ },
+ {
+   "name": "Evil Dale",
+   "total": 50,
+   "episodesOriginal": 1,
+   "episodesReturn": 18,
+   "fwwm": 0,
+   "episodesTotal": 19,
+   "image": "evil",
+   "hide": true
+ },
+ {
+   "name": "Dougie Jones",
+   "total": 63,
+   "episodesOriginal": 0,
+   "episodesReturn": 12,
+   "fwwm": 0,
+   "episodesTotal": 12,
+   "image": "dougie",
+   "hide": true
+ },
+ {
+   "name": "Laura",
+   "total": 0,
+   "dress": 35,
+   "prom": 6,
+   "plastic": 46,
+   "episodesOriginal": 18,
+   "episodesReturn": 18,
+   "fwwm": 1,
+   "episodesTotal": 40,
+   "image": "laura",
+   "hide": false
+ },
+ {
+   "name": "Laura (black dress)",
+   "total": 35,
+   "episodesOriginal": 18,
+   "episodesReturn": 18,
+   "fwwm": 1,
+   "episodesTotal": 40,
+   "image": "dress",
+   "hide": true
+ },
+ {
+   "name": "Laura (prom photo)",
+   "total": 6,
+   "episodesOriginal": 18,
+   "episodesReturn": 18,
+   "fwwm": 1,
+   "episodesTotal": 40,
+   "image": "prom",
+   "hide": true
+ },
+ {
+   "name": "Laura (plastic wrap)",
+   "total": 46,
+   "episodesOriginal": 18,
+   "episodesReturn": 18,
+   "fwwm": 1,
+   "episodesTotal": 40,
+   "image": "laura",
+   "hide": true
+ },
+ {
+   "name": "Diane",
+   "total": 130,
+   "episodesOriginal": 0,
+   "episodesReturn": 9,
+   "fwwm": 0,
+   "episodesTotal": 9,
+   "image": "diane"
+ },
+ {
+   "name": "Log Lady",
+   "total": 125,
+   "episodesOriginal": 12,
+   "episodesReturn": 5,
+   "fwwm": 1,
+   "episodesTotal": 21,
+   "image": "loglady"
+ },
+ {
+   "name": "BOB",
+   "total": 30,
+   "episodesOriginal": 11,
+   "episodesReturn": 0,
+   "fwwm": 1,
+   "episodesTotal": 15,
+   "image": "bob"
+ },
+ {
+   "name": "Shelly",
+   "total": 55,
+   "episodesOriginal": 30,
+   "episodesReturn": 7,
+   "fwwm": 1,
+   "episodesTotal": 41,
+   "image": "shelly"
+ },
+ {
+   "name": "Naido",
+   "total": 4,
+   "episodesOriginal": 0,
+   "episodesReturn": 4,
+   "fwwm": 0,
+   "episodesTotal": 4,
+   "image": "naido"
+ },
+ {
+   "name": "A blue rose",
+   "total": 2,
+   "episodesOriginal": 0,
+   "episodesReturn": 0,
+   "fwwm": 0,
+   "episodesTotal": 0,
+   "image": ""
+ },
+ {
+   "name": "Audrey Horne",
+   "total": 82,
+   "episodesOriginal": 30,
+   "episodesReturn": 4,
+   "fwwm": 1,
+   "episodesTotal": 38,
+   "image": "audrey"
+ },
+ {
+   "name": "Ronette Pulaski",
+   "total": 2,
+   "episodesOriginal": 5,
+   "episodesReturn": 0,
+   "fwwm": 1,
+   "episodesTotal": 9,
+   "image": "ronette"
+ },
+ {
+   "name": "Josie Packard",
+   "total": 2,
+   "episodesOriginal": 30,
+   "episodesReturn": 0,
+   "fwwm": 0,
+   "episodesTotal": 30,
+   "image": "josie"
+ },
+ {
+   "name": "Nadine",
+   "total": 20,
+   "episodesOriginal": 22,
+   "episodesReturn": 5,
+   "fwwm": 0,
+   "episodesTotal": 27,
+   "image": "nadine"
+ },
+ {
+   "name": "Lucy",
+   "total": 8,
+   "episodesOriginal": 29,
+   "episodesReturn": 10,
+   "fwwm": 0,
+   "episodesTotal": 39,
+   "image": "lucy"
+ },
+ {
+   "name": "Andy",
+   "total": 7,
+   "episodesOriginal": 26,
+   "episodesReturn": 9,
+   "fwwm": 0,
+   "episodesTotal": 35,
+   "image": "andy"
+ },
+ {
+   "name": "Senorita Dido",
+   "total": 12,
+   "episodesOriginal": 0,
+   "episodesReturn": 1,
+   "fwwm": 0,
+   "episodesTotal": 1,
+   "image": "dido"
+ },
+ {
+   "name": "Candie, Sandie, and Mandie",
+   "total": 14,
+   "episodesOriginal": 0,
+   "episodesReturn": 6,
+   "fwwm": 0,
+   "episodesTotal": 6,
+   "image": "csm"
+ },
+ {
+   "name": "Dr Jacoby",
+   "total": 28,
+   "episodesOriginal": 16,
+   "episodesReturn": 6,
+   "fwwm": 0,
+   "episodesTotal": 22,
+   "image": "jacoby"
+ },
+ {
+   "name": "Man from Another Place",
+   "total": 12,
+   "episodesOriginal": 5,
+   "episodesReturn": 0,
+   "fwwm": 1,
+   "episodesTotal": 9,
+   "image": "mfap"
+ },
+ {
+   "name": "The Black Lodge",
+   "total": 27,
+   "episodesOriginal": 5,
+   "episodesReturn": 7,
+   "fwwm": 1,
+   "episodesTotal": 16,
+   "image": "lodge"
+ },
+ {
+   "name": "Denise Bryson",
+   "total": 1,
+   "episodesOriginal": 3,
+   "episodesReturn": 1,
+   "fwwm": 0,
+   "episodesTotal": 4,
+   "image": "denise"
+ },
+ {
+   "name": "Gordon Cole",
+   "total": 22,
+   "episodesOriginal": 7,
+   "episodesReturn": 11,
+   "fwwm": 1,
+   "episodesTotal": 22,
+   "image": "gordon"
+ },
+ {
+   "name": "Woodsman",
+   "total": 25,
+   "episodesOriginal": 0,
+   "episodesReturn": 4,
+   "fwwm": 1,
+   "episodesTotal": 8,
+   "image": "woodsman"
+ },
+ {
+   "name": "A character from the black lodge?",
+   "total": 1,
+   "episodesOriginal": 0,
+   "episodesReturn": 1,
+   "fwwm": 0,
+   "episodesTotal": 1,
+   "image": ""
+ },
+ {
+   "name": "Jerry Horne",
+   "total": 0,
+   "episodesOriginal": 9,
+   "episodesReturn": 7,
+   "fwwm": 0,
+   "episodesTotal": 16,
+   "image": "jerry"
+ },
+ {
+   "name": "Bobby Briggs",
+   "total": 4,
+   "episodesOriginal": 30,
+   "episodesReturn": 7,
+   "fwwm": 1,
+   "episodesTotal": 41,
+   "image": "bobby"
+ },
+ {
+   "name": "Pete Martell",
+   "total": 4,
+   "episodesOriginal": 30,
+   "episodesReturn": 1,
+   "fwwm": 0,
+   "episodesTotal": 31,
+   "image": "pete"
+ },
+ {
+   "name": "Sheriff Truman",
+   "total": 10,
+   "episodesOriginal": 30,
+   "episodesReturn": 10,
+   "fwwm": 0,
+   "episodesTotal": 40,
+   "image": "harry"
+ },
+ {
+   "name": "Freddie Sykes",
+   "total": 9,
+   "episodesOriginal": 0,
+   "episodesReturn": 4,
+   "fwwm": 0,
+   "episodesTotal": 4,
+   "image": "freddie"
+ },
+ {
+   "name": "Slice of cherry pie",
+   "total": 1,
+   "episodesOriginal": 0,
+   "episodesReturn": 0,
+   "fwwm": 0,
+   "episodesTotal": 0,
+   "image": "pie"
+ },
+ {
+   "name": "Phillip Jeffries",
+   "total": 1,
+   "episodesOriginal": 0,
+   "episodesReturn": 3,
+   "fwwm": 1,
+   "episodesTotal": 7,
+   "image": "jeffries"
+ },
+ {
+   "name": "An owl",
+   "total": 1,
+   "episodesOriginal": 0,
+   "episodesReturn": 0,
+   "fwwm": 0,
+   "episodesTotal": 0,
+   "image": ""
+ },
+ {
+   "name": "Wally Brando",
+   "total": 5,
+   "episodesOriginal": 0,
+   "episodesReturn": 1,
+   "fwwm": 0,
+   "episodesTotal": 1,
+   "image": "wally"
+ },
+ {
+   "name": "Norma Jennings",
+   "total": 5,
+   "episodesOriginal": 30,
+   "episodesReturn": 5,
+   "fwwm": 1,
+   "episodesTotal": 39,
+   "image": "norma"
+ },
+ {
+   "name": "Philip Gerard",
+   "total": 4,
+   "episodesOriginal": 10,
+   "episodesReturn": 9,
+   "fwwm": 1,
+   "episodesTotal": 23,
+   "image": "philip"
+ },
+ {
+   "name": "Hastings' paranornal website?",
+   "total": 1,
+   "episodesOriginal": 0,
+   "episodesReturn": 0,
+   "fwwm": 0,
+   "episodesTotal": 0,
+   "image": ""
+ },
+ {
+   "name": "Janey-E Jones",
+   "total": 1,
+   "episodesOriginal": 0,
+   "episodesReturn": 10,
+   "fwwm": 0,
+   "episodesTotal": 10,
+   "image": "janey"
+ },
+ {
+   "name": "Leo Johnson",
+   "total": 4,
+   "episodesOriginal": 24,
+   "episodesReturn": 0,
+   "fwwm": 1,
+   "episodesTotal": 28,
+   "image": "leo"
+ },
+ {
+   "name": "Lil the Dancer",
+   "total": 5,
+   "episodesOriginal": 0,
+   "episodesReturn": 0,
+   "fwwm": 1,
+   "episodesTotal": 4,
+   "image": "lil"
+ },
+ {
+   "name": "Tammy Palmer",
+   "total": 1,
+   "episodesOriginal": 0,
+   "episodesReturn": 11,
+   "fwwm": 0,
+   "episodesTotal": 11,
+   "image": "tammy"
+ },
+ {
+   "name": "Donna Hayward",
+   "total": 2,
+   "episodesOriginal": 30,
+   "episodesReturn": 0,
+   "fwwm": 1,
+   "episodesTotal": 34,
+   "image": "donna"
+ },
+ {
+   "name": "Ed Hurley",
+   "total": 3,
+   "episodesOriginal": 30,
+   "episodesReturn": 2,
+   "fwwm": 0,
+   "episodesTotal": 32,
+   "image": "ed"
+ },
+ {
+   "name": "Maddie Fergeson",
+   "total": 1,
+   "episodesOriginal": 6,
+   "episodesReturn": 0,
+   "fwwm": 0,
+   "episodesTotal": 6,
+   "image": "maddie"
+ },
+ {
+   "name": "Alice Tremond",
+   "total": 1,
+   "episodesOriginal": 1,
+   "episodesReturn": 2,
+   "fwwm": 0,
+   "episodesTotal": 3,
+   "image": "alice"
+ },
+ {
+   "name": "The Giant",
+   "total": 1,
+   "episodesOriginal": 5,
+   "episodesReturn": 4,
+   "fwwm": 0,
+   "episodesTotal": 9,
+   "image": "giant"
+ },
+ {
+   "name": "One Eyed Jacks Girls",
+   "total": 2,
+   "episodesOriginal": 7,
+   "episodesReturn": 0,
+   "fwwm": 1,
+   "episodesTotal": 11,
+   "image": "jacks"
+ },
+ {
+   "name": "Sarah Palmer",
+   "total": 1,
+   "episodesOriginal": 13,
+   "episodesReturn": 6,
+   "fwwm": 1,
+   "episodesTotal": 23,
+   "image": "sarah"
+ }
+]
