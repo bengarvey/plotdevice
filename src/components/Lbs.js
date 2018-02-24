@@ -4,7 +4,6 @@ import Nav from './Nav';
 
 var lbs = require('../data/lbs.json');
 
-
 function formatDate(date) {
   return `${date.getFullYear()}-${date.getMonth()+1}`;
 }
@@ -14,9 +13,8 @@ class Lbs extends React.Component {
     super(props)
     this.recentDisplay = [];
     this.display = [];
-  }
-
-  componentDidMount() {
+    this.range = "";
+    this.recentRange = "";
     this.process();
   }
 
@@ -52,7 +50,6 @@ class Lbs extends React.Component {
 
     this.recentRange = `${recentFirst} to ${last}`;
     this.range = `${first} to ${last}`;
-
   }
 
   render() {
