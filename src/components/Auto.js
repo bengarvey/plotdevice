@@ -17,18 +17,6 @@ const colors = {
   gasAdjusted: '#d86641'
 }
 
-var modified = {
-  deaths: [],
-  deathsBeforeAlcData: [],
-  alcohol: [],
-  nonAlcohol: [],
-  pop: [],
-  miles: [],
-  gasRaw: [],
-  gasAdjusted: []
-};
-
-
 function calcNonAlcDeaths(deaths, alc) {
   if (alc == null) {
     return null;
@@ -41,28 +29,6 @@ function calcNonAlcDeaths(deaths, alc) {
 function hideModernDeaths(deaths, alc, year) {
   return alc === null ? deaths : null;
 }
-
-auto.forEach( function(d) {
-  modified.deaths.push(
-    {y: d.Deaths, x: yearToDate(d.Year), type:'death'});
-  modified.deathsBeforeAlcData.push(
-    {y: hideModernDeaths(d.Deaths, d['Alcohol related deaths'], d.Year), x: yearToDate(d.Year), type:'death'});
-  modified.alcohol.push(
-    {y: d['Alcohol related deaths'], x: yearToDate(d.Year), type:'alcohol'});
-  modified.nonAlcohol.push(
-    {y: calcNonAlcDeaths(d.Deaths, d['Alcohol related deaths']), x: yearToDate(d.Year), type:'non-alcohol'});
-  modified.pop.push(
-    {y: d.Population, x: yearToDate(d.Year), type: 'pop'});
-  modified.miles.push(
-    {y: d['Vehicle miles travelled (billions)'], x: yearToDate(d.Year), type: 'miles'});
-  modified.gasRaw.push(
-    {y: d.gasPriceRaw, x: yearToDate(d.Year)}
-  );
-  modified.gasAdjusted.push(
-    {y: d.gasPriceAdjusted, x: yearToDate(d.Year)}
-  );
-});
-
 function yearToDate(year) {
   return new Date(`${year}-01-01T04:00:00Z`);
 }
@@ -70,28 +36,6 @@ function yearToDate(year) {
 function createDate(str) {
   return new Date(`${str}T04:00:00Z`);
 }
-
-var deathDisplay = [
-  {data: modified.deaths, color: colors.deaths, renderMode: "normal"}
-];
-
-var popDisplay = [
-  {data: modified.pop, color: colors.pop}
-];
-
-var milesDisplay = [
-  {data: modified.miles, color: colors.miles}
-];
-
-var gasDisplay = [
-  {data: modified.gasAdjusted, color: colors.gasAdjusted}
-];
-
-
-var alcDisplay = [
-  {data: modified.nonAlcohol, color: colors.nonAlc, fillOpacity: 0.9},
-  {data: modified.alcohol, color: colors.alc, fillOpacity: 0.9}
-];
 
 const popAnnotations = [
   { type: 'x', x: yearToDate(1968),
@@ -114,14 +58,14 @@ const popAnnotations = [
     color: colors.annotation, dy: -5, dx: 0, disable:["connector"] }
 ];
 
-var sharedMileAnnotationProps = {
+const sharedMileAnnotationProps = {
   dx: 65,
   dy: 150,
   color: '#aaa',
   className: 'recession'
 }
 
-var mileAnnotations = [
+const mileAnnotations = [
   {
     ...sharedMileAnnotationProps,
     type: "bounds",
@@ -264,165 +208,234 @@ var mileAnnotations = [
   }
 ];
 
-var sharedProps = {
-  size: [365,200],
-  xAccessor: "x",
-  yAccessor: "y",
-  lineDataAccessor: "data",
-  hoverAnnotation: true,
-  margin:{ left: 0, bottom: 30, right: 10, top: 10 }
-};
+class Auto extends React.Component {
+  constructor(props) {
+    super(props);
+    this.sharedProps = {};
+    this.popDisplay = {};
+    this.deathDisplay = {};
+    this.milesDisplay = {};
+    this.gasDisplay = {};
+    this.process();
+  }
 
-const Auto = () => (
-  <div className="chartContainerLeft">
-    <h1>US Auto Fatalities 1899 - 2015</h1>
-    <h3>Why have deaths decreased since 1972?</h3>
-    <div className="container deathPopulation">
-    <XYFrame
-      { ...sharedProps }
-      lines={deathDisplay}
-      defined={d => d.y !== null}
-      lineDataAccessor="data"
-      lineType={{type:"line", interpolator: curveBasis}}
-      lineRenderMode={d => d.renderMode}
-      lineStyle={d => ({stroke: d.color, strokeWidth: "2px" })}
-      customLineType={{ type: "dividedLine"}}
-      axes={[
-        { orient: 'bottom', ticks: 10, tickFormat: d => new Date(d).getFullYear() }
-      ]}
-      margin={{ left: 0, bottom: 30, right: 10, top: 40 }}
-    />
-    </div>
+  process() {
+    var modified = {
+      deaths: [],
+      deathsBeforeAlcData: [],
+      alcohol: [],
+      nonAlcohol: [],
+      pop: [],
+      miles: [],
+      gasRaw: [],
+      gasAdjusted: []
+    };
 
-    <div className="container deathMiles">
-    <XYFrame
-      { ...sharedProps }
-      lines={deathDisplay}
-      defined={d => d.y !== null}
-      lineDataAccessor="data"
-      xAccessor="x"
-      yAccessor="y"
-      lineType={{type:"line", interpolator: curveBasis}}
-      lineRenderMode={"normal"}
-      lineStyle={d => ({stroke: d.color, strokeWidth: "2px" })}
-      customLineType={{ type: "dividedLine"}}
-      margin={{left: 0, bottom: 40, right: 10, top: 10}}
-      axes={[
-        { orient: 'bottom', ticks: 10, tickFormat: d => new Date(d).getFullYear()}
-      ]}
-    />
-    </div>
+    auto.forEach( function(d) {
+      modified.deaths.push(
+        {y: d.Deaths, x: yearToDate(d.Year), type:'death'});
+      modified.deathsBeforeAlcData.push(
+        {y: hideModernDeaths(d.Deaths, d['Alcohol related deaths'], d.Year), x: yearToDate(d.Year), type:'death'});
+      modified.alcohol.push(
+        {y: d['Alcohol related deaths'], x: yearToDate(d.Year), type:'alcohol'});
+      modified.nonAlcohol.push(
+        {y: calcNonAlcDeaths(d.Deaths, d['Alcohol related deaths']), x: yearToDate(d.Year), type:'non-alcohol'});
+      modified.pop.push(
+        {y: d.Population, x: yearToDate(d.Year), type: 'pop'});
+      modified.miles.push(
+        {y: d['Vehicle miles travelled (billions)'], x: yearToDate(d.Year), type: 'miles'});
+      modified.gasRaw.push(
+        {y: d.gasPriceRaw, x: yearToDate(d.Year)}
+      );
+      modified.gasAdjusted.push(
+        {y: d.gasPriceAdjusted, x: yearToDate(d.Year)}
+      );
+    });
 
-    <div className="container population">
-    <XYFrame
-      { ...sharedProps }
-      lines={popDisplay}
-      defined={d => d.y !== null}
-      lineDataAccessor="data"
-      xAccessor="x"
-      yAccessor="y"
-      hoverAnnotation={true}
-      lineRenderMode={"normal"}
-      lineType={{type:"line", interpolator: curveBasis}}
-      lineStyle={d => ({stroke: d.color, strokeWidth: "2px" })}
-      customLineType={{ type: "dividedLine"}}
-      axes={[
-        { orient: 'bottom', ticks: 10, tickFormat: d => '' }
-      ]}
-      margin={{ left: 0, bottom: 30, right: 10, top: 40 }}
-      annotations={popAnnotations}
-    />
-    </div>
+    this.deathDisplay = [
+      {data: modified.deaths, color: colors.deaths, renderMode: "normal"}
+    ];
 
-    <div className="container miles">
-    <XYFrame
-      { ...sharedProps }
-      size={[565, 200]}
-      lines={milesDisplay}
-      defined={d => d.y !== null}
-      lineDataAccessor="data"
-      xAccessor="x"
-      yAccessor="y"
-      hoverAnnotation={true}
-      lineType={{type:"line", interpolator: curveBasis}}
-      lineRenderMode={"normal"}
-      lineStyle={d => ({stroke: d.color, strokeWidth: "2px" })}
-      customLineType={{ type: "dividedLine"}}
-      annotations={mileAnnotations}
-      margin={{left: 0, bottom: 30, right: 210, top: 10}}
-      axes={[
-        { orient: 'bottom', ticks: 10, tickFormat: d => '', stroke: '#FFFFFF' }
-      ]}
+    this.popDisplay = [
+      {data: modified.pop, color: colors.pop}
+    ];
 
-    />
-    </div>
+    this.milesDisplay = [
+      {data: modified.miles, color: colors.miles}
+    ];
 
-    <div className="container gas">
-    <XYFrame
-      { ...sharedProps }
-      lines={gasDisplay}
-      defined={d => d.y !== null}
-      lineDataAccessor="data"
-      xAccessor="x"
-      yAccessor="y"
-      hoverAnnotation={true}
-      lineType={{type:"line", interpolator: curveBasis}}
-      lineRenderMode={"normal"}
-      lineStyle={d => ({stroke: d.color, strokeWidth: "2px" })}
-      margin={{left: 0, bottom: 30, right: 10, top: 10}}
-      axes={[
-        { orient: 'bottom', ticks: 10, tickFormat: d => '', stroke: '#FFFFFF' }
-      ]}
-    />
-    </div>
-    <div className="container deathAlcohol">
-    <XYFrame
-      { ...sharedProps }
-      lines={deathDisplay}
-      defined={d => d.y !== null}
-      yExtent={[0, 55000]}
-      lineDataAccessor="data"
-      lineType={{type:"line", interpolator: curveBasis}}
-      xAccessor="x"
-      yAccessor="y"
-      hoverAnnotation={true}
-      lineRenderMode={"normal"}
-      lineStyle={d => ({stroke: d.color, strokeWidth: "2px" })}
-      customLineType={{ type: "dividedLine"}}
-      axes={[
-        { orient: 'bottom', ticks: 10, tickFormat: d => new Date(d).getFullYear() }
-      ]}
-    />
-    </div>
+    this.gasDisplay = [
+      {data: modified.gasAdjusted, color: colors.gasAdjusted}
+    ];
 
-    <div className="container alcohol">
-    <XYFrame
-      { ...sharedProps }
-      lines={alcDisplay}
-      yExtent={[0, 55000]}
-      lineDataAccessor="data"
-      lineType={{type:"stackedarea", interpolator: curveBasis}}
-      xAccessor="x"
-      yAccessor="y"
-      hoverAnnotation={true}
-      lineRenderMode={"normal"}
-      lineStyle={d => ({fill: d.color, fillOpacity: d.fillOpacity, strokeWidth: "2px" })}
-      customLineType={{ type: "dividedLine"}}
-      axes={[
-        { orient: 'bottom', ticks: 10, tickFormat: d => '' }
-      ]}
-    />
-    </div>
-    <AutoDescription/>
-    <AutoLegend/>
-    <AutoSketch/>
-    <div className="autoNav">
-      <ul className="navList">
-        <li className="navListItem"><a href="../">Home</a></li>
-        <li className="navListItem"><a href="https://twitter.com/bengarvey">Twitter</a></li>
-      </ul>
-    </div>
-  </div>
-)
+    this.alcDisplay = [
+      {data: modified.nonAlcohol, color: colors.nonAlc, fillOpacity: 0.9},
+      {data: modified.alcohol, color: colors.alc, fillOpacity: 0.9}
+    ];
+
+    this.sharedProps = {
+      size: [365,200],
+      xAccessor: "x",
+      yAccessor: "y",
+      lineDataAccessor: "data",
+      hoverAnnotation: true,
+      margin:{ left: 0, bottom: 30, right: 10, top: 10 }
+    };
+  }
+
+  render() {
+    return (
+      <div className="chartContainerLeft">
+        <h1>US Auto Fatalities 1899 - 2015</h1>
+        <h3>Why have deaths decreased since 1972?</h3>
+        <div className="container deathPopulation">
+        <XYFrame
+          { ...this.sharedProps }
+          lines={this.deathDisplay}
+          defined={d => d.y !== null}
+          lineDataAccessor="data"
+          lineType={{type:"line", interpolator: curveBasis}}
+          lineRenderMode={d => d.renderMode}
+          lineStyle={d => ({stroke: d.color, strokeWidth: "2px" })}
+          customLineType={{ type: "dividedLine"}}
+          axes={[
+            { orient: 'bottom', ticks: 10, tickFormat: d => new Date(d).getFullYear() }
+          ]}
+          margin={{ left: 0, bottom: 30, right: 10, top: 40 }}
+        />
+        </div>
+
+        <div className="container deathMiles">
+        <XYFrame
+          { ...this.sharedProps }
+          lines={this.deathDisplay}
+          defined={d => d.y !== null}
+          lineDataAccessor="data"
+          xAccessor="x"
+          yAccessor="y"
+          lineType={{type:"line", interpolator: curveBasis}}
+          lineRenderMode={"normal"}
+          lineStyle={d => ({stroke: d.color, strokeWidth: "2px" })}
+          customLineType={{ type: "dividedLine"}}
+          margin={{left: 0, bottom: 40, right: 10, top: 10}}
+          axes={[
+            { orient: 'bottom', ticks: 10, tickFormat: d => new Date(d).getFullYear()}
+          ]}
+        />
+        </div>
+
+        <div className="container population">
+        <XYFrame
+          { ...this.sharedProps }
+          lines={this.popDisplay}
+          defined={d => d.y !== null}
+          lineDataAccessor="data"
+          xAccessor="x"
+          yAccessor="y"
+          hoverAnnotation={true}
+          lineRenderMode={"normal"}
+          lineType={{type:"line", interpolator: curveBasis}}
+          lineStyle={d => ({stroke: d.color, strokeWidth: "2px" })}
+          customLineType={{ type: "dividedLine"}}
+          axes={[
+            { orient: 'bottom', ticks: 10, tickFormat: d => '' }
+          ]}
+          margin={{ left: 0, bottom: 30, right: 10, top: 40 }}
+          annotations={popAnnotations}
+        />
+        </div>
+
+        <div className="container miles">
+        <XYFrame
+          { ...this.sharedProps }
+          size={[565, 200]}
+          lines={this.milesDisplay}
+          defined={d => d.y !== null}
+          lineDataAccessor="data"
+          xAccessor="x"
+          yAccessor="y"
+          hoverAnnotation={true}
+          lineType={{type:"line", interpolator: curveBasis}}
+          lineRenderMode={"normal"}
+          lineStyle={d => ({stroke: d.color, strokeWidth: "2px" })}
+          customLineType={{ type: "dividedLine"}}
+          annotations={mileAnnotations}
+          margin={{left: 0, bottom: 30, right: 210, top: 10}}
+          axes={[
+            { orient: 'bottom', ticks: 10, tickFormat: d => '', stroke: '#FFFFFF' }
+          ]}
+
+        />
+        </div>
+
+        <div className="container gas">
+        <XYFrame
+          { ...this.sharedProps }
+          lines={this.gasDisplay}
+          defined={d => d.y !== null}
+          lineDataAccessor="data"
+          xAccessor="x"
+          yAccessor="y"
+          hoverAnnotation={true}
+          lineType={{type:"line", interpolator: curveBasis}}
+          lineRenderMode={"normal"}
+          lineStyle={d => ({stroke: d.color, strokeWidth: "2px" })}
+          margin={{left: 0, bottom: 30, right: 10, top: 10}}
+          axes={[
+            { orient: 'bottom', ticks: 10, tickFormat: d => '', stroke: '#FFFFFF' }
+          ]}
+        />
+        </div>
+        <div className="container deathAlcohol">
+        <XYFrame
+          { ...this.sharedProps }
+          lines={this.deathDisplay}
+          defined={d => d.y !== null}
+          yExtent={[0, 55000]}
+          lineDataAccessor="data"
+          lineType={{type:"line", interpolator: curveBasis}}
+          xAccessor="x"
+          yAccessor="y"
+          hoverAnnotation={true}
+          lineRenderMode={"normal"}
+          lineStyle={d => ({stroke: d.color, strokeWidth: "2px" })}
+          customLineType={{ type: "dividedLine"}}
+          axes={[
+            { orient: 'bottom', ticks: 10, tickFormat: d => new Date(d).getFullYear() }
+          ]}
+        />
+        </div>
+
+        <div className="container alcohol">
+        <XYFrame
+          { ...this.sharedProps }
+          lines={this.alcDisplay}
+          yExtent={[0, 55000]}
+          lineDataAccessor="data"
+          lineType={{type:"stackedarea", interpolator: curveBasis}}
+          xAccessor="x"
+          yAccessor="y"
+          hoverAnnotation={true}
+          lineRenderMode={"normal"}
+          lineStyle={d => ({fill: d.color, fillOpacity: d.fillOpacity, strokeWidth: "2px" })}
+          customLineType={{ type: "dividedLine"}}
+          axes={[
+            { orient: 'bottom', ticks: 10, tickFormat: d => '' }
+          ]}
+        />
+        </div>
+        <AutoDescription/>
+        <AutoLegend/>
+        <AutoSketch/>
+        <div className="autoNav">
+          <ul className="navList">
+            <li className="navListItem"><a href="../">Home</a></li>
+            <li className="navListItem"><a href="https://twitter.com/bengarvey">Twitter</a></li>
+          </ul>
+        </div>
+      </div>
+    );
+  }
+}
 
 export default Auto
