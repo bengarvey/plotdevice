@@ -62,8 +62,8 @@ class Tornadoes extends React.Component {
           customLineType={{ type: "dividedLine"}}
           hoverAnnotation={true}
           axes={[
-            { orient: 'left', tickFormat: d => d },
-            { orient: 'bottom', ticks: 8, tickFormat: d => new Date(d).getFullYear() }
+            { orient: 'left', className: 'normal', tickFormat: d => d },
+            { orient: 'bottom', className: 'normal', ticks: 8, tickFormat: d => new Date(d).getFullYear() }
           ]}
           margin={{top: 10, left: 30, right: 0, bottom: 50}}
           annotations={annotations}

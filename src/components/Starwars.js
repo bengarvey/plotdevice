@@ -1,6 +1,5 @@
 import React from 'react';
 import { ResponsiveNetworkFrame } from 'semiotic';
-import { curveBasis } from 'd3-shape';
 import { Chance } from "chance";
 import Nav from './Nav';
 var network = require('../data/starwars.json');
@@ -19,15 +18,6 @@ const colors = {
   trained: '#999999'
 }
 
-function getEdgeStrength(type) {
-  if (type == "mother" || type == "father" || type == "spouse") {
-    return 0.2;
-  }
-  else {
-    return 0.1;
-  }
-}
-
 function getXY(node) {
   var xy;
   switch(node.side) {
@@ -43,13 +33,6 @@ function getXY(node) {
     default:
       xy = [rf(0.5,0.9), rf(0.5,0.9)];
   }
-  return xy;
-}
-
-function getAdjustedXY(node) {
-  var xy = getXY(node);
-  xy = [Math.round(xy[0]*300), Math.round(xy[1]*500)];
-  console.log(xy);
   return xy;
 }
 

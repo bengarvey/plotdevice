@@ -21,7 +21,7 @@ const daysOfTheWeek = {
 const daysAxis = {
     orient: 'left', ticks: 7,
     tickFormat: d => daysOfTheWeek[d] ?
-    <text style={{ textAnchor: "end" }} fontSize="12px" y={5} x={2}>{daysOfTheWeek[d]}</text> : '' };
+    <text className="normal" style={{ textAnchor: "end" }} fontSize="12px" y={5} x={2}>{daysOfTheWeek[d]}</text> : '' };
 
 class PagerDuty extends React.Component {
   constructor(props) {
@@ -56,7 +56,7 @@ class PagerDuty extends React.Component {
           style={d => ({ fill: heatScale(d.value), stroke: "#eeedcd", strokeOpacity: 1, strokeWidth: 2 })}
           type={"bar"}
           axis={daysAxis}
-          oLabel={d => parseInt(d+1)%10 === 0 || d === 0 ? <text transform="rotate(90)"  y={5} x={-8} fontSize="12px">Week {d+1}</text> : ''}
+          oLabel={d => parseInt(d+1)%10 === 0 || d === 0 ? <text className='normal' transform="rotate(90)"  y={5} x={-8} fontSize="12px">Week {d+1}</text> : ''}
           margin={{ left: 30, top: 10, bottom: 80, right: 0 }}
           oPadding={0}
         />

@@ -299,7 +299,7 @@ class Auto extends React.Component {
           lineStyle={d => ({stroke: d.color, strokeWidth: "2px" })}
           customLineType={{ type: "dividedLine"}}
           axes={[
-            { orient: 'bottom', ticks: 10, tickFormat: d => new Date(d).getFullYear() }
+            { orient: 'bottom', className: 'normal', ticks: 10, tickFormat: d => new Date(d).getFullYear() }
           ]}
           margin={{ left: 0, bottom: 30, right: 10, top: 40 }}
         />
@@ -319,7 +319,7 @@ class Auto extends React.Component {
           customLineType={{ type: "dividedLine"}}
           margin={{left: 0, bottom: 40, right: 10, top: 10}}
           axes={[
-            { orient: 'bottom', ticks: 10, tickFormat: d => new Date(d).getFullYear()}
+            { orient: 'bottom', className: 'normal', ticks: 10, tickFormat: d => new Date(d).getFullYear()}
           ]}
         />
         </div>
@@ -338,7 +338,7 @@ class Auto extends React.Component {
           lineStyle={d => ({stroke: d.color, strokeWidth: "2px" })}
           customLineType={{ type: "dividedLine"}}
           axes={[
-            { orient: 'bottom', ticks: 10, tickFormat: d => '' }
+            { orient: 'bottom', className: 'normal', ticks: 10, tickFormat: d => '' }
           ]}
           margin={{ left: 0, bottom: 30, right: 10, top: 40 }}
           annotations={popAnnotations}
@@ -401,7 +401,7 @@ class Auto extends React.Component {
           lineStyle={d => ({stroke: d.color, strokeWidth: "2px" })}
           customLineType={{ type: "dividedLine"}}
           axes={[
-            { orient: 'bottom', ticks: 10, tickFormat: d => new Date(d).getFullYear() }
+            { orient: 'bottom', className: 'normal', ticks: 10, tickFormat: d => new Date(d).getFullYear() }
           ]}
         />
         </div>

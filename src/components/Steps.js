@@ -17,7 +17,8 @@ const colors = {
 const leftAxis = [{
     orient: 'left',
     ticks: 3,
-    label: 'Steps'
+    label: 'Steps',
+    className: 'normal'
   }
 ];
 
@@ -58,7 +59,7 @@ class Steps extends React.Component {
           summaryType={"boxplot"}
           type={"swarm"}
           axis={leftAxis}
-          oLabel={(d, i) => (<text textAnchor="middle">{d}</text>)}
+          oLabel={(d, i) => (<text textAnchor="middle" className="normal">{d}</text>)}
           margin={{ left: 30, top: 10, bottom: 100, right: 10 }}
           oPadding={10}
         />
