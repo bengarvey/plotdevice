@@ -2,7 +2,6 @@ import React from 'react'
 import './App.css'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Home from './components/Home'
-import Nav from './components/Nav'
 import Auto from './components/Auto'
 import Lbs from './components/Lbs'
 import Libraries from './components/Libraries'
@@ -14,6 +13,7 @@ import Steps from './components/Steps'
 import Line from './components/Line'
 import Movies from './components/Movies'
 import Rj from './components/Rj'
+import NLEast from './components/NLEast'
 
 var App = () => (
   <div className="main">
@@ -31,6 +31,7 @@ var App = () => (
         <Route path='/line' component={Line}/>
         <Route path='/movies' component={Movies}/>
         <Route path='/rj' component={Rj}/>
+        <Route path='/nleast' component={NLEast}/>
       </Switch>
     </BrowserRouter>
   </div>

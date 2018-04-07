@@ -29,7 +29,7 @@ const sharedProps = {
   xAccessor: "x",
   yAccessor: "y",
   hoverAnnotation: true,
-  margin:{ left: 10, bottom: 30, right: 10, top: 10 }
+  margin:{ left: 20, bottom: 40, right: 10, top: 10 }
 };
 
 class Libraries extends React.Component {
@@ -71,10 +71,10 @@ class Libraries extends React.Component {
           tooltipContent={d => d.name}
           customPointMark={ ({d}) => ( <Mark markType="image" x={-10} y={-10} transform="translate(-20,-20)" height="20px" width="20px" type="image/svg+xml" xlinkHref={d.logo}/> ) }
           axes={[
-            { orient: 'bottom', padding: 0, ticks: 5, tickFormat: d => ''},
-            { orient: 'left', ticks: 5, tickFormat: d => ''}
+            { orient: 'bottom', className: 'normal', label: {name:'Flexibility'}, padding: 0, ticks: 5, tickFormat: d => ''},
+            { orient: 'left', className: 'normal', label: 'Speed', ticks: 5, tickFormat: d => '', padding: 0, dx: 20}
           ]}
-          margin={{ left: 10, bottom: 10, right: 10, top: 10 }}
+          margin={{ left: 55, bottom: 55, right: 10, top: 10 }}
         />
         <div className="notes nextReport">
           <h3>Notes and Sources</h3>

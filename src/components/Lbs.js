@@ -50,6 +50,8 @@ class Lbs extends React.Component {
 
     this.recentRange = `${recentFirst} to ${last}`;
     this.range = `${first} to ${last}`;
+    console.log(this.display);
+    console.log(this.recentDisplay);
   }
 
   render() {
@@ -61,7 +63,6 @@ class Lbs extends React.Component {
           size={[300,250]}
           responsiveWidth={true}
           lines={this.recentDisplay}
-          yExtent={[150]}
           margin={{top: 5, bottom: 25, left: 25, right: 5}}
           lineDataAccessor={"data"}
           xAccessor={d => new Date(d.date)}
@@ -72,8 +73,8 @@ class Lbs extends React.Component {
           lineStyle={(d) => ({ stroke: d.color, strokeWidth: d.strokeWidth, opacity:d.opacity })}
           customLineType={{ type: "dividedLine"}}
           axes={[
-            { orient: 'left', tickFormat: d => d, ticks: 10},
-            { orient: 'bottom', tickFormat: d => formatDate(new Date(d)), ticks: 2 }
+            { orient: 'left', tickFormat: d => d, ticks: 10, className: 'normal'},
+            { orient: 'bottom', tickFormat: d => formatDate(new Date(d)), ticks: 2, className: 'normal'}
           ]}
         />
         <br/>
@@ -93,8 +94,8 @@ class Lbs extends React.Component {
           lineStyle={(d) => ({ stroke: d.color, strokeWidth: d.strokeWidth, opacity:d.opacity })}
           customLineType={{ type: "dividedLine"}}
           axes={[
-            { orient: 'left', tickFormat: d => d, ticks: 10},
-            { orient: 'bottom', tickFormat: d => formatDate(new Date(d)), ticks: 2 }
+            { orient: 'left', tickFormat: d => d, ticks: 10, className: 'normal'},
+            { orient: 'bottom', tickFormat: d => formatDate(new Date(d)), ticks: 2, className: 'normal'}
           ]}
         />
         <div className="notes nextReport">

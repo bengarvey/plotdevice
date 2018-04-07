@@ -14,11 +14,17 @@ const colors = {
   primary: '#000000'
 }
 
-const leftAxis = {
+const axes = [{
     orient: 'left', ticks: 7,
     tickFormat: d => d ?
-    <text style={{ textAnchor: "end" }} fontSize="12px" y={5} x={2}>{d}</text> : '' };
-
+    <text className='normal' style={{ textAnchor: "end" }} fontSize="12px" y={5} x={2}>{d}</text> : ''
+  },
+  {
+    orient: 'bottom', ticks: 7,
+    tickFormat: d => d ?
+    <text className='normal' style={{ textAnchor: "end" }} fontSize="12px" y={5} x={2}>{d}</text> : '' 
+  }
+];
 var decades = {};
 var directors = {};
 var genders = {};
@@ -75,6 +81,7 @@ function obToArray(ob) {
 }
 
 function getName(index, lookup) {
+  if (isNaN(index)) { return 'unknown'; };
   var title = index >= 100 ? index : lookup[index].title;
   return (title.length > 17 ? title.substr(0,15) + '...' : title);
 }
@@ -84,7 +91,8 @@ function getColor(index, lookup, year) {
 }
 
 function getColorLeft(index, lookup, year) {
-  return lookup[index].rank[year] == null ? colors.failure : colors.neutral;
+  console.log(lookup, index);
+  return isNaN(index) || lookup[index].rank[year] == null ? colors.failure : colors.neutral;
 }
 
 function getColorRight(index, lookup, year) {
@@ -231,8 +239,8 @@ class Movies extends React.Component {
           tooltipContent={ d => `${d.value} ${d.name}'s films` }
           style={d => ({ fill: colors.primary, stroke: colors.primary, strokeOpacity: 0.0, fillOpacity: 0.5, strokeWidth: 2 })}
           type={"bar"}
-          axis={leftAxis}
-          oLabel={(d) => (<text textAnchor="middle">{d}'s</text>)}
+          axis={axes}
+          oLabel={(d) => (<text className="normal" textAnchor="middle">{d}'s</text>)}
           margin={{ left: 30, top: 10, bottom: 30, right: 10 }}
           oPadding={5}
         />
@@ -248,7 +256,7 @@ class Movies extends React.Component {
           tooltipContent={ d => `${d.value} filmss by ${d.name}` }
           style={d => ({ fill: colors.primary, stroke: colors.primary, strokeOpacity: 0.0, fillOpacity: 0.5, strokeWidth: 2 })}
           type={"bar"}
-          axis={leftAxis}
+          axis={axes}
           oLabel={(d, i) => (<text x={0} y={3} className={i[0].className} textAnchor="end">{d}</text>)}
           margin={{ left: 130, top: 0, bottom: 50, right: 10 }}
           oPadding={2}
@@ -271,7 +279,7 @@ class Movies extends React.Component {
           axes={[
             { className: 'slopeTick', orient: 'left', tickFormat: d => <text textAnchor="end" style={{fill: getColor(d-1, this.sortedMovies09, '2018')}}>{getName(d-1, this.sortedMovies09).substr(0,40)}</text>, ticks: 100},
             { className: 'slopeTick', orient: 'right', tickFormat: d => <text style={{fill: getColor(d-1, this.sortedMovies18, '2009')}}>{getName(d-1, this.sortedMovies18).substr(0,40)}</text>, ticks: 100},
-            { className: 'slopeTick', orient: 'bottom', tickFormat: d => d }
+            { className: 'slopeTick normal', orient: 'bottom', tickFormat: d => d }
           ]}
           hoverAnnotation={true}
         />

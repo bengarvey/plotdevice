@@ -6,14 +6,20 @@ body {
 }
 
 text {
-  fill: #999;
   font-size: 10px;
   font-family: Helvetica, Arial, sans-serif;
-  fill-opaity: 0.5;
+}
+
+.normal {
+  fill: #999;
 }
 
 .female {
   fill: #ea91b7;
+}
+
+.male {
+  fill: #999999;
 }
 
 h1, h2, h3, h3, h3 {
@@ -43,10 +49,12 @@ h3 {
   margin: 5px;
 }
 
+/*
 .annotation-note-label, .annotation-xy-label {
   font-size: 10px;
   fill: #666;
 }
+*/
 
 .annotation-connector .connector {
   stroke-dasharray: 3,1;
@@ -329,3 +337,6 @@ a:link, a:visited {
   opacity: 0;
 }
 
+.annotation circle {
+  opacity: 0;
+}
