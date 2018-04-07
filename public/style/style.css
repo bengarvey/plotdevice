@@ -49,13 +49,6 @@ h3 {
   margin: 5px;
 }
 
-/*
-.annotation-note-label, .annotation-xy-label {
-  font-size: 10px;
-  fill: #666;
-}
-*/
-
 .annotation-connector .connector {
   stroke-dasharray: 3,1;
   stroke-width: 1px;
