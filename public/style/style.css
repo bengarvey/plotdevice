@@ -333,3 +333,15 @@ a:link, a:visited {
 .annotation circle {
   opacity: 0;
 }
+
+.smallMultiples {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.smallMultiple {
+  width: 100px;
+  height: 50px;
+  margin: auto;
+}

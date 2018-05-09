@@ -1,14 +1,25 @@
 import React from 'react'
 import { ResponsiveXYFrame } from 'semiotic';
 import Nav from './Nav';
+import City from './City';
 
 var cities = require('../data/cities.json'); 
 
-
 var lbs = require('../data/lbs.json');
 
+function getColor() {
+  return `#333333`;
+  //return "#"+((1<<24)*Math.random()|0).toString(16);
+}
+
 function formatDate(date) {
-  return `${date.getFullYear()}-${date.getMonth()+1}`;
+  return `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
+}
+
+function getAvg(values) {
+  return values.reduce(function (p, c) {
+    return p + c;
+  }) / values.length;
 }
 
 class Cities extends React.Component {
@@ -25,82 +36,55 @@ class Cities extends React.Component {
     var floating = [];
     var win = 7;
 
-    for(var i=win; i<lbs.length; i++) {
-      var value = 0;
-      for(var j=win-1; j>=0; j--) {
-        value += lbs[i-j].lbs;
+    var avg = {};
+    var avgValues = [];
+    cities.forEach( (city) => {
+        var dates = city.score.date;
+        city.score.avgValues = {};
+        Object.keys(dates).forEach( (date) => {
+            city.score.avgValues[date] = getAvg(city.score.date[date]);
+          }
+        );
+        var plotData = [];
+        var keys = Object.keys(city.score.avgValues);
+        keys.sort();
+        for(var i=0; i<keys.length; i++) {
+          plotData.push({date: `${keys[i]}`, value: city.score.avgValues[keys[i]]})
+        }
+        this.display.push(
+          {data: plotData, color: getColor(), opacity: 0.8, strokeWidth: "1px", name: city[`name`]}
+        );
+
       }
-      floating.push({date: lbs[i].date, lbs: value/win});
-    }
-
-    var recentWindow = 128;
-    var recentLbs = lbs.slice().splice(lbs.length-recentWindow,recentWindow);
-    var recentFloating = floating.slice().splice(floating.length-recentWindow, recentWindow);
-
-    this.display.push(
-      {data: lbs, color: '#393e41', opacity: 0.35, strokeWidth: "1px"});
-    this.display.push(
-      {data: floating, color: '#393e41', opacity: 1, strokeWidth: "1px"});
-
-    this.recentDisplay.push(
-      {data: recentLbs, color: '#393e41', opacity: 0.35, strokeWidth: "1px"});
-    this.recentDisplay.push(
-      {data: recentFloating, color: '#393e41', opacity: 1, strokeWidth: "1px"});
-
-    var recentFirst = recentLbs[0].date;
-    var first = lbs[0].date;
-    var last = lbs[lbs.length-1].date;
-
-    this.recentRange = `${recentFirst} to ${last}`;
-    this.range = `${first} to ${last}`;
-    console.log(this.display);
-    console.log(this.recentDisplay);
+    );
   }
 
   render() {
     return (
       <div className="chartContainer">
         <h1>Sentiment by City</h1>
-        <h3>{this.recentRange}</h3>
-        <ResponsiveXYFrame
-          size={[300,250]}
-          responsiveWidth={true}
-          lines={this.recentDisplay}
-          margin={{top: 5, bottom: 25, left: 25, right: 5}}
-          lineDataAccessor={"data"}
-          xAccessor={d => new Date(d.date)}
-          yAccessor={d => d.lbs}
-          hoverAnnotation={true}
-          lineType={{ type: 'line'}}
-          lineRenderMode={d => "sketchy"}
-          lineStyle={(d) => ({ stroke: d.color, strokeWidth: d.strokeWidth, opacity:d.opacity })}
-          customLineType={{ type: "dividedLine"}}
-          axes={[
-            { orient: 'left', tickFormat: d => d, ticks: 10, className: 'normal'},
-            { orient: 'bottom', tickFormat: d => formatDate(new Date(d)), ticks: 2, className: 'normal'}
-          ]}
-        />
-        <br/>
-        <h3>{this.range}</h3>
-        <ResponsiveXYFrame
-          size={[300,250]}
-          responsiveWidth={true}
-          lines={this.display}
-          yExtent={[150]}
-          margin={{top: 5, bottom: 25, left: 25, right: 5}}
-          lineDataAccessor={d => d.data}
-          xAccessor={d => new Date(d.date)}
-          yAccessor={d => d.lbs}
-          hoverAnnotation={true}
-          lineType={{ type: 'line'}}
-          lineRenderMode={d => "sketchy"}
-          lineStyle={(d) => ({ stroke: d.color, strokeWidth: d.strokeWidth, opacity:d.opacity })}
-          customLineType={{ type: "dividedLine"}}
-          axes={[
-            { orient: 'left', tickFormat: d => d, ticks: 10, className: 'normal'},
-            { orient: 'bottom', tickFormat: d => formatDate(new Date(d)), ticks: 2, className: 'normal'}
-          ]}
-        />
+        <div className="smallMultiples">
+          <City
+            name={this.display[0].name}
+            data={[this.display[0]]}
+          />
+          <City
+            name={this.display[1].name}
+            data={[this.display[1]]}
+          />
+          <City
+            name={this.display[2].name}
+            data={[this.display[2]]}
+          />
+          <City
+            name={this.display[3].name}
+            data={[this.display[3]]}
+          />
+          <City
+            name={this.display[4].name}
+            data={[this.display[4]]}
+          />
+        </div>
         <div className="notes nextReport">
           <h3>Notes and Sources</h3>
           <p>Tech: <a href="https://emeeks.github.io/semiotic">Semiotic</a>, javascript, Notes, Google Sheets</p>
