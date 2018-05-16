@@ -9,7 +9,6 @@ var lbs = require('../data/lbs.json');
 
 function getColor() {
   return `#333333`;
-  //return "#"+((1<<24)*Math.random()|0).toString(16);
 }
 
 function formatDate(date) {
@@ -47,12 +46,21 @@ class Cities extends React.Component {
         );
         var plotData = [];
         var keys = Object.keys(city.score.avgValues);
+        var overallAvg = 0;
+        var temp = 0;
         keys.sort();
         for(var i=0; i<keys.length; i++) {
           plotData.push({date: `${keys[i]}`, value: city.score.avgValues[keys[i]]})
+          temp += city.score.avgValues[keys[i]];
         }
+        overallAvg = temp / keys.length;
         this.display.push(
-          {data: plotData, color: getColor(), opacity: 0.8, strokeWidth: "1px", name: city[`name`]}
+          { data: plotData,
+            color: getColor(),
+            opacity: 0.8,
+            strokeWidth: "1px",
+            name: city[`name`],
+            overallAvg: overallAvg }
         );
 
       }
@@ -66,23 +74,31 @@ class Cities extends React.Component {
         <div className="smallMultiples">
           <City
             name={this.display[0].name}
-            data={[this.display[0]]}
+            data={this.display[0]}
           />
           <City
             name={this.display[1].name}
-            data={[this.display[1]]}
+            data={this.display[1]}
           />
           <City
             name={this.display[2].name}
-            data={[this.display[2]]}
+            data={this.display[2]}
           />
           <City
             name={this.display[3].name}
-            data={[this.display[3]]}
+            data={this.display[3]}
           />
           <City
             name={this.display[4].name}
-            data={[this.display[4]]}
+            data={this.display[4]}
+          />
+          <City
+            name={this.display[5].name}
+            data={this.display[5]}
+          />
+          <City
+            name={this.display[6].name}
+            data={this.display[6]}
           />
         </div>
         <div className="notes nextReport">
