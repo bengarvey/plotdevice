@@ -220,7 +220,6 @@ class Cities extends React.Component {
       this.display = this.display.concat(processCity(city));
     });
 
-    console.log(people);
     this.displayPeople = people;
 
     var processedPhilly = processCity(philly);
