@@ -14,6 +14,8 @@ import Line from './components/Line'
 import Movies from './components/Movies'
 import Rj from './components/Rj'
 import NLEast from './components/NLEast'
+import Cities from './components/Cities'
+
 
 var App = () => (
   <div className="main">
@@ -32,6 +34,7 @@ var App = () => (
         <Route path='/movies' component={Movies}/>
         <Route path='/rj' component={Rj}/>
         <Route path='/nleast' component={NLEast}/>
+        <Route path='/cities' component={Cities}/>
       </Switch>
     </BrowserRouter>
   </div>
