@@ -255,7 +255,8 @@ class Cities extends React.Component {
   render() {
     return (
       <div className="chartContainer">
-        <h1>Population by City</h1>
+        <h1>Quantified Negadelphia</h1>
+        <h3>Population by City</h3>
         <ResponsiveORFrame
           size={[ 360, 500 ]}
           responsiveWidth={true}
@@ -463,10 +464,11 @@ class Cities extends React.Component {
           oPadding={2}
         />
 
-
         <div className="notes nextReport">
           <h3>Notes and Sources</h3>
-          <p>Tech: <a href="https://emeeks.github.io/semiotic">Semiotic</a>, javascript, Notes, Google Sheets</p>
+          <p>Is Philadelphia a negative place compared to other cities? I created these charts for a presentation I gave at <a href="https://www.thedatalab.io/the-data-jawn/">Data Jawn 2018</a>. <a href="https://docs.google.com/presentation/d/1QoR-feuV10D-jr-7XEaUZ-hDayDguUpbUtgJz6pGQ_c/edit?usp=sharing">My slides</a>.</p>
+          <p>This was a lot of data work to make some fairly straightforward charts. The only interesting stuff is the overlaying of 2018 data on top of 2017, which was surprinsgly easy in semiotic.</p>
+          <p>Tech: <a href="https://emeeks.github.io/semiotic">Semiotic</a>, javacript, node, python, <a href="https://www.npmjs.com/package/sentiment">sentiment</a>, <a href="https://github.com/taspinar/twitterscraper">twitterscraper</a></p>
         </div>
         <Nav/>
       </div>
