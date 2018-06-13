@@ -341,7 +341,11 @@ a:link, a:visited {
 }
 
 .smallMultiple {
+  margin-bottom: 0px;
   width: 140px;
   height: 50px;
-  margin: auto;
+}
+
+.label-bold {
+  font-size: 13px;
 }

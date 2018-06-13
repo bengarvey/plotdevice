@@ -1,0 +1,13 @@
+node scripts/cities/sentiment.js 0 > src/data/cities/processed/newyork.json
+node scripts/cities/sentiment.js 1 > src/data/cities/processed/losangeles.json
+node scripts/cities/sentiment.js 2 > src/data/cities/processed/chicago.json
+node scripts/cities/sentiment.js 3 > src/data/cities/processed/houston.json
+node scripts/cities/sentiment.js 4 > src/data/cities/processed/phoenix.json
+node scripts/cities/sentiment.js 5 > src/data/cities/processed/philadelphia.json
+node scripts/cities/sentiment.js 6 > src/data/cities/processed/sanantonio.json
+node scripts/cities/sentiment.js 7 > src/data/cities/processed/sandiego.json
+node scripts/cities/sentiment.js 8 > src/data/cities/processed/dallas.json
+node scripts/cities/sentiment.js 9 > src/data/cities/processed/sanjose.json
+node scripts/cities/sentiment.js 10 > src/data/cities/processed/austin.json
+node scripts/cities/sentiment.js 11 > src/data/cities/processed/jacksonville.json
+node scripts/cities/sentiment.js 12 > src/data/cities/processed/sanfrancisco.json
