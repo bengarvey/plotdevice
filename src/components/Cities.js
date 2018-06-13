@@ -273,7 +273,7 @@ class Cities extends React.Component {
           margin={{ left: 130, top: 0, bottom: 50, right: 10 }}
           oPadding={2}
         />
-        <h1># of Tweets Scraped by City</h1>
+        <h3># of Tweets Scraped by City</h3>
         <ResponsiveORFrame
           size={[ 360, 500 ]}
           responsiveWidth={true}
@@ -290,7 +290,7 @@ class Cities extends React.Component {
           margin={{ left: 140, top: 0, bottom: 50, right: 10 }}
           oPadding={2}
         />
-        <h1>Average Tweet Sentiment by City 2017</h1>
+        <h3>Average Tweet Sentiment by City 2017</h3>
         <ResponsiveORFrame
           size={[ 360, 500 ]}
           responsiveWidth={true}
@@ -307,7 +307,7 @@ class Cities extends React.Component {
           margin={{ left: 140, top: 0, bottom: 50, right: 10 }}
           oPadding={2}
         />
-        <h1>Tweet Sentiment by Type and City 2017</h1>
+        <h3>Tweet Sentiment by Type and City 2017</h3>
         <ResponsiveORFrame
           size={[ 360, 500 ]}
           responsiveWidth={true}
@@ -324,7 +324,7 @@ class Cities extends React.Component {
           margin={{ left: 140, top: 0, bottom: 50, right: 10 }}
           oPadding={2}
         />
-        <h1>Avg Non Neutral Sentiment by City 2017</h1>
+        <h3>Avg Non Neutral Sentiment by City 2017</h3>
         <ResponsiveORFrame
           size={[ 360, 500 ]}
           responsiveWidth={true}
@@ -341,7 +341,7 @@ class Cities extends React.Component {
           margin={{ left: 140, top: 0, bottom: 50, right: 10 }}
           oPadding={2}
         />
-        <h1>Sentiment by City</h1>
+        <h3>Sentiment by City</h3>
         <div>
           <City
             name={this.display[0].name}
@@ -422,7 +422,7 @@ class Cities extends React.Component {
             yExtent={[0,2]}
             removeYear={false}
           />
-        <h1>Philadelphia 2017 and 2018</h1>
+        <h3>Philadelphia 2017 and 2018</h3>
          <City
             name={"Philadelphia"}
             data={this.displayPhilly[0]}
@@ -430,14 +430,14 @@ class Cities extends React.Component {
             removeYear={true}
             showAnnotations={true}
           />
-        <h1>New York 2017 to Now</h1>
+        <h3>New York 2017 and 2018</h3>
          <City
             name={"New York"}
             data={this.displayNewYork[0]}
             yExtent={[0,2]}
             removeYear={true}
           />
-        <h1>@bengarvey</h1>
+        <h3>@bengarvey</h3>
          <City
             name={"@bengarvey"}
             data={this.displayBen[0]}
@@ -446,7 +446,7 @@ class Cities extends React.Component {
           />
 
         </div>
-        <h1>Average Tweet Sentiment by Person 2017</h1>
+        <h3>Average Tweet Sentiment by Person 2017</h3>
         <ResponsiveORFrame
           size={[ 360, 500 ]}
           responsiveWidth={true}
