@@ -428,7 +428,7 @@ class Cities extends React.Component {
             data={this.displayPhilly[0]}
             yExtent={[0,2]}
             removeYear={true}
-            showAnnotations={true}
+            showAnnotations={false}
           />
         <h3>New York 2017 and 2018</h3>
          <City

@@ -21,12 +21,12 @@ const annotations = [
     color: 'rgba(0,0,0,0.2)', dy: -10, dx: 10, connector: { end: "none" }
   },
   { type: 'x',
-    x: new Date('02-04'),
+    x: new Date('2018-02-04T04:00:00Z'),
     note: { label: "Super Bowl LII", align: "middle", wrap: 50},
     color: 'rgba(0,0,0,0.2)', dy: 0, dx: -20, connector: { end: "none" }
   },
   { type: 'x',
-    x: new Date('02-08'),
+    x: new Date('2018-02-08T04:00:00Z'),
     note: { label: "Eagles Parade", align: "middle", wrap: 50},
     color: 'rgba(0,0,0,0.2)', dy: 0, dx: 20, connector: { end: "none" }
   }
@@ -60,7 +60,7 @@ class City extends React.Component {
           defined={d => d.value !== null}
           margin={{top: 0, bottom: 0, left: 0, right: 0}}
           lineDataAccessor={d => d.data}
-          xAccessor={d => this.props.removeYear ? new Date(d.date.substr(5,5)) : new Date(d.date)}
+          xAccessor={d => this.props.removeYear ? new Date('2018-' + d.date.substr(5,5)) : new Date(d.date)}
           yAccessor={d => d.value}
           hoverAnnotation={true}
           tooltipContent={customTooltip}
