@@ -265,7 +265,7 @@ class Cities extends React.Component {
           rAccessor={d => d.population}
           oAccessor={d => `${d.name} ${(d.population/1000000).toFixed(1)}M`}
           pieceHoverAnnotation={true}
-          tooltipContent={ d => `${d.name}: ${d.value}` }
+          tooltipContent={ d => `${d.name}: ${d.value.toLocaleString()}` }
           style={d => ({ fill:  d.name.match('Philadelphia') ? '#FF2222' : colors.primary, stroke: colors.primary, strokeOpacity: 0.0, fillOpacity: 0.5, strokeWidth: 2 })}
           type={"bar"}
           axis={axes}
@@ -282,7 +282,7 @@ class Cities extends React.Component {
           rAccessor={d => d.score.count}
           oAccessor={d => `${d.name} ${(d.score.count/1000).toFixed(1)}K`}
           pieceHoverAnnotation={true}
-          tooltipContent={ d => `${d.name}: ${d.value}` }
+          tooltipContent={ d => `${d.name}: ${d.value.toLocaleString()}` }
           style={d => ({ fill:  d.name.match('Philadelphia') ? '#FF2222' : colors.primary, stroke: colors.primary, strokeOpacity: 0.0, fillOpacity: 0.5, strokeWidth: 2 })}
           type={"bar"}
           axis={thousandsAxes}
@@ -290,7 +290,7 @@ class Cities extends React.Component {
           margin={{ left: 140, top: 0, bottom: 50, right: 10 }}
           oPadding={2}
         />
-        <h3>Average Tweet Sentiment by City 2017</h3>
+        <h3>Average Tweet Sentiment per City 2017</h3>
         <ResponsiveORFrame
           size={[ 360, 500 ]}
           responsiveWidth={true}
