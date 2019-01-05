@@ -1,5 +1,6 @@
 import React from 'react'
 import { ResponsiveXYFrame } from 'semiotic';
+import { curveCardinal } from "d3-shape";
 import Nav from './Nav';
 
 var lbs = require('../data/lbs.json');
@@ -35,14 +36,14 @@ class Lbs extends React.Component {
     var recentFloating = floating.slice().splice(floating.length-recentWindow, recentWindow);
 
     this.display.push(
-      {data: lbs, color: '#393e41', opacity: 0.35, strokeWidth: "1px"});
+      {data: lbs, color: 'rgba(57,62,65,0.35)', strokeWidth: "1.5px"});
     this.display.push(
-      {data: floating, color: '#393e41', opacity: 1, strokeWidth: "1px"});
+      {data: floating, color: 'rgba(57,62,65,1)', strokeWidth: "1.5px"});
 
     this.recentDisplay.push(
-      {data: recentLbs, color: '#393e41', opacity: 0.35, strokeWidth: "1px"});
+      {data: recentLbs, color: 'rgba(57,62,65,0.35)', strokeWidth: "1.5px"});
     this.recentDisplay.push(
-      {data: recentFloating, color: '#393e41', opacity: 1, strokeWidth: "1px"});
+      {data: recentFloating, color: 'rgba(57,62,65,1)', strokeWidth: "1.5px"});
 
     var recentFirst = recentLbs[0].date;
     var first = lbs[0].date;
@@ -50,8 +51,6 @@ class Lbs extends React.Component {
 
     this.recentRange = `${recentFirst} to ${last}`;
     this.range = `${first} to ${last}`;
-    console.log(this.display);
-    console.log(this.recentDisplay);
   }
 
   render() {
@@ -68,8 +67,7 @@ class Lbs extends React.Component {
           xAccessor={d => new Date(d.date)}
           yAccessor={d => d.lbs}
           hoverAnnotation={true}
-          lineType={{ type: 'line'}}
-          lineRenderMode={d => "sketchy"}
+          lineType={{ type: "line", interpolator: curveCardinal }}
           lineStyle={(d) => ({ stroke: d.color, strokeWidth: d.strokeWidth, opacity:d.opacity })}
           customLineType={{ type: "dividedLine"}}
           axes={[
@@ -89,8 +87,7 @@ class Lbs extends React.Component {
           xAccessor={d => new Date(d.date)}
           yAccessor={d => d.lbs}
           hoverAnnotation={true}
-          lineType={{ type: 'line'}}
-          lineRenderMode={d => "sketchy"}
+          lineType={{ type: "line", interpolator: curveCardinal }}
           lineStyle={(d) => ({ stroke: d.color, strokeWidth: d.strokeWidth, opacity:d.opacity })}
           customLineType={{ type: "dividedLine"}}
           axes={[

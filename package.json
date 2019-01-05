@@ -11,13 +11,14 @@
     "d3-shape": "^1.2.0",
     "ftp-deploy": "^1.2.2",
     "hoek": "^5.0.3",
+    "json2csv": "^4.3.2",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.14",
     "require-csv": "0.0.1",
-    "semiotic": "^1.9.2",
+    "semiotic": "^1.16.3",
     "subprocess": "^0.3.0"
   },
   "scripts": {
