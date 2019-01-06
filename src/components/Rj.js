@@ -78,7 +78,7 @@ class Rj extends React.Component {
         <h1>RJMetrics</h1>
         <h3>Where are they now?</h3>
         <ResponsiveNetworkFrame
-            size={[360, 700 ]}
+            size={[360, 650 ]}
             responsiveWidth={true}
             edges={this.network.links}
             nodes={this.network.nodes}
@@ -87,7 +87,7 @@ class Rj extends React.Component {
               stroke: d.stroke
             })}
             edgeStyle={(d) => ({ stroke: d.stroke, fill: d.fill, opacity: 0.5, strokeWidth: '1px' })}
-            networkType={{ type: 'sankey', orient: 'justify', iterations: 500, nodeWidth: 100, nodePadding: 22}}
+            networkType={{ type: 'sankey', orient: 'justify', iterations: 500, nodeWidth: 100, nodePadding: 10}}
             nodeIDAccessor={"id"}
             zoomToFit={true}
             nodeLabels={d => d.name}
