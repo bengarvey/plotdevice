@@ -23,7 +23,7 @@ function processData() {
     bumpAnnotations.push(
       { type: 'react-annotation',
         x:total-1,
-        y: (5-index),
+        y: index,
         dy: 11,
         dx: 5,
         color: team.color,
@@ -71,7 +71,7 @@ function processData() {
   bumpAnnotations.push(
     { type: 'react-annotation',
       x: 40,
-      y: 5,
+      y: 0,
       color: '#0000aa',
       note: {
         label: "Mets in first place 118 games in a row",
@@ -136,7 +136,7 @@ class NLEast extends React.Component {
           defined={d => d.y !== null}
           lineDataAccessor={d => d.gamesAbove}
           xAccessor={(d,i) => i}
-          yAccessor={d => d}
+          yAccessor={(d,i) => 4 - d}
           lineRenderMode={d => "normal"}
           lineType={{type:"bumpline", interpolator: curveBasis}}
           lineStyle={(d) => ({ stroke: d.color, strokeWidth: "2px", opacity: d.opacity})}
