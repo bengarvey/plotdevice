@@ -30,11 +30,11 @@ function hideModernDeaths(deaths, alc, year) {
   return alc === null ? deaths : null;
 }
 function yearToDate(year) {
-  return new Date(`${year}-01-01T04:00:00Z`);
+  return new Date(`${year}-01-01T05:00:00Z`);
 }
 
 function createDate(str) {
-  return new Date(`${str}T04:00:00Z`);
+  return new Date(`${str}T05:00:00Z`);
 }
 
 const popAnnotations = [
@@ -279,7 +279,8 @@ class Auto extends React.Component {
       yAccessor: "y",
       lineDataAccessor: "data",
       hoverAnnotation: true,
-      margin:{ left: 0, bottom: 30, right: 10, top: 10 }
+      margin:{ left: 0, bottom: 30, right: 10, top: 10 },
+      xExtent:[yearToDate(1899), yearToDate(2015)]
     };
   }
 
