@@ -38,5 +38,11 @@
     "eject": "react-scripts eject",
     "deploy": "node deploy.js",
     "release": "react-scripts build && node deploy.js"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
