@@ -135,9 +135,9 @@ class TheWire extends React.Component {
               nodes={this.network.nodes}
               edgeStyle={(d) => ({ stroke: colors[d.relation], fill: colors[d.relation], opacity: 0.5, strokeWidth: '1px' })}
               nodeStyle={d => getNodeStyle(d)}
-              networkType={{ type: 'force', iterations: 100, edgeStrength:0.09, multi:true }}
+              networkType={{ type: 'force', iterations: 400, edgeStrength:0.09, multi:true }}
               edgeType={'arrowhead'}
-              nodeSizeAccessor={d => 7}
+              nodeSizeAccessor={d => 6}
               zoomToFit={true}
               nodeIDAccessor={"id"}
               nodeLabels={d => d.name}
@@ -146,7 +146,6 @@ class TheWire extends React.Component {
                 <div className="tooltip-content" >
                   <p>{d.id}</p>
                   <p>{d.name}</p>
-                  <p>Force Side: {d.type}</p>
                 </div>
               }
               legend={{legendGroups}}
