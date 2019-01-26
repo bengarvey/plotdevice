@@ -2,6 +2,15 @@ import React from 'react';
 import { ResponsiveNetworkFrame } from 'semiotic';
 import { Legend } from 'semiotic';
 import { Chance } from "chance";
+
+import {
+  forceSimulation,
+  forceX,
+  forceY,
+  forceCollide,
+  forceManyBody
+} from "d3-force"
+
 import Nav from './Nav';
 var network = require('../data/wire.json');
 
@@ -30,9 +39,9 @@ const colors = {
   davis: "#aaaaaa",
   killed: '#ff3333',
   trained: '#999999',
-  family: '#3333ff',
-  reports: 'rgba(0,0,0,0.2)',
-  electiondefeat: 'rgba(255,255,10,0.8)',
+  family: '#00ffff',
+  reports: 'rgba(0,0,0,0.1)',
+  electiondefeat: 'rgba(0,0,0,1)',
   teaches: 'rgba(10,255,10,0.8)',
   informant: 'rgba(255,10,255,1)'
 }
@@ -72,6 +81,13 @@ const legendGroups = [
   }
 ]
 
+
+const customSimulation = forceSimulation().force(
+  "charge",
+  forceManyBody()
+    .distanceMax(500)
+    .strength(-100)
+)
 
 function getXY(node) {
   var xy;
