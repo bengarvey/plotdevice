@@ -116,6 +116,10 @@ function getNodeStyle(d) {
   return nodeStyle;
 }
 
+function runSim() {
+  network = network;
+}
+
 
 class TheWire extends React.Component {
   constructor(props) {
@@ -135,7 +139,7 @@ class TheWire extends React.Component {
               nodes={this.network.nodes}
               edgeStyle={(d) => ({ stroke: colors[d.relation], fill: colors[d.relation], opacity: 0.5, strokeWidth: '1px' })}
               nodeStyle={d => getNodeStyle(d)}
-              networkType={{ type: 'force', iterations: 400, edgeStrength:0.09, multi:true }}
+              networkType={{ type: 'force', iterations: 400, edgeStrength:0.09 }}
               edgeType={'arrowhead'}
               nodeSizeAccessor={d => 6}
               zoomToFit={true}
@@ -151,6 +155,7 @@ class TheWire extends React.Component {
               legend={{legendGroups}}
               margin={{left: 25, top: 20, bottom: 20, right: 120}}
           />
+        <button onClick={runSim}>Run</button>
         <div className="notes nextReport">
           <h3>Notes and Sources</h3>
           <p>This doesn't contain any spoilers from The Last Jedi because I haven't watched it yet. Some of the relationships are loosely implied from the Force Awakens.</p>
