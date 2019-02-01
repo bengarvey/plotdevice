@@ -179,7 +179,7 @@
   { "id": 181, "name": "Little Man", "type": "street" },
   { "id": 182, "name": "Perry", "type": "street" },
   { "id": 183, "name": "Savino Bratton", "type": "street" },
-  { "id": 184, "name": "Stinkum Artis", "type": "street" },
+  { "id": 184, "name": "Stinkum", "type": "street" },
   { "id": 185, "name": "Country", "type": "street" },
   { "id": 186, "name": "Rico", "type": "street" },
   { "id": 187, "name": "Tank", "type": "street" },
@@ -195,14 +195,14 @@
   { "id": 197, "name": "Donette", "type": "street" },
   { "id": 198, "name": "Sterling", "type": "street" },
   { "id": 199, "name": "Cheese's Dog", "type": "street" },
-  { "id": 200, "name": "William Gant", "type": "street" }
+  { "id": 200, "name": "William Gant", "type": "street" },
+  { "id": 201, "name": "Tater", "type": "street" }
   ],
   "links": [
   { "source": 2, "target": 0, "relation": "killed"},
   { "source": 5, "target": 2, "relation": "killed"},
   { "source": 7, "target": 5, "relation": "killed"},
   { "source": 18, "target": 147, "relation": "killed" },
-  { "source": 5, "target": 2, "relation": "killed" },
   { "source": 25, "target": 2, "relation": "killed" },
   { "source": 105, "target": 8, "relation": "killed" },
   { "source": 105, "target": 13, "relation": "killed" },
@@ -220,6 +220,9 @@
   { "source": 8, "target": 153, "relation": "killed" },
   { "source": 9, "target": 153, "relation": "killed" },
   { "source": 2, "target": 154, "relation": "killed" },
+  { "source": 156, "target": 154, "relation": "killed" },
+  { "source": 184, "target": 154, "relation": "killed" },
+  { "source": 180, "target": 154, "relation": "killed" },
   { "source": 175, "target": 187, "relation": "killed" },
   { "source": 10, "target": 189, "relation": "killed" },
   { "source": 16, "target": 199, "relation": "killed" },
@@ -227,10 +230,11 @@
   { "source": 156, "target": 200, "relation": "killed" },
   { "source": 105, "target": 178, "relation": "killed" },
   { "source": 11, "target": 178, "relation": "killed" },
-  { "source": 11, "target": 179, "relation": "killed" },
-  { "source": 13, "target": 179, "relation": "killed" },
+  { "source": 11, "target": 201, "relation": "killed" },
   { "source": 172, "target": 176, "relation": "killed" },
   { "source": 156, "target": 195, "relation": "killed" },
+  { "source": 5, "target": 183, "relation": "killed" },
+  { "source": 5, "target": 184, "relation": "killed" },
 
   { "source": 159, "target": 0, "relation": "family" },
   { "source": 159, "target": 1, "relation": "family" },
@@ -241,6 +245,7 @@
   { "source": 31, "target": 30, "relation": "family" },
   { "source": 16, "target": 15, "relation": "family" },
   { "source": 16, "target": 108, "relation": "family" },
+  { "source": 114, "target": 113, "relation": "family" },
   { "source": 111, "target": 114, "relation": "family" },
   { "source": 125, "target": 114, "relation": "family" },
   { "source": 112, "target": 114, "relation": "family" },
@@ -248,24 +253,15 @@
   { "source": 111, "target": 18, "relation": "family" },
   { "source": 113, "target": 18, "relation": "family" },
   { "source": 112, "target": 113, "relation": "family" },
-  { "source": 112, "target": 113, "relation": "family" },
-
   { "source": 94, "target": 83, "relation": "family" },
   { "source": 84, "target": 38, "relation": "family" },
-
   { "source": 100, "target": 156, "relation": "family" },
   { "source": 100, "target": 157, "relation": "family" },
   { "source": 157, "target": 156, "relation": "family" },
   { "source": 100, "target": 73, "relation": "family" },
-
-  { "source": 84, "target": 38, "relation": "family" },
-  { "source": 84, "target": 38, "relation": "family" },
-  { "source": 84, "target": 38, "relation": "family" },
-
   { "source": 197, "target": 2, "relation": "family" },
   { "source": 197, "target": 0, "relation": "family" },
   { "source": 32, "target": 188, "relation": "family" },
-
   { "source": 77, "target": 3, "relation": "family" },
 
   { "source": 45, "target": 38, "relation": "reports" },
@@ -279,7 +275,6 @@
   { "source": 53, "target": 38, "relation": "reports" },
   { "source": 55, "target": 38, "relation": "reports" },
   { "source": 56, "target": 38, "relation": "reports" },
-  { "source": 51, "target": 38, "relation": "reports" },
   { "source": 3, "target": 38, "relation": "reports" },
   { "source": 54, "target": 38, "relation": "reports" },
 
@@ -321,6 +316,7 @@
   { "source": 192, "target": 2, "relation": "reports" },
   { "source": 188, "target": 2, "relation": "reports" },
   { "source": 179, "target": 2, "relation": "reports" },
+  { "source": 201, "target": 1, "relation": "reports" },
 
   { "source": 196, "target": 195, "relation": "reports" },
   { "source": 190, "target": 150, "relation": "reports" },
@@ -420,8 +416,6 @@
   { "source": 71, "target": 50, "relation": "reports" },
   { "source": 72, "target": 50, "relation": "reports" },
 
-  { "source": 72, "target": 50, "relation": "reports" },
-
   { "source": 47, "target": 74, "relation": "reports" },
   { "source": 55, "target": 74, "relation": "reports" },
 
@@ -496,6 +490,7 @@
   { "source": 26, "target": 36, "relation": "teaches" },
   { "source": 26, "target": 81, "relation": "teaches" },
   { "source": 26, "target": 73, "relation": "teaches" },
+  { "source": 24, "target": 140, "relation": "teaches" },
 
   { "source": 83, "target": 86, "relation": "electiondefeat" },
   { "source": 83, "target": 91, "relation": "electiondefeat" },
@@ -510,7 +505,6 @@
   { "source": 3, "target": 168, "relation": "informant" },
   { "source": 3, "target": 136, "relation": "informant" },
   { "source": 24, "target": 54, "relation": "informant" },
-  { "source": 24, "target": 140, "relation": "informant" },
   { "source": 200, "target": 62, "relation": "informant" },
   { "source": 5, "target": 4, "relation": "informant" },
   { "source": 162, "target": 142, "relation": "informant" },

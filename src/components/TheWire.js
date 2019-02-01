@@ -116,10 +116,6 @@ function getNodeStyle(d) {
   return nodeStyle;
 }
 
-function runSim() {
-  network = network;
-}
-
 
 class TheWire extends React.Component {
   constructor(props) {
@@ -131,7 +127,7 @@ class TheWire extends React.Component {
     return (
       <div className="chartContainerWide">
         <h1>The Wire</h1>
-        <h3>Network graph</h3>
+        <h3>Way down in the hole</h3>
           <ResponsiveNetworkFrame
               size={[ 300, 700 ]}
               responsiveWidth={true}
@@ -139,15 +135,23 @@ class TheWire extends React.Component {
               nodes={this.network.nodes}
               edgeStyle={(d) => ({ stroke: colors[d.relation], fill: colors[d.relation], opacity: 0.5, strokeWidth: '1px' })}
               nodeStyle={d => getNodeStyle(d)}
-              networkType={{ type: 'force', iterations: 400, edgeStrength:0.09 }}
+              networkType={{ type: 'force', iterations: 50, edgeStrength:0.09 }}
               edgeType={'arrowhead'}
               nodeSizeAccessor={d => 6}
               zoomToFit={true}
               nodeIDAccessor={"id"}
-              nodeLabels={d => d.name}
+              nodeLabels={d =>
+                <text
+                  x={((d.name.length/4) * -1) + "em"}
+                  y="1.5em"
+                  fill="gray"
+                  style={{'fontSize': 9 + 'px'}}>
+                  {d.name}
+                </text>
+              }
               hoverAnnotation={true}
-              tooltipContent={d => 
-                <div className="tooltip-content" >
+              tooltipContent={d =>
+                <div className="tooltip-content">
                   <p>{d.id}</p>
                   <p>{d.name}</p>
                 </div>
@@ -155,12 +159,10 @@ class TheWire extends React.Component {
               legend={{legendGroups}}
               margin={{left: 25, top: 20, bottom: 20, right: 120}}
           />
-        <button onClick={runSim}>Run</button>
         <div className="notes nextReport">
           <h3>Notes and Sources</h3>
-          <p>This doesn't contain any spoilers from The Last Jedi because I haven't watched it yet. Some of the relationships are loosely implied from the Force Awakens.</p>
-          <p>Network diagrams are always a mess, but I saw a great talk about them at OpenVis Conf 2017 called <a href="https://openvisconf.com/#jgomez-video-item">Untangling the Hairball</a>. I might need to watch it again.</p>
-          <p>Tech: <a href="https://emeeks.github.io/semiotic">Semiotic</a>, javascript, an old VHS tape I watched hundreds of times, IMDB</p>
+          <p>This project took a lot longer than I anticipated.</p>
+          <p>Tech: <a href="https://emeeks.github.io/semiotic">Semiotic</a>, javascript, <a href="https://en.wikipedia.org/wiki/List_of_The_Wire_characters">wikipedia</a>, <a href="https://thewire.fandom.com/wiki/The_Wire_on_HBO">fandom</a></p>
         </div>
         <Nav/>
       </div>
