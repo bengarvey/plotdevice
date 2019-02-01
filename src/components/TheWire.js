@@ -1,7 +1,6 @@
 import React from 'react';
 import { ResponsiveNetworkFrame } from 'semiotic';
 import { Legend } from 'semiotic';
-import { Chance } from "chance";
 
 import {
   forceSimulation,
@@ -13,8 +12,6 @@ import {
 
 import Nav from './Nav';
 var network = require('../data/wire.json');
-
-var chance = new Chance;
 
 const colors = {
   police: '#0077bb',
@@ -94,7 +91,6 @@ function getNodeStyle(d) {
   return nodeStyle;
 }
 
-
 class TheWire extends React.Component {
   constructor(props) {
     super(props);
@@ -123,7 +119,7 @@ class TheWire extends React.Component {
                   x={((d.name.length/4) * -1) + "em"}
                   y="1.5em"
                   fill="gray"
-                  style={{'fontSize': 9 + 'px'}}>
+                  style={{'fontSize': '9px'}}>
                   {d.name}
                 </text>
               }
