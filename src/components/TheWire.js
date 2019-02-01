@@ -89,28 +89,6 @@ const customSimulation = forceSimulation().force(
     .strength(-100)
 )
 
-function getXY(node) {
-  var xy;
-  switch(node.type) {
-    case "street":
-      xy = [rf(0.1,0.5), rf(0.1,0.5)];
-      break;
-    case "police":
-      xy = [rf(0.5,0.9), rf(0.1,0.5)];
-      break;
-    case "politics":
-      xy = [rf(0.1,0.5), rf(0.5,0.9)];
-      break;
-    default:
-      xy = [rf(0.5,0.9), rf(0.5,0.9)];
-  }
-  return xy;
-}
-
-function rf(min,max) {
-  return chance.floating({min: min, max: max});
-}
-
 function getNodeStyle(d) {
   var nodeStyle = { fill: colors[d.type], strokeWidth: "2px"};
   return nodeStyle;
@@ -126,8 +104,8 @@ class TheWire extends React.Component {
   render() {
     return (
       <div className="chartContainerWide">
-        <h1>The Wire</h1>
-        <h3>Way down in the hole</h3>
+        <h1>HBO's The Wire</h1>
+        <h3>Network graph showing the complicated relationships of 200+ characters</h3>
           <ResponsiveNetworkFrame
               size={[ 300, 700 ]}
               responsiveWidth={true}
@@ -159,10 +137,14 @@ class TheWire extends React.Component {
               legend={{legendGroups}}
               margin={{left: 25, top: 20, bottom: 20, right: 120}}
           />
-        <div className="notes nextReport">
-          <h3>Notes and Sources</h3>
-          <p>This project took a lot longer than I anticipated.</p>
-          <p>Tech: <a href="https://emeeks.github.io/semiotic">Semiotic</a>, javascript, <a href="https://en.wikipedia.org/wiki/List_of_The_Wire_characters">wikipedia</a>, <a href="https://thewire.fandom.com/wiki/The_Wire_on_HBO">fandom</a></p>
+        <div className="chartContainer">
+          <div className="notes nextReport">
+            <h3>Notes and Sources</h3>
+            <p>If you had asked me how many characters were in HBO's The Wire, I would have said around 40 or 50, certainly not the 200+ I counted to make this network graph. It's one of the most ambitious and complicated shows ever made.</p>
+            <p>Semiotic's support for network graphs is pretty good, but you don't get to see the graph live calculating like you can with other D3 graphs. If you resize the window 3 or 4 times it settles in nicely, but I haven't been able to figure out how to trigger the simulation manually yet.</p>
+            <p>I'm sure some of my decisions about who reports to who are a little controversial, but I did the best I could. Feel free to make a pull request into the json file if you see any mistakes.</p>
+            <p>Tech: <a href="https://emeeks.github.io/semiotic">Semiotic</a>, javascript, <a href="https://en.wikipedia.org/wiki/List_of_The_Wire_characters">wikipedia</a>, <a href="https://thewire.fandom.com/wiki/The_Wire_on_HBO">fandom</a></p>
+          </div>
         </div>
         <Nav/>
       </div>
