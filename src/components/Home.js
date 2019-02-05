@@ -17,6 +17,7 @@ const Home = () => (
       <li className="list-item"><a href="rj">RJMetrics: Where are they now?</a></li>
       <li className="list-item"><a href="nleast">NLEast 2007</a></li>
       <li className="list-item"><a href="cities">Quantified Negadelphia</a></li>
+      <li className="list-item"><a href="wire">HBO's The Wire (Spoilers)</a></li>
     </ul>
     <div>
       <ul className="navList">
