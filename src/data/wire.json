@@ -233,6 +233,8 @@
   { "source": 11, "target": 201, "relation": "killed" },
   { "source": 172, "target": 176, "relation": "killed" },
   { "source": 156, "target": 195, "relation": "killed" },
+  { "source": 156, "target": 181, "relation": "killed" },
+  { "source": 181, "target": 195, "relation": "killed" },
   { "source": 5, "target": 183, "relation": "killed" },
   { "source": 5, "target": 184, "relation": "killed" },
 
