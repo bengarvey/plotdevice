@@ -16,6 +16,7 @@ import Rj from './components/Rj'
 import NLEast from './components/NLEast'
 import Cities from './components/Cities'
 import TheWire from './components/TheWire'
+import Patco from './components/Patco'
 
 
 var App = () => (
@@ -37,6 +38,7 @@ var App = () => (
         <Route path='/nleast' component={NLEast}/>
         <Route path='/cities' component={Cities}/>
         <Route path='/wire' component={TheWire}/>
+        <Route path='/patco' component={Patco}/>
       </Switch>
     </BrowserRouter>
   </div>
