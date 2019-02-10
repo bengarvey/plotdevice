@@ -79,6 +79,14 @@ const legendGroups = [
 ]
 
 
+function forceSim() {
+  var cont = document.getElementById("container");
+  var currentWidth = cont.style.width;
+  var nextWidth = currentWidth == "100%" ? "99%" : "100%";
+  cont.setAttribute("style", `width:${nextWidth}`);
+}
+
+
 const customSimulation = forceSimulation().force(
   "charge",
   forceManyBody()
@@ -95,11 +103,17 @@ class TheWire extends React.Component {
   constructor(props) {
     super(props);
     this.network = network;
+    var timerId = setInterval( function() { forceSim(); }, 650);
+    setTimeout( () => {
+      clearInterval(timerId);
+      document.getElementById("container").setAttribute("style", "width:100%");
+    }, 10000);
+    this.showLegend = false;
   }
 
   render() {
     return (
-      <div className="chartContainerWide">
+      <div className="chartContainerWide" id="container">
         <h1>HBO's The Wire</h1>
         <h3>Network graph showing the complicated relationships of 200+ characters</h3>
           <ResponsiveNetworkFrame
@@ -109,7 +123,7 @@ class TheWire extends React.Component {
               nodes={this.network.nodes}
               edgeStyle={(d) => ({ stroke: colors[d.relation], fill: colors[d.relation], opacity: 0.5, strokeWidth: '1px' })}
               nodeStyle={d => getNodeStyle(d)}
-              networkType={{ type: 'force', iterations: 50, edgeStrength:0.09 }}
+              networkType={{ type: 'force', iterations: 200, edgeStrength:0.09 }}
               edgeType={'arrowhead'}
               nodeSizeAccessor={d => 6}
               zoomToFit={true}
