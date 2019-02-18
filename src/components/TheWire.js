@@ -78,14 +78,20 @@ const legendGroups = [
   }
 ]
 
-
 function forceSim() {
   var cont = document.getElementById("container");
-  var currentWidth = cont.style.width;
-  var nextWidth = currentWidth == "100%" ? "99%" : "100%";
+  var contStyle = window.getComputedStyle(cont);
+  var currentWidth = contStyle.width;
+  var maxWidth = currentWidth;
+  var nextWidth = currentWidth == maxWidth ? addPxString(-1, maxWidth) : maxWidth;
+  console.log(currentWidth == maxWidth, addPxString(-1, maxWidth), contStyle.width, maxWidth, currentWidth, nextWidth);
   cont.setAttribute("style", `width:${nextWidth}`);
 }
 
+function addPxString(op, string) {
+  var value = parseInt(string.replace("px", "")) + op;
+  return `${value}px`;
+}
 
 const customSimulation = forceSimulation().force(
   "charge",
@@ -95,7 +101,7 @@ const customSimulation = forceSimulation().force(
 )
 
 function getNodeStyle(d) {
-  var nodeStyle = { fill: colors[d.type], strokeWidth: "2px"};
+  var nodeStyle = { width: 7, height: 7, fill: colors[d.type], strokeWidth: "1px"};
   return nodeStyle;
 }
 
@@ -106,37 +112,26 @@ class TheWire extends React.Component {
     var timerId = setInterval( function() { forceSim(); }, 650);
     setTimeout( () => {
       clearInterval(timerId);
-      document.getElementById("container").setAttribute("style", "width:100%");
     }, 10000);
-    this.showLegend = false;
   }
 
   render() {
     return (
-      <div className="chartContainerWide" id="container">
+      <div className="chartContainer" id="container">
         <h1>HBO's The Wire</h1>
         <h3>Network graph showing the complicated relationships of 200+ characters</h3>
           <ResponsiveNetworkFrame
-              size={[ 300, 700 ]}
+              size={[ 200, 400 ]}
               responsiveWidth={true}
               edges={this.network.links}
               nodes={this.network.nodes}
-              edgeStyle={(d) => ({ stroke: colors[d.relation], fill: colors[d.relation], opacity: 0.5, strokeWidth: '1px' })}
+              edgeStyle={(d) => ({ stroke: colors[d.relation], fill: colors[d.relation], opacity: 0.5, strokeWidth: '1' })}
               nodeStyle={d => getNodeStyle(d)}
               networkType={{ type: 'force', iterations: 200, edgeStrength:0.09 }}
               edgeType={'arrowhead'}
-              nodeSizeAccessor={d => 6}
+              nodeSizeAccessor={d => 4}
               zoomToFit={true}
               nodeIDAccessor={"id"}
-              nodeLabels={d =>
-                <text
-                  x={((d.name.length/4) * -1) + "em"}
-                  y="1.5em"
-                  fill="gray"
-                  style={{'fontSize': '9px'}}>
-                  {d.name}
-                </text>
-              }
               hoverAnnotation={true}
               tooltipContent={d =>
                 <div className="tooltip-content">
@@ -144,9 +139,22 @@ class TheWire extends React.Component {
                   <p>{d.name}</p>
                 </div>
               }
-              legend={{legendGroups}}
-              margin={{left: 25, top: 20, bottom: 20, right: 120}}
+              margin={{left: 5, top: 10, bottom: 0, right: 0}}
           />
+        <svg style={{ height: "220px"}}>
+          <g transform={"translate(0,0)"}>
+            <Legend
+              title={"Legend"}
+              legendGroups={[legendGroups[0]]}
+            />
+          </g>
+          <g transform={"translate(150,0)"}>
+            <Legend
+              title={""}
+              legendGroups={[legendGroups[1]]}
+            />
+          </g>
+        </svg>
         <div className="chartContainer">
           <div className="notes nextReport">
             <h3>Notes and Sources</h3>
