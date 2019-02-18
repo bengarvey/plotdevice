@@ -159,7 +159,7 @@ class TheWire extends React.Component {
           <div className="notes nextReport">
             <h3>Notes and Sources</h3>
             <p>If you had asked me how many characters were in HBO's The Wire, I would have said around 40 or 50, certainly not the 200+ I counted to make this network graph. It's one of the most ambitious and complicated shows ever made.</p>
-            <p>Semiotic's support for network graphs is pretty good, but you don't get to see the graph live calculating like you can with other D3 graphs. If you resize the window 3 or 4 times it settles in nicely, so I trigger a resize of the continer div a few times. It looks a little janky, but I'm ok with it for now.</p>
+            <p>Semiotic's support for network graphs is pretty good, but you don't get to see the graph live calculating like you can with other D3 graphs. If you resize the window 3 or 4 times it settles in nicely, so I trigger a resize of the continer div a few times.</p>
             <p>I'm sure some of my decisions about who reports to who are a little controversial, but I did the best I could. Feel free to make a pull request into the json file if you see any mistakes.</p>
             <p>Tech: <a href="https://emeeks.github.io/semiotic">Semiotic</a>, javascript, <a href="https://en.wikipedia.org/wiki/List_of_The_Wire_characters">wikipedia</a>, <a href="https://thewire.fandom.com/wiki/The_Wire_on_HBO">fandom</a></p>
           </div>
