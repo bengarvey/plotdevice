@@ -121,7 +121,7 @@ class TheWire extends React.Component {
         <h1>HBO's The Wire</h1>
         <h3>Network graph showing the complicated relationships of 200+ characters</h3>
           <ResponsiveNetworkFrame
-              size={[ 200, 400 ]}
+              size={[ 300, 400 ]}
               responsiveWidth={true}
               edges={this.network.links}
               nodes={this.network.nodes}
