@@ -44,6 +44,18 @@ class Cafe extends React.Component {
 
     this.display[0].data.sort( (a, b) => a.date - b.date );
     this.display[0].data.map( (item, i) => {item.id = i; return item;});
+
+    var items = [];
+    for(var i=0; i<100; i++) {
+      var item = { 
+        id: i,
+        x: Math.round(Math.random() * 500),
+        y: Math.round(Math.random() * 500),
+        category: Math.round(Math.random() * 5)
+      }
+      items.push(item);
+    }
+    this.cafeData = items;
   }
 
   render() {
@@ -69,7 +81,7 @@ class Cafe extends React.Component {
           margin={{top: 10, left: 30, right: 45, bottom: 50}}
           annotations={annotations}
         />
-        <Categrid data={[5,10,1,3]} size={[500,500]}/>
+        <Categrid data={this.cafeData} size={[500,500]}/>
         <div className="notes nextReport">
           <h3>Notes and Sources</h3>
           <p>This is my son's cafeteria transaction history so far for the 2018 school.</p>
