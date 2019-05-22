@@ -15,10 +15,18 @@ var processed = [];
 function processData(items) {
     var result = items.map( (item, index) => {
       item.balance = parseFloat(item.balance.replace('$',''));
+      item.item_amount = parseFloat(item['item amount'].replace('$',''));
+      item.debit = nanCheck(parseFloat(item.debit.replace('$','')));
+      item.credit = parseFloat(item.credit.replace('$',''));
       item.date = new Date(item.date);
       return item;
     });
+    console.log(result);
     return result;
+}
+
+function nanCheck(val) {
+  return val || 0;
 }
 
 function yearToDate(year) {
@@ -38,24 +46,13 @@ class Cafe extends React.Component {
 
   process() {
     processed = processData(transactions);
+    this.cafeData = processed.sort( (a,b) => a.item - b.item );
     this.display = [
       {data: processed, color: '#393e41', opacity: 0.7, strokeWidth: "2px"}
     ];
 
     this.display[0].data.sort( (a, b) => a.date - b.date );
     this.display[0].data.map( (item, i) => {item.id = i; return item;});
-
-    var items = [];
-    for(var i=0; i<100; i++) {
-      var item = { 
-        id: i,
-        x: Math.round(Math.random() * 500),
-        y: Math.round(Math.random() * 500),
-        category: Math.round(Math.random() * 5)
-      }
-      items.push(item);
-    }
-    this.cafeData = items;
   }
 
   render() {
@@ -81,6 +78,25 @@ class Cafe extends React.Component {
           margin={{top: 10, left: 30, right: 45, bottom: 50}}
           annotations={annotations}
         />
+        <ResponsiveXYFrame
+          size={[350, 300]}
+          responsiveWidth={true}
+          lines={this.display}
+          defined={d => d.balance !== null}
+          lineDataAccessor={d => d.data}
+          xAccessor={d => new Date(d.date)}
+          yAccessor={d => d.debit}
+          lineStyle={(d) => ({ stroke: d.color, strokeWidth: d.strokeWidth, opacity:d.opacity })}
+          lineType={{type:"cumulative"}}
+          hoverAnnotation={true}
+          axes={[
+            { orient: 'left', tickFormat: d => d },
+            { orient: 'bottom', ticks: 5, tickFormat: d => formatDate(d) }
+          ]}
+          margin={{top: 10, left: 30, right: 45, bottom: 50}}
+          annotations={annotations}
+        />
+
         <Categrid data={this.cafeData} size={[500,500]}/>
         <div className="notes nextReport">
           <h3>Notes and Sources</h3>
