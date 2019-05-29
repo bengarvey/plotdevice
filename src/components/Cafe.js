@@ -21,7 +21,6 @@ function processData(items) {
       item.date = new Date(item.date);
       return item;
     });
-    console.log(result);
     return result;
 }
 
