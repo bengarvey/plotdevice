@@ -9,6 +9,40 @@ const color = scaleOrdinal(schemeCategory10);
 const marginWidth = 20;
 const spacing = 30;
 const marginHeight = 40;
+const type = 'grid';
+function calcY(type, i, valuesPerRow, key, keys) {
+  switch(type) {
+    case 'grid':
+      return grid.calcY(i, valuesPerRow);
+      break;
+    default:
+      return grid.calcY(i, valuesPerRow);
+  }
+}
+
+function calcX(type, i, valuesPerRow) {
+  switch(type) {
+    case 'grid':
+      return grid.calcX(i, valuesPerRow);
+      break;
+    default:
+      return grid.calcX(i, valuesPerRow);
+  }
+}
+
+var grid = {
+  calcX: function(i, valuesPerRow) {
+    return (i % valuesPerRow) * spacing + marginWidth;
+  },
+  calcY: function(i, valuesPerRow) {
+    return Math.floor(i/valuesPerRow) * spacing + marginHeight;
+  }
+}
+
+var bar = {
+  calcX: function(i) { return i * spacing + marginWidth; },
+  calcY: function(categoryIndex) { return categoryIndex * spacing + marginHeight}
+}
 
 class Categrid extends React.Component {
   constructor(props) {
@@ -29,15 +63,17 @@ class Categrid extends React.Component {
    }
 
   process() {
-    var data = this.props.data;
-    this.keys = Array.from(new Set(data
+    this.data = this.props.data.filter( (i => i.debit > 0));
+    //this.data = this.data.sort( function (a,b) { return a.item.localeCompare(b.item); })
+    console.log(this.data);
+    this.keys = Array.from(new Set(this.data
                   .filter( (i => i.debit > 0))
                   .map( (i) => i.item)));
   }
 
   renderChart() {
     const node = this.node
-    const dataMax = max(this.props.data)
+    const dataMax = max(this.data)
     const yScale = scaleLinear()
        .domain([0, dataMax])
        .range([0, this.props.size[1]]);
@@ -50,49 +86,51 @@ class Categrid extends React.Component {
 
     select(node)
       .selectAll('circle')
-      .data(this.props.data)
+      .data(this.data)
       .enter()
       .append('circle')
 
     select(node)
       .selectAll('circle')
-      .data(this.props.data)
+      .data(this.data)
       .exit()
       .remove()
 
     select(node)
       .selectAll('circle')
-      .data(this.props.data)
+      .data(this.data)
       .style('fill', (d) => color(d.item))
       .transition().duration(500)
-      .attr('cx', (d,i) => (i % this.valuesPerRow()) * spacing + marginWidth)
-      .attr('cy', (d,i) => Math.floor(i/this.valuesPerRow()) * spacing + marginHeight)
+      .attr('cx', (d,i) => { /*console.log(d.item, i, i%this.valuesPerRow(), this.valuesPerRow(), (i % this.valuesPerRow()) * spacing + marginWidth); */ return calcX(type, i, this.valuesPerRow());} )
+      .attr('cy', (d,i) => { return calcY(type, i, this.valuesPerRow(), d.item, this.keys)})
       .style('r', d => d.debit/0.25 + 3 + "px")
 
-    this.renderLegend();
+    this.renderLegend(this.valuesPerRow());
   }
 
-  renderLegend() {
-    const node = this.legend
-    select(node)
-      .selectAll('circle')
-      .data(this.keys)
-      .enter()
-      .append('circle')
+  renderLegend(valuesPerRow) {
+    const node = this.node
+    const legendOffset = calcY(type, this.data.length, valuesPerRow, this.keys[this.keys.length-1], this.keys) + 50;
 
     select(node)
-      .selectAll('circle')
+      .selectAll('.legend')
+      .data(this.keys)
+      .enter()
+      .append('circle').attr("class", "legend")
+
+    select(node)
+      .selectAll('.legend')
       .data(this.keys)
       .exit()
       .remove()
 
     select(node)
-      .selectAll('circle')
+      .selectAll('.legend')
       .data(this.keys)
       .style('fill', (d) => color(d))
       .transition().duration(500)
       .attr('cx', marginWidth)
-      .attr('cy', (d,i) => 10 + i * 20)
+      .attr('cy', (d,i) => legendOffset + i * 20)
       .style('r', "8px")
 
     select(node)
@@ -112,23 +150,17 @@ class Categrid extends React.Component {
       .data(this.keys)
       .transition().duration(500)
       .attr('x', marginWidth + 15)
-      .attr('y', (d,i) => 13 + (i * 20))
+      .attr('y', (d,i) => legendOffset + 4 + (i * 20))
       .text( (d) => d)
 
   }
 
   render() {
     return (
-      <div>
-        <svg
-        ref={node => this.node = node}
-        width="100%" height={650}>
-        </svg>
-        <svg
-        ref={node => this.legend = node}
-        width="100%" height={500}>
-        </svg>
-      </div>
+      <svg
+      ref={node => this.node = node}
+      width="100%" height={800}>
+      </svg>
     );
   }
 }

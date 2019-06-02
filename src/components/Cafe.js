@@ -4,6 +4,7 @@ import Nav from './Nav';
 import { curveBasis } from 'd3-shape';
 import { AnnotationLabel } from 'react-annotation';
 import Categrid from './Categrid';
+import CategoryBar from './CategoryBar';
 var transactions = require('../data/owenbudget.json');
 
 const formatter = new Intl.DateTimeFormat("en", { month: "short" } );
@@ -49,7 +50,6 @@ class Cafe extends React.Component {
     this.display = [
       {data: processed, color: '#393e41', opacity: 0.7, strokeWidth: "2px"}
     ];
-
     this.display[0].data.sort( (a, b) => a.date - b.date );
     this.display[0].data.map( (item, i) => {item.id = i; return item;});
   }
@@ -97,6 +97,9 @@ class Cafe extends React.Component {
         />
 
         <Categrid data={this.cafeData} size={[500,500]}/>
+
+        <CategoryBar data={transactions}/>
+
         <div className="notes nextReport">
           <h3>Notes and Sources</h3>
           <p>This is my son's cafeteria transaction history so far for the 2018 school.</p>
