@@ -52,11 +52,12 @@ class Categrid extends React.Component {
     this.process();
     this.renderChart = this.renderChart.bind(this);
     this.valuesPerRow = 10;
-    window.onresize = this.renderChart;
+    this.svgHeight = 800;
+    window.onresize = this.componentDidUpdate.bind(this);
   }
 
    componentDidMount() {
-      this.renderChart()
+      this.renderChart();
    }
    componentDidUpdate() {
       this.renderChart();
@@ -72,6 +73,7 @@ class Categrid extends React.Component {
   }
 
   renderChart() {
+    console.log("rendered");
     const node = this.node
     const dataMax = max(this.data)
     const yScale = scaleLinear()
@@ -99,8 +101,8 @@ class Categrid extends React.Component {
     select(node)
       .selectAll('circle')
       .data(this.data)
-      .style('fill', (d) => color(d.item))
       .transition().duration(500)
+      .style('fill', (d) => color(d.item))
       .attr('cx', (d,i) => { /*console.log(d.item, i, i%this.valuesPerRow(), this.valuesPerRow(), (i % this.valuesPerRow()) * spacing + marginWidth); */ return calcX(type, i, this.valuesPerRow());} )
       .attr('cy', (d,i) => { return calcY(type, i, this.valuesPerRow(), d.item, this.keys)})
       .style('r', d => d.debit/0.25 + 3 + "px")
@@ -128,7 +130,6 @@ class Categrid extends React.Component {
       .selectAll('.legend')
       .data(this.keys)
       .style('fill', (d) => color(d))
-      .transition().duration(500)
       .attr('cx', marginWidth)
       .attr('cy', (d,i) => legendOffset + i * 20)
       .style('r', "8px")
@@ -148,18 +149,21 @@ class Categrid extends React.Component {
     select(node)
       .selectAll('text')
       .data(this.keys)
-      .transition().duration(500)
       .attr('x', marginWidth + 15)
       .attr('y', (d,i) => legendOffset + 4 + (i * 20))
       .text( (d) => d)
+
+    // resize svg to use only what we need after a window resize
+    this.svgHeight = legendOffset + this.keys.length * 20;
+    select('.categrid').attr("height", this.svgHeight);
 
   }
 
   render() {
     return (
-      <svg
+      <svg class="categrid"
       ref={node => this.node = node}
-      width="100%" height={800}>
+      width="100%" height={600}>
       </svg>
     );
   }

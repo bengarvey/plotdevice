@@ -11,7 +11,6 @@ class CategoryBar extends React.Component {
     this.display = [];
     this.process();
     this.renderChart = this.renderChart.bind(this);
-    window.onresize = this.renderChart;
   }
 
    componentDidMount() {
