@@ -96,7 +96,7 @@ class Cafe extends React.Component {
           annotations={annotations}
         />
 
-        <Categrid data={this.cafeData} size={[500,500]}/>
+        <Categrid data={this.cafeData} size={[500,500]} color="item" value="debit"/>
 
         <CategoryBar data={transactions}/>
 

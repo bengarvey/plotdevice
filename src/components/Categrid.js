@@ -7,9 +7,10 @@ import { schemeCategory10 } from 'd3-scale-chromatic';
 
 const color = scaleOrdinal(schemeCategory10);
 const marginWidth = 20;
-const spacing = 30;
+const spacing = 20;
 const marginHeight = 40;
 const type = 'grid';
+
 function calcY(type, i, valuesPerRow, key, keys) {
   switch(type) {
     case 'grid':
@@ -53,6 +54,7 @@ class Categrid extends React.Component {
     this.renderChart = this.renderChart.bind(this);
     this.valuesPerRow = 10;
     this.svgHeight = 800;
+    this.dataMax = 0;
     window.onresize = this.componentDidUpdate.bind(this);
   }
 
@@ -64,24 +66,23 @@ class Categrid extends React.Component {
    }
 
   process() {
-    this.data = this.props.data.filter( (i => i.debit > 0));
-    //this.data = this.data.sort( function (a,b) { return a.item.localeCompare(b.item); })
-    console.log(this.data);
+    this.data = this.props.data.filter( (i => i[this.props.value] > 0));
+    //this.data = this.data.sort( function (a,b) { return a[this.props.color].localeCompare(b[this.props.color]); })
     this.keys = Array.from(new Set(this.data
-                  .filter( (i => i.debit > 0))
-                  .map( (i) => i.item)));
+                  .filter( (i => i[this.props.value] > 0))
+                  .map( (i) => i[this.props.color])));
   }
 
   renderChart() {
     console.log("rendered");
     const node = this.node
-    const dataMax = max(this.data)
+    this.dataMax = max(this.data)
     const yScale = scaleLinear()
-       .domain([0, dataMax])
+       .domain([0, this.dataMax])
        .range([0, this.props.size[1]]);
-
+    console.log("max", this.dataMax, "hi");
     const marginWidth = 20;
-    const spacing = 30;
+    const spacing = 20;
     const marginHeight = 40;
 
     this.valuesPerRow  = function() { return Math.floor((node.width.baseVal.value - marginWidth) / (spacing))};
@@ -102,10 +103,10 @@ class Categrid extends React.Component {
       .selectAll('circle')
       .data(this.data)
       .transition().duration(500)
-      .style('fill', (d) => color(d.item))
-      .attr('cx', (d,i) => { /*console.log(d.item, i, i%this.valuesPerRow(), this.valuesPerRow(), (i % this.valuesPerRow()) * spacing + marginWidth); */ return calcX(type, i, this.valuesPerRow());} )
-      .attr('cy', (d,i) => { return calcY(type, i, this.valuesPerRow(), d.item, this.keys)})
-      .style('r', d => d.debit/0.25 + 3 + "px")
+      .style('fill', (d) => color(d[this.props.color]))
+      .attr('cx', (d,i) => { /*console.log(d[this.props.color], i, i%this.valuesPerRow(), this.valuesPerRow(), (i % this.valuesPerRow()) * spacing + marginWidth); */ return calcX(type, i, this.valuesPerRow());} )
+      .attr('cy', (d,i) => { return calcY(type, i, this.valuesPerRow(), d[this.props.color], this.keys)})
+      .style('r', d => ((d[this.props.value]/this.dataMax[this.props.value]) * 5) + 3 + "px")
 
     this.renderLegend(this.valuesPerRow());
   }
