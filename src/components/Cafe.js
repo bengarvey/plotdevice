@@ -23,7 +23,7 @@ function processData(items) {
       return item;
     });
     result = result.filter( (item) => {
-      if (item.name == "deposit") {
+      if (item.name == "Deposit") {
         debugger;
         var x = 0;
       }
@@ -53,6 +53,7 @@ class Cafe extends React.Component {
   process() {
     processed = processData(transactions);
     this.cafeData = processed.sort( (a,b) => a.item - b.item );
+    console.log(this.cafeData);
     this.display = [
       {data: processed, color: '#393e41', opacity: 0.7, strokeWidth: "2px"}
     ];
@@ -106,7 +107,7 @@ class Cafe extends React.Component {
 
         <Categrid data={this.cafeData} size={[1000,200]} color="item" value="debit" title="Categrid of Expenses for the 2018 - 2019 School Year"/>
 
-        <CategoryBar data={transactions} value="debit" category="item" color="item"/>
+        <CategoryBar data={this.cafeData} value="debit" category="item" color="item"/>
 
         <div className="notes nextReport">
           <h3>Notes and Sources</h3>
