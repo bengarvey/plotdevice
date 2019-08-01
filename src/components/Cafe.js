@@ -22,6 +22,12 @@ function processData(items) {
       item.date = new Date(item.date);
       return item;
     });
+    result = result.filter( (item) => {
+      if (item.name == "deposit") {
+        debugger;
+        var x = 0;
+      }
+      return item.debit > 0 });
     return result;
 }
 
@@ -58,9 +64,9 @@ class Cafe extends React.Component {
     return (
       <div className="chartContainer">
         <h1>Owen's Cafeteria Expenes</h1>
-        <h3>Lunch expenses for 2018</h3>
+        <h3>Balance for the 2018 - 2019 School Year</h3>
         <ResponsiveXYFrame
-          size={[350, 300]}
+          size={[550, 300]}
           responsiveWidth={true}
           lines={this.display}
           defined={d => d.balance !== null}
@@ -77,8 +83,10 @@ class Cafe extends React.Component {
           margin={{top: 10, left: 30, right: 45, bottom: 50}}
           annotations={annotations}
         />
+
+        <h3>Cumulative Expenses for the 2018 - 2019 School Year</h3>
         <ResponsiveXYFrame
-          size={[350, 300]}
+          size={[550, 300]}
           responsiveWidth={true}
           lines={this.display}
           defined={d => d.balance !== null}
@@ -96,9 +104,9 @@ class Cafe extends React.Component {
           annotations={annotations}
         />
 
-        <Categrid data={this.cafeData} size={[500,500]} color="item" value="debit"/>
+        <Categrid data={this.cafeData} size={[1000,200]} color="item" value="debit" title="Categrid of Expenses for the 2018 - 2019 School Year"/>
 
-        <CategoryBar data={transactions} value="debit" category="item"/>
+        <CategoryBar data={transactions} value="debit" category="item" color="item"/>
 
         <div className="notes nextReport">
           <h3>Notes and Sources</h3>

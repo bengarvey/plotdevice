@@ -7,7 +7,7 @@ import { schemeCategory10 } from 'd3-scale-chromatic';
 
 const color = scaleOrdinal(schemeCategory10);
 const marginWidth = 20;
-const spacing = 20;
+const spacing = 25;
 const marginHeight = 40;
 const type = 'grid';
 
@@ -67,25 +67,22 @@ class Categrid extends React.Component {
 
   process() {
     this.data = this.props.data.filter( (i => i[this.props.value] > 0));
-    //this.data = this.data.sort( function (a,b) { return a[this.props.color].localeCompare(b[this.props.color]); })
     this.keys = Array.from(new Set(this.data
                   .filter( (i => i[this.props.value] > 0))
                   .map( (i) => i[this.props.color])));
   }
 
   renderChart() {
-    console.log("rendered");
     const node = this.node
     this.dataMax = max(this.data)
     const yScale = scaleLinear()
        .domain([0, this.dataMax])
        .range([0, this.props.size[1]]);
-    console.log("max", this.dataMax, "hi");
     const marginWidth = 20;
-    const spacing = 20;
     const marginHeight = 40;
 
-    this.valuesPerRow  = function() { return Math.floor((node.width.baseVal.value - marginWidth) / (spacing))};
+    this.valuesPerRow  = function() {
+      return Math.floor((node.width.baseVal.value - marginWidth) / (spacing))};
 
     select(node)
       .selectAll('circle')
@@ -104,7 +101,7 @@ class Categrid extends React.Component {
       .data(this.data)
       .transition().duration(500)
       .style('fill', (d) => color(d[this.props.color]))
-      .attr('cx', (d,i) => { /*console.log(d[this.props.color], i, i%this.valuesPerRow(), this.valuesPerRow(), (i % this.valuesPerRow()) * spacing + marginWidth); */ return calcX(type, i, this.valuesPerRow());} )
+      .attr('cx', (d,i) => { return calcX(type, i, this.valuesPerRow());} )
       .attr('cy', (d,i) => { return calcY(type, i, this.valuesPerRow(), d[this.props.color], this.keys)})
       .style('r', d => ((d[this.props.value]/this.dataMax[this.props.value]) * 5) + 3 + "px")
 
@@ -162,10 +159,13 @@ class Categrid extends React.Component {
 
   render() {
     return (
-      <svg class="categrid"
+      <>
+      <h3>{this.props.title}</h3>
+      <svg className="categrid"
       ref={node => this.node = node}
       width="100%" height={600}>
       </svg>
+      </>
     );
   }
 }

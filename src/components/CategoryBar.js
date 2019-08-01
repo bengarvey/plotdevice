@@ -33,10 +33,11 @@ class CategoryBar extends React.Component {
       count[i[this.props.category]] += 1;
     });
     for (var key in sum) {
+      console.log(key, sum);
       var item = {value: sum[key], name: key, count: count[key]};
       this.display.push(item);
     }
-    this.display = this.display.sort( (a, b) => { return b.value - a.value }).slice(0, 50);
+    this.display = this.display.sort( (a, b) => { return b.value - a.value }).slice(0, this.props.limit);
   }
 
   renderChart() {
@@ -47,22 +48,22 @@ class CategoryBar extends React.Component {
       <div>
         <h3>Which purchases were most frequent?</h3>
         <ResponsiveORFrame
-          size={[ 350, 3000 ]}
+          size={[ 350, 500 ]}
           responsiveWidth={true}
           data={this.display}
           projection={'horizontal'}
           rAccessor={d => d.value}
-          oAccessor={d => d.name}
+          oAccessor={d => `${d.name} $${(d.value / 1).toFixed(2)}`}
           pieceHoverAnnotation={true}
           tooltipContent={ d => `$${d.value} spent on ${d.name}` }
           style={d => ({ fill: '#333333', stroke: '#333333', strokeOpacity: 0.0, fillOpacity: 0.5, strokeWidth: 2 })}
           type={"bar"}
           oLabel={(d, i) => (<text x={0} y={3} className={i[0].className} textAnchor="end">{d}</text>)}
-          margin={{ left: 200, top: 0, bottom: 50, right: 10 }}
+          margin={{ left: 140, top: 30, bottom: 50, right: 25 }}
           oPadding={2}
         />
         <ResponsiveORFrame
-          size={[ 350, 3000 ]}
+          size={[ 350, 350 ]}
           responsiveWidth={true}
           data={this.display}
           projection={'horizontal'}
@@ -73,7 +74,7 @@ class CategoryBar extends React.Component {
           style={d => ({ fill: '#333333', stroke: '#333333', strokeOpacity: 0.0, fillOpacity: 0.5, strokeWidth: 2 })}
           type={"bar"}
           oLabel={(d, i) => (<text x={0} y={3} className={i[0].className} textAnchor="end">{d}</text>)}
-          margin={{ left: 200, top: 0, bottom: 50, right: 10 }}
+          margin={{ left: 140, top: 0, bottom: 50, right: 10 }}
           oPadding={2}
         />
 
