@@ -107,7 +107,7 @@ class Cafe extends React.Component {
 
         <Categrid data={this.cafeData} size={[1000,200]} color="item" value="debit" title="Categrid of Expenses for the 2018 - 2019 School Year"/>
 
-        <h3>Which items were purchases the most by revenue and frequency?</h3>
+        <h3>Which items were purchased the most by revenue and frequency?</h3>
         <CategoryBar data={this.cafeData} value="debit" category="item" color="item"/>
 
         <div className="notes nextReport">
