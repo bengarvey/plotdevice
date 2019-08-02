@@ -33,7 +33,6 @@ class CategoryBar extends React.Component {
       count[i[this.props.category]] += 1;
     });
     for (var key in sum) {
-      console.log(key, sum);
       var item = {value: sum[key], name: key, count: count[key]};
       this.display.push(item);
     }

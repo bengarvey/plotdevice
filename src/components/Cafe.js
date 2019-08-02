@@ -53,7 +53,6 @@ class Cafe extends React.Component {
   process() {
     processed = processData(transactions);
     this.cafeData = processed.sort( (a,b) => a.item - b.item );
-    console.log(this.cafeData);
     this.display = [
       {data: processed, color: '#393e41', opacity: 0.7, strokeWidth: "2px"}
     ];
