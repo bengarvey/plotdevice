@@ -107,13 +107,15 @@ class Cafe extends React.Component {
 
         <Categrid data={this.cafeData} size={[1000,200]} color="item" value="debit" title="Categrid of Expenses for the 2018 - 2019 School Year"/>
 
+        <h3>Which items were purchases the most by revenue and frequency?</h3>
         <CategoryBar data={this.cafeData} value="debit" category="item" color="item"/>
 
         <div className="notes nextReport">
           <h3>Notes and Sources</h3>
-          <p>This is my son's cafeteria transaction history so far for the 2018 school.</p>
+          <p>This is my son's cafeteria transaction history from September 2018 to April 2019 that I featured in my Datajawn 2019 presentation. The joke was that he claimed to have never eaten a Teddy Graham in his life, despite the data saying otherwise. Turns out the school lunch system misidentified Rice Krispies Treats as Teddy Grahams.</p>
+          <p>I wrote a D3 component called Categrid for this, which seems like it could be useful in some cases.</p>
           <p>Sources: The school lunch portal site</p>
-          <p>Tech: Semiotic, javascript, html, css, Excel</p>
+          <p>Tech: Semiotic, D3.js, javascript, html, css, Excel</p>
         </div>
         <Nav/>
       </div>

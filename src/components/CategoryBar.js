@@ -46,7 +46,6 @@ class CategoryBar extends React.Component {
   render() {
     return (
       <div>
-        <h3>Which purchases were most frequent?</h3>
         <ResponsiveORFrame
           size={[ 350, 500 ]}
           responsiveWidth={true}
