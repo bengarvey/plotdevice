@@ -18,6 +18,7 @@ const Home = () => (
       <li className="list-item"><a href="nleast">NLEast 2007</a></li>
       <li className="list-item"><a href="cities">Quantified Negadelphia</a></li>
       <li className="list-item"><a href="wire">HBO's The Wire (Spoilers)</a></li>
+      <li className="list-item"><a href="cafe">Owen's Cafeteria Expenses</a></li>
     </ul>
     <div>
       <ul className="navList">
