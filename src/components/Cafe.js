@@ -112,7 +112,7 @@ class Cafe extends React.Component {
 
         <div className="notes nextReport">
           <h3>Notes and Sources</h3>
-          <p>This is my son's cafeteria transaction history from September 2018 to April 2019 that I featured in my Datajawn 2019 presentation. The joke was that he claimed to have never eaten a Teddy Graham in his life, despite the data saying otherwise. Turns out the school lunch system misidentified Rice Krispies Treats as Teddy Grahams.</p>
+          <p>This is my son's cafeteria transaction history from September 2018 to April 2019 that I <a href="https://docs.google.com/presentation/d/1GPoqN5awdrwpkKHx1GMeUpCBC5RE7E5y8P_KoNu4H9E/edit?usp=sharing">featured in my Datajawn 2019 presentation</a> (more about <a href="https://technical.ly/philly/2019/06/13/data-jawn-lessons-opioid-crisis-city-budgets-spongebob/">the conference</a>). The joke was that he claimed to have never eaten a Teddy Graham in his life, despite the data saying otherwise. Turns out the school lunch system misidentified Rice Krispies Treats as Teddy Grahams.</p>
           <p>I wrote a D3 component called Categrid for this, which seems like it could be useful in some cases.</p>
           <p>Sources: The school lunch portal site</p>
           <p>Tech: Semiotic, D3.js, javascript, html, css, Excel</p>
