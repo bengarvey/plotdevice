@@ -1,13 +1,10 @@
 import React from 'react'
-import { ResponsiveXYFrame, ResponsiveORFrame, ResponsiveNetworkFrame } from 'semiotic';
+import { ResponsiveXYFrame, ResponsiveORFrame } from 'semiotic';
 import Nav from './Nav';
 import City from './City';
 import uniq from "lodash.uniq";
 import flatten from "lodash.flatten";
-import { schemeCategory10 } from 'd3-scale-chromatic';
-import { scaleOrdinal } from 'd3-scale';
 
-const color = scaleOrdinal(schemeCategory10);
 var cities = require('../data/cities/processed/cities.json');
 var people = require('../data/cities/processed/people.json');
 var philly = require('../data/cities/processed/philadelphia_all.json');
@@ -22,49 +19,6 @@ function getColor(city, year) {
     return year === 2017 ? colors.philly : colors.phillyAlt;
   }
 }
-
-var cities2018 = [
-  {id:"36061", name: "New York City", population: 8398748, budget: 82.2},
-  {id:"06037", name: "Los Angeles", population: 3990456, budget: 8.75},
-  {id:"17031", name: "Chicago", population: 2705994, budget: 9.81},
-  {id:"48225", name: "Houston", population: 2325502, budget: 5.07},
-  {id:"04013", name: "Phoenix", population: 1660272, budget: 4.1},
-  {id:"48029", name: "San Antonio", population: 1532233, budget: 2.5},
-  {id:"06073", name: "San Diego", population: 1532233, budget: 3.57},
-  {id:"48113", name: "Dallas", population: 1345047, budget: 3.06},
-  {id:"06085", name: "San Jose", population: 1030119, budget: 3.16},
-  {id:"48015", name: "Austin", population: 964254, budget: 3.7},
-  {id:"12031", name: "Jacksonville", population: 903889, budget: 2.2},
-  {id:"06075", name: "San Francisco", population: 883305, budget: 9.7},
-  {id:"42101", name: "Philadelphia", population: 1584138, budget: 4.2},
-  {id:"48439", name: "Fort Worth", population: 895008, budget: 1.6},
-  {id:"39049", name: "Columbus", population: 892533, budget: 1.76}
-];
-cities2018.sort( (a,b) => b.population - a.population);
-
-const allFunds = 9097488000;
-var allBudget = [
-  { name: "General", percent: 0.481 },
-  { name: "Water", percent: 0.091 },
-  { name: "County Liquid Fuels Tax", percent: 0.001 },
-  { name: "Special Gas Tax", percent: 0.004 },
-  { name: "HealthChoices Behavioral Health", percent: 0.143 },
-  { name: "Hotel Room Rental Tax", percent: 0.008 },
-  { name: "Grants Revenue", percent: 0.185 },
-  { name: "Aviation", percent: 0.053 },
-  { name: "Community Development", percent: 0.009 },
-  { name: "Car Rental Tax", percent: 0.001 }
-];
-allBudget.map( (b) => {
-  b.value = b.percent * allFunds;
-  return b;
-});
-
-allBudget = allBudget.sort( (a,b) => b.value - a.value);
-
-var allBudgetTreemap = {
-  name: "", children: allBudget.slice()
-};
 
 const colors = {
   female: '#faa1c7',
@@ -86,16 +40,6 @@ const axes = [{
     <text className='normal' style={{ textAnchor: "end" }} fontSize="12px" y={5} x={10}>{(d/1000000).toFixed(1)}M</text> : '' 
   }
 ];
-
-const bAxes = [{
-    orient: 'bottom', ticks: 3,
-    tickFormat: d => d ?
-    <text className='normal' style={{ textAnchor: "end" }} fontSize="12px" y={5} x={10}>{(d/1).toFixed(2)}</text> : '' 
-  }
-];
-
-
-
 
 const thousandsAxes = [{
     orient: 'bottom', ticks: 3,
@@ -316,7 +260,7 @@ class Cities extends React.Component {
         <ResponsiveORFrame
           size={[ 360, 500 ]}
           responsiveWidth={true}
-          data={cities2018}
+          data={this.displayByPop}
           projection={'horizontal'}
           rAccessor={d => d.population}
           oAccessor={d => `${d.name} ${(d.population/1000000).toFixed(1)}M`}
@@ -329,85 +273,6 @@ class Cities extends React.Component {
           margin={{ left: 130, top: 0, bottom: 50, right: 10 }}
           oPadding={2}
         />
-
-        <ResponsiveORFrame
-          size={[ 360, 500 ]}
-          responsiveWidth={true}
-          data={cities2018}
-          projection={'horizontal'}
-          rAccessor={d => d.budget}
-          oAccessor={d => `${d.name} ${(d.budget).toFixed(1)}B`}
-          pieceHoverAnnotation={true}
-          tooltipContent={ d => `${d.name}: ${d.value.toLocaleString()}` }
-          style={d => ({ fill:  d.name.match('Philadelphia') ? '#FF2222' : colors.primary, stroke: colors.primary, strokeOpacity: 0.0, fillOpacity: 0.5, strokeWidth: 2 })}
-          type={"bar"}
-          axis={bAxes}
-          oLabel={(d, i) => (<text x={-5} y={5} className="label-bold" textAnchor="end">{d}</text>)}
-          margin={{ left: 130, top: 0, bottom: 50, right: 10 }}
-          oPadding={2}
-        />
-
-        <ResponsiveORFrame
-          size={[ 360, 500 ]}
-          responsiveWidth={true}
-          data={cities2018}
-          projection={'horizontal'}
-          rAccessor={d => ((d.budget* 1000000000)/d.population).toFixed(2)}
-          oAccessor={d => `${d.name} ${((d.budget * 10000000)/d.population).toFixed(0)}K`}
-          pieceHoverAnnotation={true}
-          tooltipContent={ d => `${d.name}: ${d.value.toLocaleString()}` }
-          style={d => ({ fill:  d.name.match('Philadelphia') ? '#FF2222' : colors.primary, stroke: colors.primary, strokeOpacity: 0.0, fillOpacity: 0.5, strokeWidth: 2 })}
-          type={"bar"}
-          axis={bAxes}
-          oLabel={(d, i) => (<text x={-5} y={5} className="label-bold" textAnchor="end">{d}</text>)}
-          margin={{ left: 130, top: 0, bottom: 50, right: 10 }}
-          oPadding={2}
-        />
-
-        <ResponsiveORFrame
-          size={[ 360, 400 ]}
-          responsiveWidth={true}
-          data={allBudget}
-          projection={'horizontal'}
-          rAccessor={d => (d.value/1000000000).toFixed(2)}
-          oAccessor={d => `${d.name} ${(d.value/1000000000).toFixed(2)}B ${(d.percent*100).toFixed(1)}%`}
-          pieceHoverAnnotation={true}
-          tooltipContent={ d => `${d.name}: ${d.value.toLocaleString()}` }
-          style={d => ({ fill:  d.name.match('Philadelphia') ? '#FF2222' : color(d.name), stroke: color(d.name), strokeOpacity: 0.0, fillOpacity: 0.5, strokeWidth: 2 })}
-          type={"bar"}
-          axis={bAxes}
-          oLabel={(d, i) => (<text x={-5} y={5} className="label-bold" textAnchor="end">{d}</text>)}
-          margin={{ left: 300, top: 0, bottom: 50, right: 10 }}
-          oPadding={2}
-        />
-
-        <ResponsiveNetworkFrame
-          size={[ 360, 600 ]}
-          responsiveWidth={true}
-          networkType={{type: "treemap", padding: 0}}
-          edges={allBudgetTreemap}
-          nodeIDAccessor={"name"}
-          nodeStyle={ d => ({
-            fill: d.height === 0 ? color(d.name) : "none",
-            fillOpacity: 0.5,
-            stroke: color(d.name)
-          })}
-          nodeLabels={d => {
-              return d.depth > 1 ? null : (
-                <g transform="translate(0,5)">
-                  <text
-                    fontSize="36"
-                    textAnchor="middle"
-                    strokeWidth={2}
-                  >
-                  </text>
-                </g>
-              )
-            }
-          }
-          margin={{ left: 10, top: 50, bottom: 50, right: 10 }}
-        />
-
         <h3># of Tweets Scraped by City</h3>
         <ResponsiveORFrame
           size={[ 360, 500 ]}

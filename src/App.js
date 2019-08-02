@@ -17,8 +17,6 @@ import NLEast from './components/NLEast'
 import Cities from './components/Cities'
 import TheWire from './components/TheWire'
 import Cafe from './components/Cafe'
-import Philly from './components/Philly'
-
 
 var App = () => (
   <div className="main">
@@ -40,7 +38,6 @@ var App = () => (
         <Route path='/cities' component={Cities}/>
         <Route path='/wire' component={TheWire}/>
         <Route path='/cafe' component={Cafe}/>
-        <Route path='/philly' component={Philly}/>
       </Switch>
     </BrowserRouter>
   </div>
