@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "http://plotdevice.bengarvey.com",
   "dependencies": {
+    "Logger": "0.0.0",
     "babel-preset-react": "^6.24.1",
     "chance": "^1.0.18",
     "create-react-class": "^15.6.3",
@@ -16,7 +17,7 @@
     "ftp-deploy": "^1.2.2",
     "hoek": "^5.0.4",
     "json2csv": "^4.3.2",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.15",
     "macaddress": "^0.2.9",
     "merge": "^1.2.1",
     "mime": "^2.4.0",
@@ -25,17 +26,17 @@
     "react-dom": "^16.7.0",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "^2.1.3",
+    "react-scripts": "^3.0.1",
     "require-csv": "0.0.1",
     "semiotic": "^1.16.3",
+    "source-map-explorer": "^2.0.1",
     "sshpk": "^1.16.0",
-    "subprocess": "^0.3.0",
-    "url-parse": "^1.4.4",
-    "webpack-dev-server": "^3.1.14"
+    "url-parse": "^1.4.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
     "build-stats": "react-scripts build --stats && webpack-bundle-analyzer build/bundle-stats.json -m static -r build/bundle-stats.html -O",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
@@ -49,6 +50,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "webpack-bundle-analyzer": "^3.0.3"
+    "webpack-bundle-analyzer": "^3.4.1"
   }
 }
