@@ -5,7 +5,7 @@ import City from './City';
 import uniq from "lodash.uniq";
 import flatten from "lodash.flatten";
 
-var cities = require('../data/cities/processed/cities.json');
+var cities = require('../data/cities/processed/citiesFull.json');
 var people = require('../data/cities/processed/people.json');
 var philly = require('../data/cities/processed/philadelphia_all.json');
 var newyork = require('../data/cities/processed/newyork_all.json');
@@ -95,7 +95,6 @@ function processCity(city) {
   );
 
   city.score.floatingValues = getFloating(city.score.avgValues, 10);
-
   var plotData17 = [];
   var plotData18 = [];
   var floatingData17 = [];
@@ -130,7 +129,8 @@ function processCity(city) {
       name: city[`name`],
       overallAvg: overallAvg,
       population: city[`population`],
-      score: city.score },
+      score: removeKey(city.score, 'date')
+      },
       {
       data: floatingData17,
       color: getColor(city, 2017),
@@ -139,7 +139,8 @@ function processCity(city) {
       name: city[`name`],
       overallAvg: overallAvg,
       population: city[`population`],
-      score: city.score }
+      score: removeKey(city.score, 'date')
+      }
     ];
 
     if (plotData18.length > 0) {
@@ -151,7 +152,8 @@ function processCity(city) {
         name: city[`name`],
         overallAvg: overallAvg,
         population: city[`population`],
-        score: city.score}
+        score: removeKey(city.score, 'date')
+        }
       );
       processedData.push(
         {data: floatingData18,
@@ -161,10 +163,16 @@ function processCity(city) {
         name: city[`name`],
         overallAvg: overallAvg,
         population: city[`population`],
-        score: city.score }
+        score: removeKey(city.score, 'date')
+        }
       );
     }
     return processedData;
+}
+
+function removeKey(ob, key) {
+  delete ob[key];
+  return ob;
 }
 
 function getFloating(ob, window) {
@@ -217,9 +225,15 @@ class Cities extends React.Component {
     var avg = {};
     var avgValues = [];
     cities.forEach( (city) => {
-      this.display = this.display.concat(processCity(city));
+      //this.display = this.display.concat(processCity(city));
+      this.display = this.display.concat(city);
     });
 
+    /*
+    console.log(JSON.stringify(this.display, function(key, val) {
+      return val != null && val.toFixed ? Number(val.toFixed(3)) : val;
+    }));
+    */
     this.displayPeople = people;
 
     var processedPhilly = processCity(philly);
