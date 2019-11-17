@@ -68,7 +68,6 @@ class City extends React.Component {
           lineType={{ type: 'line'}}
           lineRenderMode={d => "normal"}
           lineStyle={(d) => ({ stroke: d.color, strokeWidth: d.strokeWidth, opacity:d.opacity })}
-          customLineType={{ type: "dividedLine"}}
           axes={[
             { orient: 'left', tickFormat: d => d, ticks: 4, className: 'normal'},
             { orient: 'bottom', tickFormat: d => formatDate(d), ticks: 5, className: 'normal'},
