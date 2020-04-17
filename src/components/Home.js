@@ -19,6 +19,7 @@ const Home = () => (
       <li className="list-item"><a href="cities">Quantified Negadelphia</a></li>
       <li className="list-item"><a href="wire">HBO's The Wire (Spoilers)</a></li>
       <li className="list-item"><a href="cafe">Owen's Cafeteria Expenses</a></li>
+      <li className="list-item"><a href="meetup">Meetup Hex Colors</a></li>
     </ul>
     <div>
       <ul className="navList">
