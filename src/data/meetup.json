@@ -1,0 +1,514 @@
+[
+  {
+    "count": 122,
+    "lower_hex": ""
+  },
+  {
+    "count": 12,
+    "lower_hex": "#000000"
+  },
+  {
+    "count": 8,
+    "lower_hex": "blue"
+  },
+  {
+    "count": 4,
+    "lower_hex": "#0000ff"
+  },
+  {
+    "count": 4,
+    "lower_hex": "red"
+  },
+  {
+    "count": 3,
+    "lower_hex": "ffffff"
+  },
+  {
+    "count": 3,
+    "lower_hex": "green"
+  },
+  {
+    "count": 2,
+    "lower_hex": "#ccccff"
+  },
+  {
+    "count": 2,
+    "lower_hex": "#e83536"
+  },
+  {
+    "count": 2,
+    "lower_hex": "#ffffff"
+  },
+  {
+    "count": 2,
+    "lower_hex": 0
+  },
+  {
+    "count": 2,
+    "lower_hex": "0000ff"
+  },
+  {
+    "count": 2,
+    "lower_hex": "6495ed"
+  },
+  {
+    "count": 2,
+    "lower_hex": "black"
+  },
+  {
+    "count": 2,
+    "lower_hex": "white"
+  },
+  {
+    "count": 2,
+    "lower_hex": "yellow"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#000000  (save a pixel!)"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#000080"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#008000"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#008080"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#0085a1"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#04d767"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#0d0a0a"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#0e6b81"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#11b8f5"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#1663be"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#191970"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#1950d2"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#2451c4"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#2b3b75"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#32cd32"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#3342ff"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#3455eb"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#34ebb7"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#3993dd"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#40734b"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#427bf5"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#4aa832"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#4b1bc4"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#58c04d"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#5b25ef"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#6497b1"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#656373"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#662e55"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#663399"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#6caddf"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#80080"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#8869b8"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#8a566b"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#8cc63f"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#9932cc"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#a6b1e1"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#afeeee"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#b2ffff"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#b76eee"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#c000"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#c00c00"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#c37753"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#cc9134"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#ccc"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#deaddb"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#e0ffff"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#e2e2e2"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#eaf651"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#f23251"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#f2f2f2"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#f3f3b8"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#f7c0c8"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#f99300"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#fa7e1e"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#fcba03"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#ff2800"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#ff66cc"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#ff9900"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#ffd43b"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#fff"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#fff000"
+  },
+  {
+    "count": 1,
+    "lower_hex": "#fhfhfh"
+  },
+  {
+    "count": 1,
+    "lower_hex": "rebeccapurple"
+  },
+  {
+    "count": 1,
+    "lower_hex": "0000cd"
+  },
+  {
+    "count": 1,
+    "lower_hex": "00d8fc"
+  },
+  {
+    "count": 1,
+    "lower_hex": "00ffff"
+  },
+  {
+    "count": 1,
+    "lower_hex": "03fc8c"
+  },
+  {
+    "count": 1,
+    "lower_hex": "095a95"
+  },
+  {
+    "count": 1,
+    "lower_hex": "0x0000ff"
+  },
+  {
+    "count": 1,
+    "lower_hex": "0x009009"
+  },
+  {
+    "count": 1,
+    "lower_hex": 154360
+  },
+  {
+    "count": 1,
+    "lower_hex": "1e1e1e"
+  },
+  {
+    "count": 1,
+    "lower_hex": "1e3e5e"
+  },
+  {
+    "count": 1,
+    "lower_hex": 227850
+  },
+  {
+    "count": 1,
+    "lower_hex": 248
+  },
+  {
+    "count": 1,
+    "lower_hex": "2786a1"
+  },
+  {
+    "count": 1,
+    "lower_hex": "3236a8"
+  },
+  {
+    "count": 1,
+    "lower_hex": "33fff4"
+  },
+  {
+    "count": 1,
+    "lower_hex": "3483eb"
+  },
+  {
+    "count": 1,
+    "lower_hex": "411f8d"
+  },
+  {
+    "count": 1,
+    "lower_hex": "435ab5"
+  },
+  {
+    "count": 1,
+    "lower_hex": "50, 168, 143"
+  },
+  {
+    "count": 1,
+    "lower_hex": "53b0ae"
+  },
+  {
+    "count": 1,
+    "lower_hex": "5cd1ff"
+  },
+  {
+    "count": 1,
+    "lower_hex": "6b33ff"
+  },
+  {
+    "count": 1,
+    "lower_hex": 80
+  },
+  {
+    "count": 1,
+    "lower_hex": 800000
+  },
+  {
+    "count": 1,
+    "lower_hex": "a54hjk"
+  },
+  {
+    "count": 1,
+    "lower_hex": "a95095"
+  },
+  {
+    "count": 1,
+    "lower_hex": "akatsuki"
+  },
+  {
+    "count": 1,
+    "lower_hex": "c47c1f"
+  },
+  {
+    "count": 1,
+    "lower_hex": "c66a67"
+  },
+  {
+    "count": 1,
+    "lower_hex": "chicken"
+  },
+  {
+    "count": 1,
+    "lower_hex": "d3d3d3"
+  },
+  {
+    "count": 1,
+    "lower_hex": "d4af37"
+  },
+  {
+    "count": 1,
+    "lower_hex": "don’t have one"
+  },
+  {
+    "count": 1,
+    "lower_hex": "f0f0f0"
+  },
+  {
+    "count": 1,
+    "lower_hex": "f21313"
+  },
+  {
+    "count": 1,
+    "lower_hex": "facexd"
+  },
+  {
+    "count": 1,
+    "lower_hex": "ff"
+  },
+  {
+    "count": 1,
+    "lower_hex": "ff0000"
+  },
+  {
+    "count": 1,
+    "lower_hex": "ff2f"
+  },
+  {
+    "count": 1,
+    "lower_hex": "ff694a"
+  },
+  {
+    "count": 1,
+    "lower_hex": "fff"
+  },
+  {
+    "count": 1,
+    "lower_hex": "ffffffff"
+  },
+  {
+    "count": 1,
+    "lower_hex": "flyer's orange: #f74902"
+  },
+  {
+    "count": 1,
+    "lower_hex": "gold"
+  },
+  {
+    "count": 1,
+    "lower_hex": "i dont know"
+  },
+  {
+    "count": 1,
+    "lower_hex": "i'm more of a fan of the pantone color system"
+  },
+  {
+    "count": 1,
+    "lower_hex": "indigo"
+  },
+  {
+    "count": 1,
+    "lower_hex": "sectrum sempra is my favorite hex from harry potter. haha"
+  },
+  {
+    "count": 1,
+    "lower_hex": "standard green color :d"
+  }
+]
