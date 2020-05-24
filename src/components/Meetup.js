@@ -36,7 +36,7 @@ class Meetup extends React.Component {
         <ResponsiveNetworkFrame
           nodes={[{ name: "colors" }]}
           edges={{name: "colors", children: this.treeMapMeetup}}
-          size={[700,400]}
+          size={[700,600]}
           margin={10}
           networkType={{ type: "treemap", padding: 2 }}
           nodeIDAccessor={"name"}
