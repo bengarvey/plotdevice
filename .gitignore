@@ -24,3 +24,5 @@ deploy.json
 
 # tweet data
 src/data/cities/*.json
+
+*.swp
