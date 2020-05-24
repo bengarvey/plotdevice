@@ -13,7 +13,6 @@ function buildData(list) {
     }
     modified.push(item);
   });
-  console.log(modified);
   return modified;
 }
 
