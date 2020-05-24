@@ -1,5 +1,5 @@
 import React from 'react';
-import { ResponsiveNetworkFrame } from 'semiotic';
+import { ResponsiveNetworkFrame, NetworkFrame } from 'semiotic';
 import Nav from './Nav';
 var meetup = require('../data/meetup.json');
 
@@ -13,7 +13,6 @@ function buildData(list) {
     }
     modified.push(item);
   });
-  console.log(modified);
   return modified;
 }
 
@@ -36,7 +35,7 @@ class Meetup extends React.Component {
         <ResponsiveNetworkFrame
           nodes={[{ name: "colors" }]}
           edges={{name: "colors", children: this.treeMapMeetup}}
-          size={[700,600]}
+          size={[400,900]}
           margin={10}
           networkType={{ type: "treemap", padding: 2 }}
           nodeIDAccessor={"name"}
