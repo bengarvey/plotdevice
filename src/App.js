@@ -18,6 +18,7 @@ import Cities from './components/Cities'
 import TheWire from './components/TheWire'
 import Cafe from './components/Cafe'
 import Meetup from './components/Meetup'
+import Sales from './components/Sales'
 
 var App = () => (
   <div className="main">
@@ -40,6 +41,7 @@ var App = () => (
         <Route path='/wire' component={TheWire}/>
         <Route path='/cafe' component={Cafe}/>
         <Route path='/meetup' component={Meetup}/>
+        <Route path='/dungeonadventure' component={Sales}/>
       </Switch>
     </BrowserRouter>
   </div>
