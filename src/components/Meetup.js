@@ -35,7 +35,7 @@ class Meetup extends React.Component {
         <ResponsiveNetworkFrame
           nodes={[{ name: "colors" }]}
           edges={{name: "colors", children: this.treeMapMeetup}}
-          size={[700,600]}
+          size={[350,700]}
           margin={10}
           networkType={{ type: "treemap", padding: 2 }}
           nodeIDAccessor={"name"}
@@ -48,6 +48,7 @@ class Meetup extends React.Component {
           hoverAnnotation={[
                  { type: "frame-hover" }
             ]}
+          margin={{top: 10, left: 5, right: 5, bottom: 10}}
           tooltipContent={ d => (
               <div className="tooltip-content">
                 <p>Response: {d.data.name}</p>
