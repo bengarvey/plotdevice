@@ -28,7 +28,6 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "^3.0.1",
     "require-csv": "0.0.1",
-    "rfdc": "^1.1.4",
     "semiotic": "^1.16.3",
     "source-map-explorer": "^2.0.1",
     "sshpk": "^1.16.0",
