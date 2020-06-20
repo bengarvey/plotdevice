@@ -26,12 +26,13 @@
     "react-dom": "^16.7.0",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "^3.0.1",
+    "react-scripts": "^3.4.1",
     "require-csv": "0.0.1",
     "semiotic": "^1.16.3",
     "source-map-explorer": "^2.0.1",
     "sshpk": "^1.16.0",
-    "url-parse": "^1.4.4"
+    "url-parse": "^1.4.4",
+    "yargs-parser": "^18.1.3"
   },
   "scripts": {
     "start": "react-scripts start",
