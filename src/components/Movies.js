@@ -21,8 +21,7 @@ const axes = [{
   },
   {
     orient: 'bottom', ticks: 7,
-    tickFormat: d => d ?
-    <text className='normal' style={{ textAnchor: "end" }} fontSize="12px" y={5} x={2}>{d}</text> : '' 
+    tickFormat: d => ''
   }
 ];
 var decades = {};
