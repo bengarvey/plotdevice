@@ -4,9 +4,10 @@ import { curveCardinal } from "d3-shape";
 import Nav from './Nav';
 
 var lbs = require('../data/lbs.json');
+const formatter = new Intl.DateTimeFormat("en", { year: "numeric", month: "short" } );
 
 function formatDate(date) {
-  return `${date.getFullYear()}-${date.getMonth()+1}`;
+  return formatter.format(new Date(date));
 }
 
 class Lbs extends React.Component {
@@ -31,7 +32,7 @@ class Lbs extends React.Component {
       floating.push({date: lbs[i].date, lbs: value/win});
     }
 
-    var recentWindow = 128;
+    var recentWindow = 90;
     var recentLbs = lbs.slice().splice(lbs.length-recentWindow,recentWindow);
     var recentFloating = floating.slice().splice(floating.length-recentWindow, recentWindow);
 
@@ -62,7 +63,7 @@ class Lbs extends React.Component {
           size={[300,250]}
           responsiveWidth={true}
           lines={this.recentDisplay}
-          margin={{top: 5, bottom: 25, left: 25, right: 5}}
+          margin={{top: 5, bottom: 30, left: 25, right: 5}}
           lineDataAccessor={"data"}
           xAccessor={d => new Date(d.date)}
           yAccessor={d => d.lbs}
@@ -72,7 +73,7 @@ class Lbs extends React.Component {
           customLineType={{ type: "dividedLine"}}
           axes={[
             { orient: 'left', tickFormat: d => d, ticks: 10, className: 'normal'},
-            { orient: 'bottom', tickFormat: d => formatDate(new Date(d)), ticks: 2, className: 'normal'}
+            { orient: 'bottom', tickFormat: d => formatDate(new Date(d)), ticks: 5, className: 'normal'}
           ]}
         />
         <br/>
@@ -92,7 +93,7 @@ class Lbs extends React.Component {
           customLineType={{ type: "dividedLine"}}
           axes={[
             { orient: 'left', tickFormat: d => d, ticks: 10, className: 'normal'},
-            { orient: 'bottom', tickFormat: d => formatDate(new Date(d)), ticks: 2, className: 'normal'}
+            { orient: 'bottom', tickFormat: d => formatDate(new Date(d)), ticks: 5, className: 'normal'}
           ]}
         />
         <div className="notes nextReport">
