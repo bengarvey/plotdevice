@@ -29,7 +29,7 @@ class Lbs extends React.Component {
       for(var j=win-1; j>=0; j--) {
         value += lbs[i-j].lbs;
       }
-      floating.push({date: lbs[i].date, lbs: value/win});
+      floating.push({date: `${lbs[i].date}T00:00:00`, lbs: value/win});
     }
 
     var recentWindow = 90;
@@ -70,10 +70,9 @@ class Lbs extends React.Component {
           hoverAnnotation={true}
           lineType={{ type: "line", interpolator: curveCardinal }}
           lineStyle={(d) => ({ stroke: d.color, strokeWidth: d.strokeWidth, opacity:d.opacity })}
-          customLineType={{ type: "dividedLine"}}
           axes={[
-            { orient: 'left', tickFormat: d => d, ticks: 10, className: 'normal'},
-            { orient: 'bottom', tickFormat: d => formatDate(new Date(d)), ticks: 5, className: 'normal'}
+            { orient: 'left', tickFormat: d => d, ticks: 8, className: 'normal'},
+            { orient: 'bottom', tickFormat: d => formatDate(d), ticks: 5, className: 'normal'}
           ]}
         />
         <br/>
@@ -90,10 +89,9 @@ class Lbs extends React.Component {
           hoverAnnotation={true}
           lineType={{ type: "line", interpolator: curveCardinal }}
           lineStyle={(d) => ({ stroke: d.color, strokeWidth: d.strokeWidth, opacity:d.opacity })}
-          customLineType={{ type: "dividedLine"}}
           axes={[
             { orient: 'left', tickFormat: d => d, ticks: 10, className: 'normal'},
-            { orient: 'bottom', tickFormat: d => formatDate(new Date(d)), ticks: 5, className: 'normal'}
+            { orient: 'bottom', tickFormat: d => formatDate(d), ticks: 8, className: 'normal'}
           ]}
         />
         <div className="notes nextReport">
