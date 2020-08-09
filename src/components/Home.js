@@ -21,7 +21,7 @@ const Home = () => (
       <li className="list-item"><a href="cafe">Owen's Cafeteria Expenses</a></li>
       <li className="list-item"><a href="meetup">Meetup Hex Colors</a></li>
       <li className="list-item"><a href="dungeonadventure">Dungeon Adventure Sales</a></li>
-      <li className="list-item"><a href="autodeaths">Auto Deaths</a></li>
+      <li className="list-item"><a href="autodeaths">US Autombile Fatalities 1899 - 2018</a></li>
     </ul>
     <div>
       <ul className="navList">
