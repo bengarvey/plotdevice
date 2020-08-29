@@ -29,7 +29,7 @@ class Lbs extends React.Component {
       for(var j=win-1; j>=0; j--) {
         value += lbs[i-j].lbs;
       }
-      floating.push({date: `${lbs[i].date}T00:00:00`, lbs: value/win});
+      floating.push({date: `${lbs[i].date}`, lbs: value/win});
     }
 
     var recentWindow = 90;
@@ -65,7 +65,7 @@ class Lbs extends React.Component {
           lines={this.recentDisplay}
           margin={{top: 5, bottom: 30, left: 25, right: 5}}
           lineDataAccessor={"data"}
-          xAccessor={d => new Date(d.date)}
+          xAccessor={d => new Date(`${d.date}T00:00:00`)}
           yAccessor={d => d.lbs}
           hoverAnnotation={true}
           lineType={{ type: "line", interpolator: curveCardinal }}
@@ -84,7 +84,7 @@ class Lbs extends React.Component {
           yExtent={[150]}
           margin={{top: 5, bottom: 25, left: 25, right: 5}}
           lineDataAccessor={d => d.data}
-          xAccessor={d => new Date(d.date)}
+          xAccessor={d => new Date(`${d.date}T00:00:00`)}
           yAccessor={d => d.lbs}
           hoverAnnotation={true}
           lineType={{ type: "line", interpolator: curveCardinal }}
