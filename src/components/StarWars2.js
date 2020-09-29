@@ -14,8 +14,7 @@ import Nav from './Nav';
 var network = require('../data/starwars2.json');
 
 const colors = {
-  mother: '#faa1c7',
-  father: '#009ddc',
+  parent: '#009ddc',
   spouse: '#fcde9c',
   light: "#15b097",
   dark: "#393e41",
@@ -23,13 +22,14 @@ const colors = {
   droid: "#f4d35e",
   killed: '#ff3333',
   trained: '#999999',
-  became: '#111111',
+  became: '#000000',
   bff: '#229933',
   "republic/rebel": '#2a75bf',
-  empire: '#aa6666'
+  empire: '#aa6666',
+  squad: '#666666'
 }
 
-const legendGroups = [
+var legendGroups = [
   { type: 'line',
     styleFn: d => (
       { stroke: d.color,
@@ -37,12 +37,13 @@ const legendGroups = [
         strokeWidth: "3px"
       }),
     items: [
-      { label: "Mother", color: colors.mother },
-      { label: "Father", color: colors.father },
+      { label: "Ancestor", color: colors.parent, onClick: () => { this.toggleRelationship('parent');} },
       { label: "Trained", color: colors.trained },
       { label: "Killed", color: colors.killed },
       { label: "Married", color: colors.spouse },
-      { label: "Became", color: colors.became }
+      { label: "Best Friends", color: colors.bff },
+      { label: "Became", color: colors.became },
+      { label: "Squad", color: colors.squad }
     ]
   },
   { styleFn: d => (
@@ -56,6 +57,8 @@ const legendGroups = [
       { label: "Dark Side", color: colors.dark },
       { label: "Neutral", color: colors.neutral },
       { label: "Droid", color: colors.droid },
+      { label: "Republic / Rebel", color: colors["republic/rebel"] },
+      { label: "Empire", color: colors.empire },
     ]
   }
 ]
@@ -63,7 +66,7 @@ const legendGroups = [
 function linkBy(people, center, side, relation) {
   let links = people.map( (person) => {
     if (person.side == side) {
-      return {source: person.id, target: center.id, type: relation, opacity: 0.075};
+      return {source: person.id, target: center.id, type: relation, opacity: 0.1};
     }
   }).filter(i => i != null);
   return links;
@@ -83,6 +86,11 @@ function addPxString(op, string) {
   return `${value}px`;
 }
 
+
+var relationships = ["squad", "killed", "trained", "became", "parent", "trained", "spouse"];
+
+
+
 const customSimulation = forceSimulation().force(
   "charge",
   forceManyBody()
@@ -91,25 +99,41 @@ const customSimulation = forceSimulation().force(
 )
 
 function getNodeStyle(d) {
-  var nodeStyle = { width: 12, height: 12, fill: colors[d.side], strokeWidth: "1px"};
+  var nodeStyle = { width: 10, height: 10, fill: colors[d.side], strokeWidth: "1px"};
   return nodeStyle;
 }
+
+function getRelevantLinks(d, links) {
+  let relevantLinks = links.filter(link => {
+    return link.source == d.id || link.target == d.id }
+  );
+  return relevantLinks;
+}
+
+
 
 class StarWars2 extends React.Component {
   constructor(props) {
     super(props);
     this.network = network;
-    let lightUsers = linkBy(network.nodes, network.nodes[6],'light', 'lightSide');
-    let darkUsers = linkBy(network.nodes, network.nodes[0],'dark', 'darkSide');
-    let droidUsers = linkBy(network.nodes, network.nodes[8],'droid', 'droidSide');
-    this.network.links.splice( this.network.links.length, 0, ...lightUsers);
-    this.network.links.splice( this.network.links.length, 0, ...darkUsers);
-    this.network.links.splice( this.network.links.length, 0, ...droidUsers);
-    console.log(this.network.links);
     var timerId = setInterval( function() { forceSim(); }, 650);
     setTimeout( () => {
       clearInterval(timerId);
     }, 10000);
+ }
+
+  toggleRelationship(rel) {
+    let btn = document.getElementById(`${rel}Button`);
+    if (relationships.includes(rel)) {
+      relationships = relationships.filter( item => item !== rel);
+      btn.className = "button off";
+    }
+    else {
+      relationships.push(rel)
+      btn.className = "button on";
+    }
+    console.log(this);
+    this.forceUpdate();
   }
 
   render() {
@@ -120,11 +144,11 @@ class StarWars2 extends React.Component {
           <ResponsiveNetworkFrame
               size={[ 300, 400 ]}
               responsiveWidth={true}
-              edges={this.network.links}
+              edges={this.network.links.filter( item => relationships.includes(item.relation))}
               nodes={this.network.nodes}
               edgeStyle={(d) => ({ stroke: colors[d.relation], fill: colors[d.relation], opacity: d.opacity == null ? 0.3 : d.opacity, strokeWidth: '2'})}
               nodeStyle={d => getNodeStyle(d)}
-              networkType={{ type: 'force', iterations: 200, edgeStrength:0.09 }}
+              networkType={{ type: 'force', iterations: 200, edgeStrength:0.09, zoon: true }}
               edgeType={'arrowhead'}
               nodeSizeAccessor={d => 4}
               nodeIDAccessor={"id"}
@@ -151,10 +175,18 @@ class StarWars2 extends React.Component {
             />
           </g>
         </svg>
+        <ul className="list">
+          <li><button className="button on" id="parentButton" onClick={() => this.toggleRelationship('parent')}>Toggle Ancestor</button></li>
+          <li><button className="button on" id="killedButton" onClick={() => this.toggleRelationship('killed')}>Toggle Killed</button></li>
+          <li><button className="button on" id="trainedButton" onClick={() => this.toggleRelationship('trained')}>Toggle Trained</button></li>
+          <li><button className="button on" id="squadButton" onClick={() => this.toggleRelationship('squad')}>Toggle Squad</button></li>
+          <li><button className="button on" id="becameButton" onClick={() => this.toggleRelationship('became')}>Toggle Became</button></li>
+          <li><button className="button on" id="spouseButton" onClick={() => this.toggleRelationship('spouse')}>Toggle Married</button></li>
+        </ul>
         <div className="chartContainer">
           <div className="notes nextReport">
             <h3>Notes and Sources</h3>
-            <p>An update to the previous on I did just before the Last Jedi came out, but using my fancy mobile optimized code from my graph of HBO's the Wire.</p>
+            <p>An update to the <a href="http://plotdevice.bengarvey.com/starwars">previous one</a> I did just before the Last Jedi came out, but using my fancy mobile optimized code from my graph of HBO's the Wire. This graph contains characters from the main 9 episodes and Rogue One.</p>
             <p>Tech: <a href="https://emeeks.github.io/semiotic">Semiotic</a>, javascript, <a href="https://en.wikipedia.org/wiki/List_of_The_Wire_characters">wikipedia</a>, <a href="https://thewire.fandom.com/wiki/The_Wire_on_HBO">fandom</a></p>
           </div>
         </div>
