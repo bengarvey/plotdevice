@@ -41,7 +41,6 @@ var legendGroups = [
       { label: "Trained", color: colors.trained },
       { label: "Killed", color: colors.killed },
       { label: "Married", color: colors.spouse },
-      { label: "Best Friends", color: colors.bff },
       { label: "Became", color: colors.became },
       { label: "Squad", color: colors.squad }
     ]
