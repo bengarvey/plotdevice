@@ -350,3 +350,33 @@ a:link, a:visited {
 .label-bold {
   font-size: 13px;
 }
+
+.list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.button {
+  border-radius:4px;
+  display:inline-block;
+  cursor:pointer;
+  padding:7px 35px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #2f6627;
+}
+.button:hover {
+  background-color:#5cbf2a;
+}
+.button:active {
+  position:relative;
+  top:1px;
+}
+
+.button.on {
+  background-color:#44c767;
+}
+
+.button.off {
+  background-color:#cccccc;
+}

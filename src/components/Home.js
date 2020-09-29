@@ -22,6 +22,7 @@ const Home = () => (
       <li className="list-item"><a href="meetup">Meetup Hex Colors</a></li>
       <li className="list-item"><a href="dungeonadventure">Dungeon Adventure Sales</a></li>
       <li className="list-item"><a href="autodeaths">US Auto Deaths 1899 - 2018</a></li>
+      <li className="list-item"><a href="starwars2">Star Wars Network (Spoilers)</a></li>
     </ul>
     <div>
       <ul className="navList">
