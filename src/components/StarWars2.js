@@ -175,6 +175,7 @@ class StarWars2 extends React.Component {
             />
           </g>
         </svg>
+        {/*
         <ul className="list">
           <li><button className="button on" id="parentButton" onClick={() => this.toggleRelationship('parent')}>Toggle Ancestor</button></li>
           <li><button className="button on" id="killedButton" onClick={() => this.toggleRelationship('killed')}>Toggle Killed</button></li>
@@ -183,11 +184,13 @@ class StarWars2 extends React.Component {
           <li><button className="button on" id="becameButton" onClick={() => this.toggleRelationship('became')}>Toggle Became</button></li>
           <li><button className="button on" id="spouseButton" onClick={() => this.toggleRelationship('spouse')}>Toggle Married</button></li>
         </ul>
+        */}
         <div className="chartContainer">
           <div className="notes nextReport">
             <h3>Notes and Sources</h3>
             <p>An update to the <a href="http://plotdevice.bengarvey.com/starwars">previous one</a> I did just before the Last Jedi came out, but using my fancy mobile optimized code from my graph of HBO's the Wire. This graph contains characters from the main 9 episodes and Rogue One.</p>
-            <p>Tech: <a href="https://emeeks.github.io/semiotic">Semiotic</a>, javascript, <a href="https://en.wikipedia.org/wiki/List_of_The_Wire_characters">wikipedia</a>, <a href="https://thewire.fandom.com/wiki/The_Wire_on_HBO">fandom</a></p>
+            <p>I want to make it so you can toggle the line types on and off. The code works, but I'm still working on how to make it clickable in the legend.</p>
+            <p>Tech: <a href="https://emeeks.github.io/semiotic">Semiotic</a>, javascript, <a href="https://starwars.fandom.com/wiki/Main_Page">Wookiepedia</a></p>
           </div>
         </div>
         <Nav/>
