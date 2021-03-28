@@ -4,7 +4,6 @@
   "private": true,
   "homepage": "http://plotdevice.bengarvey.com",
   "dependencies": {
-    "Logger": "0.0.0",
     "babel-preset-react": "^6.24.1",
     "chance": "^1.0.18",
     "create-react-class": "^15.6.3",
@@ -14,10 +13,13 @@
     "d3-shape": "^1.2.2",
     "deep-extend": "^0.6.0",
     "extend": "^3.0.2",
-    "ftp-deploy": "^1.2.2",
+    "ftp-deploy": "^2.4.1",
     "hoek": "^5.0.4",
+    "jsftp": "^2.0.0",
     "json2csv": "^4.3.2",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
+    "lodash.flatten": "^4.4.0",
+    "Logger": "0.0.0",
     "macaddress": "^0.2.9",
     "merge": "^1.2.1",
     "mime": "^2.4.0",
@@ -52,6 +54,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@types/lodash": "^4.14.168",
     "webpack-bundle-analyzer": "^3.4.1"
   }
 }
