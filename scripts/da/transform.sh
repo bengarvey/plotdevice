@@ -1,5 +1,5 @@
 csvsql --query "
-  select \"Payment Date (MST)\" as created_at, \"Transaction ID\" as id, \"Payer IP\" as ip, Quantity as quantity, Amount as amount 
+  select \"Processed by E-j (MST)\" as created_at, \"Transaction ID\" as id, \"Payer IP\" as ip, Quantity as quantity, Amount as amount 
     from dungeon
 " dungeon.csv > clean.csv
 
