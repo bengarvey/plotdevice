@@ -60,6 +60,30 @@ circle {
   r: 5px;
 }
 
+.icon {
+  r: 50px;
+}
+
+.overviewContainer {
+  display: flex;
+}
+
+.leftOverview, .rightOverview {
+  padding: 10px;
+  border: 1px solid gray;
+}
+
+.leftOverview {
+  flex: 1;
+  text-align: right;
+}
+
+.rightOverview {
+  float: left;
+  text-align: left;
+}
+
+
 .tick-line {
   opacity: 0.3;
 }

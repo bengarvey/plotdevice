@@ -21,6 +21,7 @@ import Meetup from './components/Meetup'
 import Sales from './components/Sales'
 import AutoDeaths from './components/AutoDeaths'
 import StarWars2 from './components/StarWars2'
+import Pizza from './components/Pizza'
 
 var App = () => (
   <div className="main">
@@ -46,6 +47,7 @@ var App = () => (
         <Route path='/dungeonadventure' component={Sales}/>
         <Route path='/autodeaths' component={AutoDeaths}/>
         <Route path='/starwars2' component={StarWars2}/>
+        <Route path='/pizza' component={Pizza}/>
       </Switch>
     </BrowserRouter>
   </div>
