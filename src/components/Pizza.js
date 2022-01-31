@@ -4,44 +4,27 @@ import { ResponsiveORFrame } from 'semiotic';
 import Nav from './Nav';
 import { curveBasis } from 'd3-shape';
 import { AnnotationLabel } from 'react-annotation';
-var transactions = require('../data/autodeaths.json');
+import CategoryBar from './CategoryBar';
+var transactions = require('../data/pizza/tidy_pizza.json');
+var total = require('../data/pizza/calculated_pizza_total.json');
 
 const formatter = new Intl.DateTimeFormat("en", { year: "numeric" } );
 
 var processed = [];
 
-const axes = [{
-    orient: 'left', ticks: 3,
-    tickFormat: d => d ?
-    <text className='normal' style={{ textAnchor: "end" }} fontSize="12px" y={5} x={2}>{d}</text> : ''
-  },
-  {
-    orient: 'bottom', ticks: -1,
-    tickFormat: d => ''
-  }
-];
+var annotations = [];
+var bumpAnnotations = [];
+var processed = [];
 
-const deathAnnotations = [
-  { type: "react-annotation", label: "Peak 54,589, 1971", y: 58500, x: 1974  },
-  { type: "react-annotation", label: "36,560", y: 42000, x: 2018  }
-]
-
-const COLORS = {
-  deaths: '#393e41',
-  pop: '#da4167',
-  miles: '#15b097',
-  alc: '#fcde9c',
-  nonAlc: '#f4d35e',
-  annotationInfo: "#009ddc",
-  annotation: "#666666",
-  gasAdjusted: '#d86641'
+const colors = {
+  carolyn_score: '#ff0000',
+  benjamin_score: '#008000',
+  score: '#666666'
 }
 
-function formatNumber(num) {
-  if (num == null || typeof(num) === 'undefined') {
-    return num;
-  }
-  return num.toLocaleString();
+function processData(items) {
+    var result = items;
+    return result;
 }
 
 function nanCheck(val) {
@@ -49,11 +32,7 @@ function nanCheck(val) {
 }
 
 function yearToDate(year) {
-  if (typeof(year) == 'undefined') {
-    debugger;
-    return year;
-  }
-  return formatter.format(new Date(`${year}-01-01T00:00:00Z`));
+  return new Date(`${year}-01-01T04:00:00Z`);
 }
 
 function formatDate(date) {
@@ -69,30 +48,19 @@ const sharedProps = {
 class Pizza extends React.Component {
   constructor(props) {
     super(props);
-    this.display = [
-      { data: [] },
-      { data: [] },
-      { data: [] },
-      { data: [] }
-    ];
-    this.process(transactions);
+    this.display = [];
+    this.process();
   }
 
-  process(transactions) {
-    let years = transactions;
-
-    let ALL = 0;
-    let ALLLINE = 1;
-    let ALC = 2;
-    let NONALC = 3;
-
-    years.forEach( item => {
-      this.display[ALL].data.push({deaths: parseInt(item.year) < 1982 ? parseInt(item.deaths) : null, year: item.year});
-      this.display[ALLLINE].data.push({deaths: 0, year: item.year});
-      this.display[NONALC].data.push({deaths: item.non_alcohol_related == "" ? null : parseInt(item.non_alcohol_related), year: item.year});
-      this.display[ALC].data.push({deaths: item.alcohol_related == "" ? null : parseInt(item.alcohol_related), year: item.year});
-    })
-
+  process() {
+    processed = processData(total);
+    this.total = processed;
+    console.log(this.total);
+    this.display = [
+      {data: processed, color: '#393e41', opacity: 0.7, strokeWidth: "2px"}
+    ];
+    this.display[0].data.sort( (a, b) => a.date - b.date );
+    this.display[0].data.map( (item, i) => {item.id = i; return item;});
   }
 
   render() {
@@ -103,13 +71,15 @@ class Pizza extends React.Component {
             <ul className="list--plain">
               <li>
                 <svg height="100" width="100">
-                  <circle class="icon" cx="50" cy="50" dx="60" dy="60" r="10" stroke="white" stroke-width="3" fill="white" />
+                  <circle className="icon" cx="50" cy="50" dx="60" dy="60" r="10" stroke="white" strokeWidth="3" fill="white" />
                 </svg>
+              </li>
+              <li>
                 Benjamin
               </li>
               <li>51 Slices Eaten</li>
               <li>Top 3
-                <ol>
+                <ol className="left-list">
                   <li>Antonino's (Audubon)</li>
                   <li>Joe's (Pennsauken)</li>
                   <li>Tony's (Haddonfield)</li>
@@ -122,13 +92,15 @@ class Pizza extends React.Component {
             <ul className="list--plain">
               <li className="list--plain">
                 <svg height="100" width="100">
-                  <circle class="icon" cx="50" cy="50" dx="60" dy="60" r="10" stroke="white" stroke-width="3" fill="white" />
+                  <circle className="icon" cx="50" cy="50" dx="60" dy="60" r="10" stroke="white" strokeWidth="3" fill="white" />
                 </svg>
+              </li>
+              <li>
                 Carolyn
               </li>
               <li>51 Slices Eaten</li>
               <li>Top 3
-                <ol>
+                <ol className="right-list">
                   <li>Antonino's (Audubon)</li>
                   <li>Joe's (Pennsauken)</li>
                   <li>Tony's (Haddonfield)</li>
@@ -143,25 +115,36 @@ class Pizza extends React.Component {
         <div className="chartContainer">
           <h1>Final rankings</h1>
 
-          <ResponsiveXYFrame
-            size={[350, 200]}
+          <ResponsiveORFrame
+            size={[ 350, 350 ]}
             responsiveWidth={true}
-            lines={transactions}
-            defined={d => d.deaths !== null}
-            xAccessor={d => yearToDate(d.year)}
-            yAccessor={d => d.deaths}
-            lineType={{type:"line", interpolator: curveBasis}}
-            yExtent={[0]}
-            lineStyle={(d) => {
-              return { stroke: COLORS.deaths, fill: d.color, strokeWidth: 2, opacity: 1 };
-            }}
-            hoverAnnotation={true}
-            annotations={deathAnnotations}
-            axes={[
-              { orient: 'left', tickFormat: d => formatNumber(d), className: 'normal', ticks: 5},
-              { orient: 'bottom', ticks: 5, className: 'normal', tickFormat: d => yearToDate(d) }
-            ]}
-            margin={{top: 10, left: 40, right: 30, bottom: 50}}
+            data={this.total}
+            projection={'horizontal'}
+            rAccessor={['score']}
+            oAccessor={d => `${d.name}, ${d.location}`}
+            pieceHoverAnnotation={true}
+            tooltipContent={ d => `Carolyn: ${d.carolyn_score}, Benjamin: ${d.benjamin_score}, Average: ${d.score}` }
+            style={d => ({ fill: colors[d.rName], stroke: '#333333', strokeOpacity: 0.0, fillOpacity: 1, strokeWidth: 2 })}
+            type={"clusterbar"}
+            oLabel={(d, i) => (<text x={0} y={3} className={i[0].className} textAnchor="end">{d}</text>)}
+            margin={{ left: 140, top: 0, bottom: 50, right: 10 }}
+            oPadding={8}
+          />
+
+          <ResponsiveORFrame
+            size={[ 350, 350 ]}
+            responsiveWidth={true}
+            data={this.total}
+            projection={'horizontal'}
+            rAccessor={['carolyn_score', 'benjamin_score']}
+            oAccessor={d => `${d.name}, ${d.location}`}
+            pieceHoverAnnotation={true}
+            tooltipContent={ d => `Carolyn: ${d.carolyn_score}, Benjamin: ${d.benjamin_score}, Average: ${d.score}` }
+            style={d => ({ fill: colors[d.rName], stroke: '#333333', strokeOpacity: 0.0, fillOpacity: 1, strokeWidth: 2 })}
+            type={"clusterbar"}
+            oLabel={(d, i) => (<text x={0} y={3} className={i[0].className} textAnchor="end">{d}</text>)}
+            margin={{ left: 140, top: 0, bottom: 50, right: 10 }}
+            oPadding={8}
           />
 
           <div className="notes nextReport">

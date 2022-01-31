@@ -69,16 +69,32 @@ circle {
 }
 
 .leftOverview, .rightOverview {
+  width: 50%;
   padding: 10px;
-  border: 1px solid gray;
+  border: 0px solid gray;
 }
 
 .leftOverview {
   flex: 1;
-  text-align: right;
 }
 
-.rightOverview {
+.leftOverview ul {
+  text-align: right;
+  list-style-position: inside;
+  padding-left: 0;
+}
+
+.leftOverview ul {
+  text-align: right
+  list-style-position: inside;
+  padding-left: 0;
+}
+
+.right-list {
+  padding-left: 15px;
+}
+
+.rightOverview ul {
   float: left;
   text-align: left;
 }
