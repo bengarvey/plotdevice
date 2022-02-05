@@ -5,6 +5,7 @@ import Nav from './Nav';
 import { curveBasis } from 'd3-shape';
 import { AnnotationLabel } from 'react-annotation';
 import CategoryBar from './CategoryBar';
+import PolarGrid from './PolarGrid';
 var transactions = require('../data/pizza/tidy_pizza.json');
 var total = require('../data/pizza/calculated_pizza_total.json');
 
@@ -20,11 +21,6 @@ const colors = {
   carolyn_score: '#ff0000',
   benjamin_score: '#008000',
   score: '#666666'
-}
-
-function processData(items) {
-    var result = items;
-    return result;
 }
 
 function nanCheck(val) {
@@ -53,9 +49,8 @@ class Pizza extends React.Component {
   }
 
   process() {
-    processed = processData(total);
-    this.total = processed;
-    console.log(this.total);
+    this.total = total;
+    this.transactions = transactions;
     this.display = [
       {data: processed, color: '#393e41', opacity: 0.7, strokeWidth: "2px"}
     ];
@@ -70,12 +65,10 @@ class Pizza extends React.Component {
           <div className="leftOverview">
             <ul className="list--plain">
               <li>
-                <svg height="100" width="100">
-                  <circle className="icon" cx="50" cy="50" dx="60" dy="60" r="10" stroke="white" strokeWidth="3" fill="white" />
-                </svg>
+                <img src="../images/ben-fancy.jpg" height="150px" width="150px" className="avatar"/>
               </li>
               <li>
-                Benjamin
+                <h3>Benjamin</h3>
               </li>
               <li>51 Slices Eaten</li>
               <li>Top 3
@@ -90,13 +83,11 @@ class Pizza extends React.Component {
 
           <div className="rightOverview">
             <ul className="list--plain">
-              <li className="list--plain">
-                <svg height="100" width="100">
-                  <circle className="icon" cx="50" cy="50" dx="60" dy="60" r="10" stroke="white" strokeWidth="3" fill="white" />
-                </svg>
+              <li>
+                <img src="../images/carolyn-fancy.png" height="150px" width="150px" className="avatar"/>
               </li>
               <li>
-                Carolyn
+                <h3>Carolyn</h3>
               </li>
               <li>51 Slices Eaten</li>
               <li>Top 3
@@ -110,7 +101,7 @@ class Pizza extends React.Component {
           </div>
         </div>
         <div className="chartContainer">
-          Grid of polar charts
+          <PolarGrid data={this.transactions}/>
         </div>
         <div className="chartContainer">
           <h1>Final rankings</h1>
