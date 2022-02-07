@@ -123,7 +123,7 @@ circle {
 .recession .annotation-subject path {
   fill-opacity: 0.15;
   opacity: 1;
-  stroke-opacity: 1;
+  stroke-opacity: 0;
   fill: rgb(150,150,150);
 }
 
@@ -416,4 +416,9 @@ a:link, a:visited {
 
 .avatar {
   border-radius: 50%;
+}
+
+.wrap-grid {
+  display: flex;
+  flex-wrap: wrap;
 }

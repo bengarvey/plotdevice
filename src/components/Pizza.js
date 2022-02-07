@@ -140,9 +140,7 @@ class Pizza extends React.Component {
 
           <div className="notes nextReport">
             <h3>Notes and Sources</h3>
-            <p>This is an update to my previous <a href="http://plotdevice.bengarvey.com/auto">exploration of automobile deaths</a>, where I looked at various factors and made a case for why I think the reduction in alcohol related automobile deaths was the most important cause for the decline in overall deaths since 1971. We only have stats on this back to 1982, but I don't think it's a stretch to say this trend started earlier.</p>
-            <p>These charts have 3 additional years of data and I did a better job at documenting my sources. See the google sheet below. The data from 1982 - 1994 required some transformation from the raw data as it was segmented by age. It's also not entirely clear to me whether they count non-passenger deaths (ie. pedestrians, bicyclists) in the 1982-1994 data.</p>
-            <p>I did this update during the great COVID-19 quarantine of 2020, and it is surreal for someone like me who has looked at the horrific automobile deaths for so long and wondered why it wasn't a bigger issue, to now witness the deaths of over 150,000 Americans and there's almost no moment of collective grief we experience with a plane crash or even the death of a single beloved celebrity. I haven't done any COVID-19 related data projects, but I've admired the work others have done to communicate the reasons behind policy decisions (for the policy makers who listen). Maybe we'll offset some of them because of how much less we're driving this year.</p>
+            <p>Some notes and link to Carolyn's blog.</p>
             <p>Source: <a href="https://docs.google.com/spreadsheets/d/1qMZzIS_gpV3Tw-sD1QKWmhwUgzdbbcW0hb2n2Iwdd4Y/edit?usp=sharing">Google sheet of sources</a></p>
             <p>Tech: Semiotic, javascript, csvkit, html, css</p>
           </div>

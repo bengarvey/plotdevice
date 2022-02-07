@@ -29,24 +29,31 @@ class PolarGrid extends React.Component {
         this.display.push({
           name: item.name,
           value: item[a],
-          attribute: a
+          attribute: a,
+          notes: item.user
           }
         )
       })
     });
-    console.log(this.display);
   }
 
   renderChart() {
   }
 
+  renderPolar(firstIndex, lastIndex) {
+    return (<Polar data={this.display.slice(firstIndex,lastIndex)}/>);
+  }
+
   render() {
+    var items = [];
+    console.log(this.display.length);
+    for(let i=0; i<this.display.length; i+=10) {
+      items.push(<Polar data={this.display.slice(i,i+10)}/>)
+    }
+    console.log(items);
     return (
-      <div>
-        <Polar data={this.display.slice(0,4)}/>
-        <Polar data={this.display.slice(5,9)}/>
-        <Polar data={this.display.slice(10,14)}/>
-        <Polar data={this.display.slice(15,19)}/>
+      <div class="wrap-grid">
+        {items}
       </div>
     );
   }
