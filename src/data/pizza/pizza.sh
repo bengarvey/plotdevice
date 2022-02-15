@@ -1,5 +1,5 @@
 csvsql --query "
-select \"PIZZA JOINT\" as name, trim(Rater) as user, \"City of pizza\" as location, \"Date completed\" as \"created_at\", Price as price, \"First bite satisfaction\" as first_bite, \"Oil puddle goodness\" as opg,\"Crust\" as crust, \"Number of slices eaten\" as slices, \"Cheeeeeeeeeese\" as cheese, Notes as notes from pizza
+select \"PIZZA JOINT\" as name, trim(Rater) as user, \"City of pizza\" as location, \"Date completed\" as \"created_at\", Price as price, \"First bite satisfaction\" as first_bite, \"Oil puddle goodness\" as opg,\"Crust\" as crust, \"Number of slices eaten\" as slices, \"Cheeeeeeeeeese\" as cheese, Notes as notes, case trim(Rater) when 'Carolyn' then '#cb0000' else '#d99011' end as color from pizza order by created_at, location, user
 " pizza.csv > tidy_pizza.csv
 csvsql --query "
 select t.name, t.location, 

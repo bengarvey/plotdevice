@@ -1,5 +1,4 @@
 import React from 'react';
-import { ResponsiveORFrame, ResponsiveXYFrame } from 'semiotic';
 import { scaleLinear, scaleOrdinal } from 'd3-scale';
 import { schemeCategory10 } from 'd3-scale-chromatic';
 import Polar from './Polar';
@@ -30,7 +29,8 @@ class PolarGrid extends React.Component {
           name: item.name,
           value: item[a],
           attribute: a,
-          notes: item.user
+          notes: item.user,
+          color: item.color
           }
         )
       })
@@ -46,13 +46,12 @@ class PolarGrid extends React.Component {
 
   render() {
     var items = [];
-    console.log(this.display.length);
+    console.log(this.display);
     for(let i=0; i<this.display.length; i+=10) {
-      items.push(<Polar data={this.display.slice(i,i+10)}/>)
+      items.push(<Polar key={i} data={this.display.slice(i,i+10)}/>)
     }
-    console.log(items);
     return (
-      <div class="wrap-grid">
+      <div className="wrap-grid">
         {items}
       </div>
     );

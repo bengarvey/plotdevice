@@ -20,7 +20,7 @@ var processed = [];
 const colors = {
   carolyn_score: '#ff0000',
   benjamin_score: '#008000',
-  score: '#666666'
+  score: '#333333'
 }
 
 function nanCheck(val) {
@@ -51,6 +51,10 @@ class Pizza extends React.Component {
   process() {
     this.total = total;
     this.transactions = transactions;
+    this.benjamin = [...total.sort( function(a,b) { return b.benjamin_score - a.benjamin_score } )];
+    this.carolyn = [...total.sort( function(a,b) { return b.carolyn_score - a.carolyn_score } )];
+
+    console.log(this.benjamin);
     this.display = [
       {data: processed, color: '#393e41', opacity: 0.7, strokeWidth: "2px"}
     ];
@@ -73,9 +77,9 @@ class Pizza extends React.Component {
               <li>51 Slices Eaten</li>
               <li>Top 3
                 <ol className="left-list">
-                  <li>Antonino's (Audubon)</li>
-                  <li>Joe's (Pennsauken)</li>
-                  <li>Tony's (Haddonfield)</li>
+                  <li>{this.benjamin[0].name}</li>
+                  <li>{this.benjamin[1].name}</li>
+                  <li>{this.benjamin[2].name}</li>
                 </ol>
               </li>
             </ul>
@@ -89,12 +93,12 @@ class Pizza extends React.Component {
               <li>
                 <h3>Carolyn</h3>
               </li>
-              <li>51 Slices Eaten</li>
+              <li>49 Slices Eaten</li>
               <li>Top 3
                 <ol className="right-list">
-                  <li>Antonino's (Audubon)</li>
-                  <li>Joe's (Pennsauken)</li>
-                  <li>Tony's (Haddonfield)</li>
+                <li>{this.carolyn[0].name}</li>
+                <li>{this.carolyn[1].name}</li>
+                <li>{this.carolyn[2].name}</li>
                 </ol>
               </li>
             </ul>
@@ -107,7 +111,7 @@ class Pizza extends React.Component {
           <h1>Final rankings</h1>
 
           <ResponsiveORFrame
-            size={[ 350, 350 ]}
+            size={[ 450, 550 ]}
             responsiveWidth={true}
             data={this.total}
             projection={'horizontal'}
@@ -118,23 +122,7 @@ class Pizza extends React.Component {
             style={d => ({ fill: colors[d.rName], stroke: '#333333', strokeOpacity: 0.0, fillOpacity: 1, strokeWidth: 2 })}
             type={"clusterbar"}
             oLabel={(d, i) => (<text x={0} y={3} className={i[0].className} textAnchor="end">{d}</text>)}
-            margin={{ left: 140, top: 0, bottom: 50, right: 10 }}
-            oPadding={8}
-          />
-
-          <ResponsiveORFrame
-            size={[ 350, 350 ]}
-            responsiveWidth={true}
-            data={this.total}
-            projection={'horizontal'}
-            rAccessor={['carolyn_score', 'benjamin_score']}
-            oAccessor={d => `${d.name}, ${d.location}`}
-            pieceHoverAnnotation={true}
-            tooltipContent={ d => `Carolyn: ${d.carolyn_score}, Benjamin: ${d.benjamin_score}, Average: ${d.score}` }
-            style={d => ({ fill: colors[d.rName], stroke: '#333333', strokeOpacity: 0.0, fillOpacity: 1, strokeWidth: 2 })}
-            type={"clusterbar"}
-            oLabel={(d, i) => (<text x={0} y={3} className={i[0].className} textAnchor="end">{d}</text>)}
-            margin={{ left: 140, top: 0, bottom: 50, right: 10 }}
+            margin={{ left: 160, top: 0, bottom: 50, right: 10 }}
             oPadding={8}
           />
 
