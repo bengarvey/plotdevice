@@ -11,6 +11,14 @@ text {
   font-family: Helvetica, Arial, sans-serif;
 }
 
+.large-text {
+  font-size: 14px;
+}
+
+.frame-title {
+  font-size: 16px;
+}
+
 .normal {
   fill: #999;
 }
@@ -70,10 +78,10 @@ circle {
 
 .leftOverview, .rightOverview {
   width: 50%;
-  padding: 10px;
 }
 
 .leftOverview {
+  padding: 0 10px 0 0;
   flex: 1;
 }
 
@@ -94,6 +102,7 @@ circle {
 }
 
 .rightOverview ul {
+  padding: 0 0 0 10px;
   float: left;
   text-align: left;
 }
@@ -256,6 +265,10 @@ html {
   margin: 0;
   padding: 5px;
   overflow: visible;
+}
+
+.centeredChart > .frame-elements {
+  margin: auto;
 }
 
 .abChartContainer {

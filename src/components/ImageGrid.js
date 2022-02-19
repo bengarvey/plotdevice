@@ -1,11 +1,10 @@
 import React from 'react';
 import { scaleLinear, scaleOrdinal } from 'd3-scale';
 import { schemeCategory10 } from 'd3-scale-chromatic';
-import Polar from './Polar';
 
 const color = scaleOrdinal(schemeCategory10);
 
-class PolarGrid extends React.Component {
+class ImageGrid extends React.Component {
   constructor(props) {
     super(props);
     this.display = [];
@@ -22,6 +21,7 @@ class PolarGrid extends React.Component {
 
   process() {
     let data = this.props.data;
+    console.log(data);
     let attr = ['opg', 'cheese', 'slices', 'first_bite', 'crust'];
     data.forEach( item => {
       attr.forEach( a => {
@@ -41,15 +41,12 @@ class PolarGrid extends React.Component {
   renderChart() {
   }
 
-  renderPolar(firstIndex, lastIndex) {
-    return (<Polar data={this.display.slice(firstIndex,lastIndex)}/>);
-  }
 
   render() {
     var items = [];
-    console.log(this.display);
+    console.log(this.display.length);
     for(let i=0; i<this.display.length; i+=10) {
-      items.push(<Polar key={i} data={this.display.slice(i,i+10)}/>)
+      items.push(<img src={"../images/pizza/" + this.display[i].image} width="115" title={this.display[i].name}/>)
     }
     return (
       <div className="wrap-grid">
@@ -59,4 +56,4 @@ class PolarGrid extends React.Component {
   }
 }
 
-export default PolarGrid
+export default ImageGrid

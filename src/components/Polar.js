@@ -55,7 +55,7 @@ class Polar extends React.Component {
           projection={"radial"}
           connectorType={d => `${d.notes}`}
           title={this.title}
-          connectorStyle={d => ({fill: d.source.color, stroke: "#666666", strokeOpacity: 0.5, fillOpacity: 0.5}) }
+          connectorStyle={d => ({fill: d.source.color, stroke: "#666666", strokeOpacity: 0.5, fillOpacity: 0.6}) }
           //oLabel={(d, i) => (<text x={0} y={3} className={i[0].className} textAnchor="end">{d}</text>)}
           margin={{ left: 0, top: 0, bottom: 0, right: 0 }}
           oPadding={0}
