@@ -1,19 +1,19 @@
-name,location,carolyn_score,benjamin_score,score
-Antonino's,Audubon,23.0,22.0,22.5
-Joe's Pizza,Cherry Hill,22.0,23.0,22.5
-Bruno's,Haddon Twp,21.0,20.0,20.5
-Pepperoni Pizza,Oaklyn,20.0,20.0,20.0
-Brooklyn Pizza,Haddon Heights,17.0,21.0,19.0
-People's Pizza,Cherry Hill,18.0,17.0,17.5
-Villa Barone,Collingswood,17.0,18.0,17.5
-Tony's Pizza,Haddonfield,16.0,18.0,17.0
-Bruno's,Haddon Township,16.0,16.0,16.0
-Nicky B's,Haddonfield,17.0,14.5,15.75
-Bistro Pizzeria,Collingswood,14.0,14.0,14.0
-House of Pizza,Pennsauken,15.0,13.0,14.0
-Tacconelli's,Maple Shade,14.0,14.0,14.0
-King of Pizza,Cherry Hill,14.0,12.0,13.0
-Pronto Pizza,Merchantville,15.0,10.0,12.5
-Toscana's,Audubon,13.0,12.0,12.5
-Genova's,Audubon,11.0,9.0,10.0
-Nick and Joes,Westmont,10.0,9.0,9.5
+name,location,rank,carolyn_score,benjamin_score,score
+Antonino's,Audubon,1,23.0,22.0,22.5
+Joe's Pizza,Cherry Hill,2,22.0,23.0,22.5
+Bruno's,Haddon Twp,3,21.0,20.0,20.5
+Pepperoni Pizza,Oaklyn,4,20.0,20.0,20.0
+Brooklyn Pizza,Haddon Heights,5,17.0,21.0,19.0
+People's Pizza,Cherry Hill,6,18.0,17.0,17.5
+Villa Barone,Collingswood,7,17.0,18.0,17.5
+Tony's Pizza,Haddonfield,8,16.0,18.0,17.0
+Bruno's,Haddon Township,9,16.0,16.0,16.0
+Nicky B's,Haddonfield,10,17.0,14.5,15.75
+Bistro Pizzeria,Collingswood,11,14.0,14.0,14.0
+House of Pizza,Pennsauken,12,15.0,13.0,14.0
+Tacconelli's,Maple Shade,13,14.0,14.0,14.0
+King of Pizza,Cherry Hill,14,14.0,12.0,13.0
+Pronto Pizza,Merchantville,15,15.0,10.0,12.5
+Toscana's,Audubon,16,13.0,12.0,12.5
+Genova's,Audubon,17,11.0,9.0,10.0
+Nick and Joes,Westmont,18,10.0,9.0,9.5

@@ -1,6 +1,7 @@
 import React from 'react';
 import { scaleLinear, scaleOrdinal } from 'd3-scale';
 import { schemeCategory10 } from 'd3-scale-chromatic';
+import ImageGridImage from './ImageGridImage';
 
 const color = scaleOrdinal(schemeCategory10);
 
@@ -44,9 +45,8 @@ class ImageGrid extends React.Component {
 
   render() {
     var items = [];
-    console.log(this.display.length);
     for(let i=0; i<this.display.length; i+=10) {
-      items.push(<img src={"../images/pizza/" + this.display[i].image} width="115" title={this.display[i].name}/>)
+      items.push(<ImageGridImage data={this.display[i]}/>)
     }
     return (
       <div className="wrap-grid">
