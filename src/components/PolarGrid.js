@@ -1,23 +1,14 @@
 import React from 'react';
-import { scaleLinear, scaleOrdinal } from 'd3-scale';
-import { schemeCategory10 } from 'd3-scale-chromatic';
 import Polar from './Polar';
-
-const color = scaleOrdinal(schemeCategory10);
 
 class PolarGrid extends React.Component {
   constructor(props) {
     super(props);
     this.display = [];
     this.process();
-    this.renderChart = this.renderChart.bind(this);
   }
 
    componentDidMount() {
-      this.renderChart()
-   }
-   componentDidUpdate() {
-      this.renderChart();
    }
 
   process() {
@@ -36,13 +27,6 @@ class PolarGrid extends React.Component {
         )
       })
     });
-  }
-
-  renderChart() {
-  }
-
-  renderPolar(firstIndex, lastIndex) {
-    return (<Polar data={this.display.slice(firstIndex,lastIndex)}/>);
   }
 
   render() {

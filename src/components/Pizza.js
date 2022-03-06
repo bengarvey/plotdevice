@@ -1,22 +1,12 @@
 import React from 'react';
-import { ResponsiveXYFrame } from 'semiotic';
 import { ResponsiveORFrame, ORFrame } from 'semiotic';
 import Nav from './Nav';
-import { curveBasis } from 'd3-shape';
-import { AnnotationLabel } from 'react-annotation';
-import CategoryBar from './CategoryBar';
 import PolarGrid from './PolarGrid';
 import ImageGrid from './ImageGrid';
 var transactions = require('../data/pizza/tidy_pizza.json');
 var total = require('../data/pizza/calculated_pizza_total.json');
 var user_stats = require('../data/pizza/pizza_user_stats.json');
 
-const formatter = new Intl.DateTimeFormat("en", { year: "numeric" } );
-
-var processed = [];
-
-var annotations = [];
-var bumpAnnotations = [];
 var processed = [];
 
 const colors = {
@@ -32,26 +22,6 @@ const ratings = {
   cheese: "Cheeeeeese",
   crust: "Crust"
 }
-
-function nanCheck(val) {
-  return val || 0;
-}
-
-function yearToDate(year) {
-  return new Date(`${year}-01-01T04:00:00Z`);
-}
-
-function formatDate(date) {
-  return formatter.format(new Date(date));
-}
-
-const sharedProps = {
-  size: [365,200],
-  hoverAnnotation: true,
-  margin:{ left: 0, bottom: 30, right: 10, top: 10 }
-};
-
-var orAnnotations = [];
 
 class Pizza extends React.Component {
   constructor(props) {
@@ -99,7 +69,7 @@ class Pizza extends React.Component {
           <div className="leftOverview">
             <ul className="list--plain">
               <li>
-                <img src="../images/ben-fancy.jpg" height="150px" width="150px" className="avatar"/>
+                <img src="../images/ben-fancy.jpg" height="150px" width="150px" className="avatar" alt="Ben looking cool"/>
               </li>
               <li>
                 <h2>Benjamin</h2>
@@ -118,7 +88,7 @@ class Pizza extends React.Component {
           <div className="rightOverview">
             <ul className="list--plain">
               <li>
-                <img src="../images/carolyn-fancy.png" height="150px" width="150px" className="avatar"/>
+                <img src="../images/carolyn-fancy.png" height="150px" width="150px" className="avatar" alt="Carolyn looking hot, holding an iced coffee."/>
               </li>
               <li>
                 <h2>Carolyn</h2>

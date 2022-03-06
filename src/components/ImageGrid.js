@@ -1,24 +1,12 @@
 import React from 'react';
-import { scaleLinear, scaleOrdinal } from 'd3-scale';
-import { schemeCategory10 } from 'd3-scale-chromatic';
 import ImageGridImage from './ImageGridImage';
-
-const color = scaleOrdinal(schemeCategory10);
 
 class ImageGrid extends React.Component {
   constructor(props) {
     super(props);
     this.display = [];
     this.process();
-    this.renderChart = this.renderChart.bind(this);
   }
-
-   componentDidMount() {
-      this.renderChart()
-   }
-   componentDidUpdate() {
-      this.renderChart();
-   }
 
   process() {
     let data = this.props.data;
@@ -37,10 +25,6 @@ class ImageGrid extends React.Component {
       })
     });
   }
-
-  renderChart() {
-  }
-
 
   render() {
     var items = [];
