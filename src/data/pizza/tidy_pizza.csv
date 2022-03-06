@@ -1,0 +1,41 @@
+name,image,user,location,created_at,price,first_bite,opg,crust,slices,cheese,notes,color
+People's Pizza,peoples.png,Benjamin,Cherry Hill,2021-04-15,13.99,2.0,5.0,4.0,4.0,2.0,Consistent coloring. Basic but very satisying crust/sauce/cheese. Nothing fancy but not lacking either. ,#d99011
+People's Pizza,peoples.png,Carolyn,Cherry Hill,2021-04-15,13.99,4.0,4.0,3.0,3.0,4.0,A satisfying pizza with good company ,#cb0000
+Genova's,genova.png,Benjamin,Audubon,2021-04-22,13.0,1.0,1.0,3.0,2.0,2.0,"I liked the garlic in the sauce, but could have used more cheese and another minute or two in the oven. Crust was made with love.",#d99011
+Genova's,genova.png,Carolyn,Audubon,2021-04-22,13.0,2.0,1.0,3.0,3.0,2.0,No puddles = no oil = not as good but something special about crust,#cb0000
+Pronto Pizza,pronto.png,Benjamin,Merchantville,2021-04-27,12.45,2.0,2.0,1.0,3.0,2.0,Not enough sauce or masks.,#d99011
+Pronto Pizza,pronto.png,Carolyn,Merchantville,2021-04-27,12.45,4.0,3.0,2.0,3.0,3.0,No masks,#cb0000
+King of Pizza,kingofpizza.png,Benjamin,Cherry Hill,2021-05-02,14.99,2.0,3.0,1.0,3.0,3.0,"Cash only. Looked amazing at first glance, but wasn't as good as I hoped. Crust is a little too thick, but I liked the cheese. ",#d99011
+King of Pizza,kingofpizza.png,Carolyn,Cherry Hill,2021-05-02,14.99,3.0,3.0,2.0,3.0,3.0,Crust too thick,#cb0000
+Tony's Pizza,tonys.png,Benjamin,Haddonfield,2021-05-12,12.99,4.0,4.0,4.0,4.0,2.0,"Saucy, which I like. Crust was surprisingly good. It was salty and had a nice chew. Finished 4 slices easily, since it was thin. Would go there again. ",#d99011
+Tony's Pizza,tonys.png,Carolyn,Haddonfield,2021-05-12,12.99,3.0,3.0,4.0,4.0,2.0,A bit too saucy for me but I liked the crust a lot.,#cb0000
+Antonino's,antoninos.png,Benjamin,Audubon,2021-05-17,14.4,5.0,5.0,4.0,3.0,5.0,Perfect balance of cheese and crust and cooked exactly the right amount of time. Crust tasted and felt great. Very substantial slices (could feed 3 or even 4 people). No way this isn't in our final top 3.,#d99011
+Antonino's,antoninos.png,Carolyn,Audubon,2021-05-17,14.4,5.0,5.0,5.0,3.0,5.0,amazing from the first bite. Truly stuffed after eating,#cb0000
+Bistro Pizzeria,bistro.png,Benjamin,Collingswood,2021-05-26,12.99,2.0,3.0,4.0,3.0,2.0,"Better than I expected. Needed about 50% more sauce. Crust was excellent and the pizza was cooked perfectly, but lack of sauce dried it out a little for me. Would eat a slice there any day.",#d99011
+Bistro Pizzeria,bistro.png,Carolyn,Collingswood,2021-05-26,12.99,2.0,3.0,4.0,3.0,2.0,Like really good bowling alley pizza. Thin. Crust very good.,#cb0000
+Nicky B's,nickybs.png,Benjamin,Haddonfield,2021-06-05,13.49,1.0,3.0,1.0,4.0,2.0,"Nice flavor in the sauce, but the crust wasnt doing it for me. I like when they include the tiny 3 leg table.",#d99011
+Nicky B's,nickybs.png,Carolyn,Haddonfield,2021-06-05,13.49,2.0,2.0,3.0,3.0,3.0,"The couple slices that were greasier were better. Otherwise, mediocre pizza. ",#cb0000
+Bruno's,brunos.png,Benjamin,Haddon Township,2021-06-13,14.0,5.0,4.0,3.0,2.0,2.0,"Very good. First bite was salty and perfect. Could have used a little more cheese, but really enjoyed it. Reminded me of the pizza joints of my childhood (Scottos in Berlin, or Nino's in Hammonton)",#d99011
+Bruno's,brunos.png,Carolyn,Haddon Township,2021-06-13,14.0,4.0,4.0,3.0,3.0,2.0,,#cb0000
+Joe's Pizza,joes.png,Benjamin,Cherry Hill,2021-07-15,13.0,5.0,5.0,5.0,4.0,4.0,Nearly perfect. First bite was as good as the last. Crust and sauce hit exactly like they should. I need to order another one just to make sure this wasn't a fluke.,#d99011
+Joe's Pizza,joes.png,Carolyn,Cherry Hill,2021-07-15,13.0,5.0,4.0,5.0,4.0,4.0,Was very hungry but I think it was still pretty great. The oil was great but needed more spread out. Crust was my fave,#cb0000
+House of Pizza,houseofpizza.png,Benjamin,Pennsauken,2021-08-17,12.99,3.0,2.0,3.0,4.0,1.0,"Crust tasted great, but was almost too thin. Would have been better with thin crust and more cheese, but overall didn't feel substantial enough. Felt cheaply made, but definitely hit the spot.",#d99011
+House of Pizza,houseofpizza.png,Carolyn,Pennsauken,2021-08-17,12.99,3.0,2.0,4.0,4.0,2.0,"Good crust but like no oil, wtf!!!",#cb0000
+Brooklyn Pizza,brooklyn.png,Benjamin,Haddon Heights,2021-08-21,15.99,5.0,5.0,5.0,3.0,3.0,Crust and sauce are incredible. Would give the crust a 6 if I could. I could only eat 3 slices because the pizza was so substantial.,#d99011
+Brooklyn Pizza,brooklyn.png,Carolyn,Haddon Heights,2021-08-21,15.99,3.0,3.0,5.0,3.0,3.0,I think I was expected to love this one (being Brooklyn and all) but I wasn't that impressed. It was good but I think the sauce overpowered the cheese and I'm way more of a cheese person than sauce. ,#cb0000
+Nick and Joes,nickandjoes.png,Benjamin,Westmont,2021-09-10,13.29,2.0,1.0,1.0,4.0,1.0,Ovrcooked. Pretty disappointed because I've had good pizza here in the past. The mozarella sticks were good.,#d99011
+Nick and Joes,nickandjoes.png,Carolyn,Westmont,2021-09-10,13.29,2.0,1.0,3.0,2.0,2.0,Goodness. I hope that was a fluke. Not the pizza I remember. Kinda overcooked.,#cb0000
+Pepperoni Pizza,pepperoni.png,Benjamin,Oaklyn,2021-10-03,12.99,3.0,4.0,5.0,4.0,4.0,"Fantastic pizza. Balanced and cooked perfectly. Crust was the star and had the right amount of chew/flavor. Salad was excellent, too. Watched the Many Saints of Newark while we ate it, so maybe that helped.",#d99011
+Pepperoni Pizza,pepperoni.png,Carolyn,Oaklyn,2021-10-03,12.99,4.0,4.0,4.0,4.0,4.0,Definitely one of the best. Great crust. Good thickness of cheese.,#cb0000
+Toscana's,toscanas.png,Benjamin,Audubon,2021-11-15,15.99,4.0,2.0,1.0,4.0,1.0,"It's pizza. First bit was surprisingly good, but mostly downhill after that. Ate 4 slices easily because it was think. Maybe a tiny bit over cooked and could have used more cheese.",#d99011
+Toscana's,toscanas.png,Carolyn,Audubon,2021-11-15,15.99,3.0,2.0,2.0,4.0,2.0,I only ate 4 slices because the crust was the majority of the pie that you had to to fulfill your appetite! ,#cb0000
+Nicky B's,nickybs.png,Benjamin,Haddonfield,2021-12-03,14.99,4.0,4.0,3.0,4.0,3.0,,#d99011
+Nicky B's,nickybs.png,Carolyn,Haddonfield,2021-12-03,14.99,4.0,4.0,4.0,4.0,5.0,Ooops. We ate it twice. Perfect greasy levels. Fillings. Cheese is great.,#cb0000
+Villa Barone,villabarone.png,Benjamin,Collingswood,2021-12-27,14.0,4.0,3.0,5.0,3.0,3.0,Lots of love goes into this pizza. Garlic. Basil. Great pizza.,#d99011
+Villa Barone,villabarone.png,Carolyn,Collingswood,2021-12-27,14.0,4.0,4.0,3.0,3.0,3.0,Crust was good. Players in the pizza game. Not just a restaurant.,#cb0000
+Tacconelli's,tacconellis.png,Benjamin,Maple Shade,2022-01-19,15.5,3.0,2.0,4.0,4.0,1.0,It might be unfair to judge this pizza. We should've eaten it straight out of the oven but it's not OUR fault they haven't opened Haddon Twp location yet.,#d99011
+Tacconelli's,tacconellis.png,Carolyn,Maple Shade,2022-01-19,15.5,2.0,2.0,3.0,4.0,3.0,"Through no fault of resturant was not hot. Ordered extra cheese but definiteluy didn't get it. So while it was good, disappoiinted.",#cb0000
+Bruno's,brunos.png,Benjamin,Haddon Twp,2022-02-07,15.98,5.0,3.0,4.0,4.0,4.0,,#d99011
+Bruno's,brunos.png,Carolyn,Haddon Twp,2022-02-07,15.98,5.0,4.0,5.0,4.0,3.0,"REALLY good first bite. Oil was great. Cheese was awesome and nearly a 5, just wanted a *touch* more",#cb0000
+Pepperoni Pizza,pepperoni.png,Benjamin,Oaklyn,2022-02-26,12.99,3.0,3.0,5.0,4.0,2.0,The crust really did it for me on this pizza and I think it was cooked well. I honestly should have stopped at 3 slices. Would have been a top pizza with a little more cheese. Had an ugly black spot in the middle. ,#d99011
+Pepperoni Pizza,pepperoni.png,Carolyn,Oaklyn,2022-02-26,12.99,3.0,3.0,3.0,4.0,2.0,I was drunk so it was good. But wouldn't you think if I was drunk it would be REALLY good? Makes you think.,#cb0000

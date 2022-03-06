@@ -1,0 +1,35 @@
+name,location,user,sum(first_bite + opg + crust + cheese + slices)
+Antonino's,Audubon,Benjamin ,19.0
+Antonino's,Audubon,Carolyn,20.0
+Bistro Pizzeria,Collingswood,Benjamin ,11.0
+Bistro Pizzeria,Collingswood,Carolyn,11.0
+Brooklyn Pizza,Haddon Heights,Benjamin ,18.0
+Brooklyn Pizza,Haddon Heights,Carolyn,14.0
+Bruno's,Haddon Township,Benjamin ,14.0
+Bruno's,Haddon Township,Carolyn,13.0
+Genova's,Audubon,Benjamin ,7.0
+Genova's,Audubon,Carolyn,8.0
+House of Pizza,Pennsauken,Benjamin ,9.0
+House of Pizza,Pennsauken,Carolyn,11.0
+Joe's Pizza,Cherry Hill,Benjamin ,19.0
+Joe's Pizza,Cherry Hill,Carolyn,18.0
+King of Pizza,Cherry Hill,Benjamin ,9.0
+King of Pizza,Cherry Hill,Carolyn,11.0
+Nick and Joes,Westmont,Benjamin ,5.0
+Nick and Joes,Westmont,Carolyn,8.0
+Nicky B's,Haddonfield,Benjamin ,21.0
+Nicky B's,Haddonfield,Carolyn,27.0
+People's Pizza,Cherry Hill,Benjamin ,13.0
+People's Pizza,Cherry Hill,Carolyn,15.0
+Pepperoni Pizza,Oaklyn,Benjamin ,16.0
+Pepperoni Pizza,Oaklyn,Carolyn,16.0
+Pronto Pizza,Merchantville,Benjamin ,7.0
+Pronto Pizza,Merchantville,Carolyn,12.0
+Tacconelli's,Maple Shade,Benjamin ,10.0
+Tacconelli's,Maple Shade,Carolyn,10.0
+Tony's Pizza,Haddonfield,Benjamin ,14.0
+Tony's Pizza,Haddonfield,Carolyn,12.0
+Toscana's,Audubon,Benjamin ,8.0
+Toscana's,Audubon,Carolyn,9.0
+Villa Barone,Collingswood,Benjamin ,15.0
+Villa Barone,Collingswood,Carolyn,14.0

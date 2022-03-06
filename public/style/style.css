@@ -11,6 +11,14 @@ text {
   font-family: Helvetica, Arial, sans-serif;
 }
 
+.large-text {
+  font-size: 14px;
+}
+
+.frame-title {
+  font-size: 16px;
+}
+
 .normal {
   fill: #999;
 }
@@ -59,6 +67,46 @@ circle {
   opacity: 0.5;
   r: 5px;
 }
+
+.icon {
+  r: 50px;
+}
+
+.overviewContainer {
+  display: flex;
+}
+
+.leftOverview, .rightOverview {
+  width: 50%;
+}
+
+.leftOverview {
+  padding: 0 10px 0 0;
+  flex: 1;
+}
+
+.leftOverview ul {
+  text-align: right;
+  list-style-position: inside;
+  padding-left: 0;
+}
+
+.leftOverview ul {
+  text-align: right
+  list-style-position: inside;
+  padding-left: 0;
+}
+
+.right-list {
+  padding-left: 15px;
+}
+
+.rightOverview ul {
+  padding: 0 0 0 10px;
+  float: left;
+  text-align: left;
+}
+
 
 .tick-line {
   opacity: 0.3;
@@ -219,6 +267,10 @@ html {
   overflow: visible;
 }
 
+.centeredChart > .frame-elements {
+  margin: auto;
+}
+
 .abChartContainer {
   position: absolute;
   top: 61px;
@@ -373,4 +425,13 @@ a:link, a:visited {
 
 .button.off {
   background-color:#cccccc;
+}
+
+.avatar {
+  border-radius: 50%;
+}
+
+.wrap-grid {
+  display: flex;
+  flex-wrap: wrap;
 }
