@@ -22,7 +22,6 @@ class ImageGrid extends React.Component {
 
   process() {
     let data = this.props.data;
-    console.log(data);
     let attr = ['opg', 'cheese', 'slices', 'first_bite', 'crust'];
     data.forEach( item => {
       attr.forEach( a => {
@@ -46,7 +45,7 @@ class ImageGrid extends React.Component {
   render() {
     var items = [];
     for(let i=0; i<this.display.length; i+=10) {
-      items.push(<ImageGridImage data={this.display[i]}/>)
+      items.push(<ImageGridImage key={i} data={this.display[i]}/>)
     }
     return (
       <div className="wrap-grid">

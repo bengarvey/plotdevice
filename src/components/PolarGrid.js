@@ -47,7 +47,6 @@ class PolarGrid extends React.Component {
 
   render() {
     var items = [];
-    console.log(this.display);
     for(let i=0; i<this.display.length; i+=10) {
       items.push(<Polar key={i} data={this.display.slice(i,i+10)}/>)
     }
