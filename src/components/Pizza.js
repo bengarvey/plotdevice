@@ -179,6 +179,7 @@ class Pizza extends React.Component {
             <p>Radar charts (or polar charts) are an often derised form, but we're just having fun here. </p>
             <p>If you want to read about how I do the data transformations for a project like this, read my post on <a href="https://bengarvey.com/2020/10/12/schmedium-data-building-small-data-pipelines-with-bash/">Schmedium Data</a>.</p>
             <p>Source: <a href="https://docs.google.com/spreadsheets/d/146xfQ0yq4UM4D3v-vHO3dFOA0_3V-wFbOvxHu9bTb5M/edit?usp=sharing">Google sheet of source data</a></p>
+            <p>Acknowledgements: <a href="https://carolynbusa.com">Carolyn Busa</a>, <a href="https://www.crysfm.com/">Crys Moore</a>, and all the pizza chefs
             <p>Tech: Semiotic, javascript, csvkit, bash, html, css, google sheets</p>
           </div>
           <Nav/>
