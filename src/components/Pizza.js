@@ -61,7 +61,7 @@ class Pizza extends React.Component {
   render() {
     return (
       <div>
-        <div className="chartContainer">
+        <div className="chartContainer vmargin-0">
           <h1>South Jersey Pizza Ratings</h1>
           <h3>We tried local pizzas and compared them</h3>
         </div>
@@ -75,12 +75,15 @@ class Pizza extends React.Component {
                 <h2>Benjamin</h2>
               </li>
               <li><strong>{this.user_stats[0].total_slices} slices eaten</strong></li>
-              <li><h3>Top 3</h3>
-                <ol className="left-list">
-                  <li>{this.benjamin[0].name}</li>
-                  <li>{this.benjamin[1].name}</li>
-                  <li>{this.benjamin[2].name}</li>
-                </ol>
+              <li>
+                <div className="vmargin-10">
+                  <h3>Top 3</h3>
+                  <ol className="left-list">
+                    <li>{this.benjamin[0].name}</li>
+                    <li>{this.benjamin[1].name}</li>
+                    <li>{this.benjamin[2].name}</li>
+                  </ol>
+                </div>
               </li>
             </ul>
           </div>
@@ -94,54 +97,57 @@ class Pizza extends React.Component {
                 <h2>Carolyn</h2>
               </li>
               <li><strong>{this.user_stats[1].total_slices} slices eaten</strong></li>
-              <li><h3>Top 3</h3>
-                <ol className="right-list">
-                <li>{this.carolyn[0].name}</li>
-                <li>{this.carolyn[1].name}</li>
-                <li>{this.carolyn[2].name}</li>
-                </ol>
+              <li>
+                <div className="vmargin-10">
+                  <h3>Top 3</h3>
+                  <ol className="right-list">
+                  <li>{this.carolyn[0].name}</li>
+                  <li>{this.carolyn[1].name}</li>
+                  <li>{this.carolyn[2].name}</li>
+                  </ol>
+                </div>
               </li>
             </ul>
           </div>
         </div>
         <div className="chartContainer centeredChart">
-        <h2>Rating System</h2>
-        <ORFrame
-          size={[ 350, 350 ]}
-          data={this.example}
-          rAccessor={d => d.value}
-          rExtent={[0,5]}
-          oAccessor={ d => `${d.attribute}` }
-          pieceHoverAnnotation={true}
-          tooltipContent={ d => `${d.name} ${d.attribute} ${d.value} ${d.notes}` }
-          style={d => ({ fill: '#333333', stroke: '#333333', strokeOpacity: 0.0, fillOpacity: 0.0, strokeWidth: 1 })}
-          type={"point"}
-          projection={"radial"}
-          connectorType={d => `${d.notes}`}
-          connectorStyle={d => ({fill: d.source.color, stroke: "#666666", strokeOpacity: 0.5, fillOpacity: 0.6}) }
-          oLabel={(d, i) => (<text x={ratings[d].length*4} y={3} className="large-text" textAnchor="end">{ratings[d]}</text>)}
-          margin={{ left: 40, top: 30, bottom: 30, right: 40 }}
-          oPadding={0}
-          ordinalAlign={"center"}
-          className={"centeredChart"}
-          foregroundGraphics={[
-              <g transform="translate(0, 200)" key="legend">
-                <text key={1} fill={colors.benjamin_score} className='large-text'>
-                  Benjamin
-                </text>
-                <text key={2} y={20} fill={colors.carolyn_score} className='large-text'>
-                  Carolyn
-                </text>
-              </g>
-          ]}
-        />
-        </div>
-        <div className="chartContainer">
+          <h2>Rating System</h2>
+          <ORFrame
+            size={[ 350, 350 ]}
+            data={this.example}
+            rAccessor={d => d.value}
+            rExtent={[0,5]}
+            oAccessor={ d => `${d.attribute}` }
+            pieceHoverAnnotation={true}
+            tooltipContent={ d => `${d.name} ${d.attribute} ${d.value} ${d.notes}` }
+            style={d => ({ fill: '#333333', stroke: '#333333', strokeOpacity: 0.0, fillOpacity: 0.0, strokeWidth: 1 })}
+            type={"point"}
+            projection={"radial"}
+            connectorType={d => `${d.notes}`}
+            connectorStyle={d => ({fill: d.source.color, stroke: "#666666", strokeOpacity: 0.5, fillOpacity: 0.6}) }
+            oLabel={(d, i) => (<text x={ratings[d].length*4} y={3} className="large-text" textAnchor="end">{ratings[d]}</text>)}
+            margin={{ left: 40, top: 30, bottom: 30, right: 40 }}
+            oPadding={0}
+            ordinalAlign={"center"}
+            className={"centeredChart"}
+            foregroundGraphics={[
+                <g transform="translate(0, 200)" key="legend">
+                  <text key={1} fill={colors.benjamin_score} className='large-text'>
+                    Benjamin
+                  </text>
+                  <text key={2} y={20} fill={colors.carolyn_score} className='large-text'>
+                    Carolyn
+                  </text>
+                </g>
+            ]}
+          />
           <PolarGrid data={this.transactions}/>
         </div>
+
         <div className="chartContainer">
           <ImageGrid data={this.transactions}/>
         </div>
+
         <div className="chartContainer">
           <h1>Final rankings</h1>
 
