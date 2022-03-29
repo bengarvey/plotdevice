@@ -23,6 +23,7 @@ import AutoDeaths from './components/AutoDeaths'
 import StarWars2 from './components/StarWars2'
 import Pizza from './components/Pizza'
 
+
 var App = () => (
   <div className="main">
     <BrowserRouter>
