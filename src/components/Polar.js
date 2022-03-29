@@ -18,6 +18,12 @@ class Polar extends React.Component {
     this.title = this.props.data[0].name;
   }
 
+  getTitleTranslate(title) {
+    let x = title.length * -3.7;
+    let y = 70;
+    return `translate(${x}, ${y}) scale(1.5 1.5)`;
+  }
+
   render() {
     return (
         <ORFrame
@@ -32,9 +38,9 @@ class Polar extends React.Component {
           type={"point"}
           projection={"radial"}
           connectorType={d => `${d.notes}`}
-          title={this.title}
+          title={<g transform={this.getTitleTranslate(this.title)}><text>{this.title}</text></g>}
           connectorStyle={d => ({fill: d.source.color, stroke: "#666666", strokeOpacity: 0.5, fillOpacity: 0.6}) }
-          margin={{ left: 0, top: 0, bottom: 0, right: 0 }}
+          margin={{ left: 15, top: 0, bottom: 20, right: 15 }}
           oPadding={0}
           ordinalAlign={"center"}
         />
