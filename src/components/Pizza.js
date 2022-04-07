@@ -174,12 +174,12 @@ class Pizza extends React.Component {
             <p>Us building something together in the specific way we would have done it alone.</p>
             <p>That itch of loneliness that can only be scratched by going to the cold depths of learning who you are, coming back out, and finding someone who <i>suggests</i> making a spreadsheet of pizza.</p>
             <p>What a great project.</p>
-            <p>Some places we went twice (Nicky B's and Brunos). In that case we average the scores from the same location. The rating methodology is wildly unscientific, especially when the "slices eaten" metric relies on other factors. Some pizzas are more expensive and thicker and they lost a point or two becaue we couldn't eat 4 slices each. Oh well. Every pizza was a large cheese, so at least we controlled for that. It's likely this hurt speciality pizza places like Brooklyn Pizza or Tacconelli's. We skipped over places who sell fancy pizza like Pizza Crime in Haddonfield and Bricco in Haddon Township.</p>
+            <p>Some places we went twice (Nicky B's and Brunos). In that case we average the scores from the same location. The rating methodology is wildly unscientific, especially when the "slices eaten" metric relies on other factors. Some pizzas are more expensive and thicker and they lost a point or two because we couldn't eat 4 slices each. Oh well. Every pizza was a large cheese, so at least we controlled for that. It's likely this hurt speciality pizza places like Brooklyn Pizza or Tacconelli's. We skipped over places who sell fancy pizza like Pizza Crime in Haddonfield and Bricco in Haddon Township.</p>
             <p>I'm happy with the results. I used to live right near Antonino's so I'm not surprised it shares the top spot. ALL THE PIZZA PLACES WERE GOOD. There wasn't a single place where I thought the food was bad, but I do feel confident the top half of our list is better than the second half.</p>
             <p>Radar charts (or polar charts) are an often derised form, but we're just having fun here. </p>
             <p>If you want to read about how I do the data transformations for a project like this, read my post on <a href="https://bengarvey.com/2020/10/12/schmedium-data-building-small-data-pipelines-with-bash/">Schmedium Data</a>.</p>
             <p>Source: <a href="https://docs.google.com/spreadsheets/d/146xfQ0yq4UM4D3v-vHO3dFOA0_3V-wFbOvxHu9bTb5M/edit?usp=sharing">Google sheet of source data</a></p>
-            <p>Acknowledgements: <a href="https://carolynbusa.com">Carolyn Busa</a>, <a href="https://www.crysfm.com/">Crys Moore</a>, and all the pizza chefs
+            <p>Acknowledgements: <a href="https://carolynbusa.com">Carolyn Busa</a>, <a href="https://www.crysfm.com/">Crys Moore</a>, and all the pizza chefs</p>
             <p>Tech: Semiotic, javascript, csvkit, bash, html, css, google sheets</p>
           </div>
           <Nav/>
