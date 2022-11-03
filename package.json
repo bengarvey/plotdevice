@@ -28,7 +28,7 @@
     "react-dom": "^16.7.0",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "^3.4.3",
+    "react-scripts": "^5.0.1",
     "require-csv": "0.0.1",
     "semiotic": "^1.16.3",
     "serialize-javascript": "^4.0.0",
