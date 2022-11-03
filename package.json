@@ -32,7 +32,7 @@
     "require-csv": "0.0.1",
     "semiotic": "^1.16.3",
     "serialize-javascript": "^4.0.0",
-    "source-map-explorer": "^2.0.1",
+    "source-map-explorer": "^2.5.3",
     "sshpk": "^1.16.0",
     "url-parse": "^1.4.4",
     "yargs-parser": "^18.1.3"
@@ -55,6 +55,6 @@
   ],
   "devDependencies": {
     "@types/lodash": "^4.14.168",
-    "webpack-bundle-analyzer": "^3.4.1"
+    "webpack-bundle-analyzer": "^4.7.0"
   }
 }
