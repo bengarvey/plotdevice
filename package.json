@@ -13,7 +13,7 @@
     "d3-shape": "^1.2.2",
     "deep-extend": "^0.6.0",
     "extend": "^3.0.2",
-    "ftp-deploy": "^2.4.1",
+    "ftp-deploy": "^2.4.3",
     "hoek": "^5.0.4",
     "jsftp": "^2.0.0",
     "json2csv": "^4.3.2",
